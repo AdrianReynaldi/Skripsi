@@ -1,0 +1,143 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[bahasa]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage[cm]{fullpage}
+\pagestyle{myheadings}
+\usepackage{etoolbox}
+\usepackage{setspace}
+\usepackage{lipsum}
+\setlength{\headsep}{30pt}
+\usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
+% \pagestyle{empty}
+
+\makeatletter
+\renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
+\renewcommand{\thispagestyle}[1]{}
+\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
+
+\onehalfspacing
+ 
+\begin{document}
+
+\title{\@judultopik}
+\author{\nama \textendash \@npm} 
+
+%tulis nama dan NPM anda di sini:
+\newcommand{\nama}{Adrian Reynaldi}
+\newcommand{\@npm}{2013730058}
+\newcommand{\@judultopik}{Aplikasi Pembangkit Jadwal Dosen} % Judul/topik anda
+\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
+\newcommand{\tanggal}{14/02/2017}
+
+% Dokumen hasil template ini harus dicetak bolak-balik !!!!
+
+\maketitle
+
+\pagenumbering{arabic}
+
+\section{Deskripsi}
+
+\paragraph{} Aplikasi \textit{Blue Tape} adalah suatu sistem informasi \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
+
+Aplikasi \textit{Blue Tape} ini didesain sebagai \textit{framework} agar dapat ditambahkan layanan-layanan baru. Untuk menambahkan layanan baru sudah tersedia menu khusus, developer cukup menambahkan layanan baru dalam bentuk modul. Untuk saat ini \textit{Blue Tape} baru memiliki layanan untuk \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
+
+Pada Skripsi ini akan ditambahkan dua modul yaitu modul entri jadwal untuk dosen informatika dan modul lihat jadwal dosen untuk mahasiswa ke dalam sistem informasi Blue Tape. Modul-modul tersebut berfungsi untuk melakukan hal-hal yang berhubungan dengan pembangkitan jadwal dosen. Modul dosen memiliki beberapa fungsi diantarnya: input jadwal mingguan dosen(jadwal dapat berupa jadwal konsultasi, jadwal konsultasi tentatif ataupun jadwal rutin), mencatat \textit{update} terakhir jadwal dosen dan mengekspor jadwal dosen ke XLS. Modul Umum sendiri memiliki fungsi untuk melihat jadwal seluruh dosen dan mengekspor jadwal dosen ke XLS.
+
+\section{Rumusan Masalah}
+Rumusan masalah yang akan dibahas dalam penelitian ini :
+	\begin{itemize}
+		\item Bagaimana mengimplementasikan OAuth 2.0 untuk mengautentikasi mahasiswa maupun staf UNPAR yang mengakses \textit{Blue Tape}?
+		\item Bagaimana cara mencatat, \textit{update} dan melihat jadwal dosen di \textit{Blue Tape}?
+		\item Bagaimana mengekspor jadwal dosen ke XLS sesuai template yang saat ini berlaku?
+	\end{itemize}
+
+\section{Tujuan}
+Tujuan yang ingin dicapai dalam penelitian ini : 
+	\begin{itemize}
+		\item Mengimplementasikan OAuth 2.0 ke Google API untuk mengautentikasi pengguna yang mengakses \textit{Blue Tape}
+		\item Membuat modul entri jadwal dosen dan modul lihat jadwal dosen yang berfungsi untuk menginput jadwal mingguan, \textit{update} dan melihat jadwal dosen
+		\item Mengimplementasikan kode-kode yang diperlukan untuk memasukkan data-data yang ada di dalam PHP ke dalam \textit{file} XLS. 
+
+	\end{itemize}
+
+\section{Deskripsi Perangkat Lunak}
+Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
+\begin{itemize}
+	\item Mampu mengautentikasi mahasiswa dan staf UNPAR melalui OAuth 2.0 ke Google
+	\item Membatasi hak ases pengguna sesuai dari email yang digunakan pengguna ketika \textit{login} ke \textit{Blue Tape}
+	\item Perangkat lunak mampu menerima.  input jadwal mingguan 
+	\item Jadwal yang akan dimasukan ke dalam perangkat lunak dapat berupa jadwal konsultasi, jadwal konsultasi tentatif maupun jadwal rutin
+	\item Jadwal yang sudah dicatat di dalam perangkat lunak sewaktu-waktu dapat dirubah
+	\item Perangkat lunak dapat memperlihatkan hasil perubahan jadwal tersebut
+	\item Perangkat lunak dapat memperlihatkan jadwal seluruh dosen
+	\item Perangkat lunak dapat mengekspor jadwal dosen yang telah dicatat ke dalam file XLS
+\end{itemize}
+
+\section{Detail Pengerjaan Skripsi}
+
+Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
+	\begin{enumerate}
+		\item Melakukan studi literatur mengenai PHP dan \textit{Codeigniter}, \textit{Zurb Foundation}, \textit{Goggle OAuth} \textit{PHPExcel}
+		\item Membuat flowchart pembangkitan jadwal dosen
+		\item Membuat flowchart perangkat lunak
+		\item Membuat rancangan diagram kelas
+		\item Membuat rancangan basis data
+		\item Mengimplementasikan keseluruhan rancangan dan modul-modulnya
+		\item Menguji perangkat lunak
+		\item Menulis dokumen skripsi
+	\end{enumerate}
+
+\section{Rencana Kerja}
+Rencana kerja ini dibagi menjadi dua bagian yaitu yang akan dilakukan pada saat mengambil kuliah AIF401 Skripsi 1 dan pada saat mengambil kuliah AIF402 Skripsi 2, diuraikan sebagai berikut :
+
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | l |}
+    \hline
+    1*  & 2*(\%) & 3*(\%) & 4*(\%) &5*\\ \hline \hline
+    1   &  10 	&  10 &   & \\ \hline
+    2   &  5 	&  5 &   & \\ \hline
+	3   &  5 	&  5 &   & {\footnotesize }  \\ \hline
+	4   &  10 	&   & 10  & {\footnotesize }  \\ \hline
+	5   &  10 	&   & 10  & {\footnotesize }  \\ \hline
+	6   &  35  	& 15 & 20  & {\footnotesize }  \\ \hline
+	7   &  10 	&   &  10 & {\footnotesize }  \\ \hline
+	8   &  15 	& 7 & 8& {\footnotesize Sebagian bab 1, 2, dan 3 dikerjakan di skripsi 1 }  \\ \hline
+    Total  & 100  & 42  & 58 &  \\ \hline
+                          \end{tabular}
+\end{center}
+
+Keterangan (*)\\
+1 : Bagian pengerjaan Skripsi (nomor disesuaikan dengan detail pengerjaan di bagian 5)\\
+2 : Persentase total \\
+3 : Persentase yang akan diselesaikan di Skripsi 1 \\
+4 : Persentase yang akan diselesaikan di Skripsi 2 \\
+5 : Penjelasan singkat apa yang dilakukan di S1 (Skripsi 1) atau S2 (skripsi 2)
+
+\vspace{1cm}
+\centering Bandung, \tanggal\\
+\vspace{2cm} \nama \\ 
+\vspace{1cm}
+
+Menyetujui, \\
+\ifdefstring{\jumpemb}{2}{
+\vspace{1.5cm}
+\begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Utama
+\end{minipage} \hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
+\end{minipage}
+\vspace{0.5cm}
+}{
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Tunggal
+}
+\end{document}
+
