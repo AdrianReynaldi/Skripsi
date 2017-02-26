@@ -5,44 +5,40 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-\paragraph{} Aplikasi \textit{Blue Tape} adalah suatu sistem informasi \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via Oauth 2.0 ke Google (layanan Oauth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
+\paragraph{} Aplikasi \textit{Blue Tape} adalah suatu sistem informasi \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
 
 Aplikasi \textit{Blue Tape} ini didesain sebagai \textit{framework} agar dapat ditambahkan layanan-layanan baru. Untuk menambahkan layanan baru sudah tersedia menu khusus, developer cukup menambahkan layanan baru dalam bentuk modul. Untuk saat ini \textit{Blue Tape} baru memiliki layanan untuk \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
 
-Pada Skripsi ini akan ditambahkan dua modul yaitu Modul Dosen dan Modul Umum ke dalam sistem informasi Blue Tape. Modul-modul tersebut berfungsi untuk melakukan hal-hal yang berhubungan dengan pembangkitan jadwal dosen. Modul dosen memiliki beberapa fungsi diantarnya: input jadwal mingguan dosen(jadwal dapat berupa jadwal konsultasi, jadwal konsultasi tentatif ataupun jadwal rutin), mencatat \textit{update} terakhir jadwal dosen dan mengekspor jadwal dosen ke XLS. Modul Umum sendiri memiliki fungsi sebagai berikut: melihat jadwal seluruh dosen dan mengekspor jadwal dosen ke XLS.
+Pada Skripsi ini akan ditambahkan dua modul yaitu modul entri jadwal untuk dosen informatika dan modul lihat jadwal dosen untuk mahasiswa ke dalam sistem informasi Blue Tape. Modul-modul tersebut berfungsi untuk melakukan hal-hal yang berhubungan dengan pembangkitan jadwal dosen. Modul dosen memiliki beberapa fungsi diantarnya: input jadwal mingguan dosen(jadwal dapat berupa jadwal konsultasi, jadwal konsultasi tentatif ataupun jadwal rutin), mencatat \textit{update} terakhir jadwal dosen dan mengekspor jadwal dosen ke XLS. Modul Umum sendiri memiliki fungsi untuk melihat jadwal seluruh dosen dan mengekspor jadwal dosen ke XLS.
 
-\dtext{5-10}
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
 Rumusan masalah yang akan dibahas dalam penelitian ini :
 	\begin{itemize}
-		\item Bagaimana cara untuk mengautentikasi mahasiswa maupun staf UNPAR yang mengakses \textit{Blue Tape}?
+		\item Bagaimana mengimplementasikan OAuth 2.0 untuk mengautentikasi mahasiswa maupun staf UNPAR yang mengakses \textit{Blue Tape}?
 		\item Bagaimana cara mencatat, \textit{update} dan melihat jadwal dosen di \textit{Blue Tape}?
-		\item Apa yang perlu diimplementasikan untuk mengekspor jadwal dosen ke XLS?
-	\end{itemize} 
+		\item Bagaimana mengekspor jadwal dosen ke XLS sesuai template yang saat ini berlaku?
+	\end{itemize}
 
-
-
-\dtext{6}
 
 \section{Tujuan}
 \label{sec:tujuan}
 Tujuan yang ingin dicapai dalam penelitian ini : 
 	\begin{itemize}
-		\item Mengimplementasikan Oauth 2.0 ke Google API untuk mengautentikasi pengguna yang mengakses \textit{Blue Tape}
-		\item Membuat Modul Dosen dan Modul Umum yang berfungsi untuk menginput jadwal mingguan, \textit{update} dan melihat jadwal dosen
-		\item Mengimplementasikan \textit{PHPExcel} untuk memasukan data-data yang ada di dalam PHP ke dalam file XLS. 
+		\item Mengimplementasikan OAuth 2.0 ke Google API untuk mengautentikasi pengguna yang mengakses \textit{Blue Tape}
+		\item Membuat modul entri jadwal dosen dan modul lihat jadwal dosen yang berfungsi untuk menginput jadwal mingguan, \textit{update} dan melihat jadwal dosen
+		\item Mengimplementasikan kode-kode yang diperlukan untuk memasukkan data-data yang ada di dalam PHP ke dalam \textit{file} XLS. 
 
 	\end{itemize}
-
-\dtext{7}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
 Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut:
 \begin{itemize}
 	\item Penggunaan \textit{framework} Codeigniter untuk penulisan kode sistem informasi
+	\item Penggunaan Bootstrap untuk tampilan sistem informasi
+	\item Penggunaan Bootstrap untuk tampilan sistem informasi
 	\item Penggunaan Bootstrap untuk tampilan sistem informasi
 \end{itemize}
 \dtext{8}
@@ -54,11 +50,18 @@ Metode penelitian yang akan digunakan dalam skripsi ini adalah:
    \item Studi literatur mengenai:
    		\begin{itemize}
  		\item bahasa pemrograman PHP
- 		\item framework Codeigniter
- 		\item \textit{Zurb Foundation}
- 		\item PHPExcel
+ 		\item \textit{framework} Codeigniter
+ 		\item modul \textit{Zurb Foundation}, PHPExcel dan \textit{regular expression}
+ 		\item Prosedur pembangkitan jadwal dosen
 		\end{itemize}
    \item Analisis kebutuhan sistem informasi dengan mengenali \textit{sort of procedure} pencatatan jadwal dosen saat ini dan mengimplementasikannya ke dalam sistem informasi tersebut
+    \item Membangun sistem informasi yang sesuai dengan kebutuhan dosen dan mahasiswa dalam pembangkitan jadwal dosen agar sistem informasi yang dibuat dapat membantu kedua pihak dalam mengakses informasi-informasi yang berkaitan dengan jadwal dosen . Pembuatan sistem informasi ini dibagi menjadi empat tahap :
+    	\begin{itemize}
+ 		\item Analisis kebutuhan sistem informasi 
+ 		\item Perancangan sistem informasi
+ 		\item Implementasi 
+ 		\item Pengujian sistem informasi
+		\end{itemize}
 \end{enumerate}
  
 
