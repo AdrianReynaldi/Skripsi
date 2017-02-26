@@ -5,40 +5,80 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-Bagian ini akan diisi dengan apa yang melatarbelakangi pembuatan template skripsi ini.
-Termasuk juga masalah-masalah yang akan dihadapi untuk membuatnya, termasuk kurangnya kemampuan penguasaan \LaTeX{} sehingga template ini dibuat dengan mengandalkan berbagai contoh yang tersebar di dunia maya, yang digabung-gabung menjadi satu jua.
-Bagian lain juga akan dilengkapi, untuk sementara diisi dengan lorem ipsum versi bahasa inggris.
+\paragraph{} Aplikasi \textit{Blue Tape} adalah suatu sistem informasi \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via Oauth 2.0 ke Google (layanan Oauth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
+
+Aplikasi \textit{Blue Tape} ini didesain sebagai \textit{framework} agar dapat ditambahkan layanan-layanan baru. Untuk menambahkan layanan baru sudah tersedia menu khusus, developer cukup menambahkan layanan baru dalam bentuk modul. Untuk saat ini \textit{Blue Tape} baru memiliki layanan untuk \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
+
+Pada Skripsi ini akan ditambahkan dua modul yaitu Modul Dosen dan Modul Umum ke dalam sistem informasi Blue Tape. Modul-modul tersebut berfungsi untuk melakukan hal-hal yang berhubungan dengan pembangkitan jadwal dosen. Modul dosen memiliki beberapa fungsi diantarnya: input jadwal mingguan dosen(jadwal dapat berupa jadwal konsultasi, jadwal konsultasi tentatif ataupun jadwal rutin), mencatat \textit{update} terakhir jadwal dosen dan mengekspor jadwal dosen ke XLS. Modul Umum sendiri memiliki fungsi sebagai berikut: melihat jadwal seluruh dosen dan mengekspor jadwal dosen ke XLS.
 
 \dtext{5-10}
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
-Bagian ini akan diisi dengan penajaman dari masalah-masalah yang sudah diidentifikasi di bagian sebelumnya. 
+Rumusan masalah yang akan dibahas dalam penelitian ini :
+	\begin{itemize}
+		\item Bagaimana cara untuk mengautentikasi mahasiswa maupun staf UNPAR yang mengakses \textit{Blue Tape}?
+		\item Bagaimana cara mencatat, \textit{update} dan melihat jadwal dosen di \textit{Blue Tape}?
+		\item Apa yang perlu diimplementasikan untuk mengekspor jadwal dosen ke XLS?
+	\end{itemize} 
+
+
 
 \dtext{6}
 
 \section{Tujuan}
 \label{sec:tujuan}
-Akan dipaparkan secara lebih terperinci dan tersturkur apa yang menjadi tujuan pembuatan template skripsi ini
+Tujuan yang ingin dicapai dalam penelitian ini : 
+	\begin{itemize}
+		\item Mengimplementasikan Oauth 2.0 ke Google API untuk mengautentikasi pengguna yang mengakses \textit{Blue Tape}
+		\item Membuat Modul Dosen dan Modul Umum yang berfungsi untuk menginput jadwal mingguan, \textit{update} dan melihat jadwal dosen
+		\item Mengimplementasikan \textit{PHPExcel} untuk memasukan data-data yang ada di dalam PHP ke dalam file XLS. 
+
+	\end{itemize}
 
 \dtext{7}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
-
+Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut:
+\begin{itemize}
+	\item Penggunaan \textit{framework} Codeigniter untuk penulisan kode sistem informasi
+	\item Penggunaan Bootstrap untuk tampilan sistem informasi
+\end{itemize}
 \dtext{8}
 
 \section{Metodologi}
 \label{sec:metlit}
-Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
+Metode penelitian yang akan digunakan dalam skripsi ini adalah:
+\begin{enumerate}
+   \item Studi literatur mengenai:
+   		\begin{itemize}
+ 		\item bahasa pemrograman PHP
+ 		\item framework Codeigniter
+ 		\item \textit{Zurb Foundation}
+ 		\item PHPExcel
+		\end{itemize}
+   \item Analisis kebutuhan sistem informasi dengan mengenali \textit{sort of procedure} pencatatan jadwal dosen saat ini dan mengimplementasikannya ke dalam sistem informasi tersebut
+\end{enumerate}
+ 
 
 \dtext{9}
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX.
-Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
-Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
+Untuk penulisan skripsi ini akan dibagi dalam enam bagian sebagai berikut :
+
+Bab 1 Pendahuluan berisi latar belakang, rumusan masalah, tujuan, batasan masalah,  metodologi penelitian dan sistematika penulisan.
+
+Bab 2 Landasan Teori berisi dasar-dasar teori yang akan digunakan dalam pembuatan aplikasi pembangkit jadwal dosen. Dasar-dasar teori yang akan digunakan diantarnya adalah bahasa pemrograman PHP, framework Codeigniter, Zurb Foundation dan PHPExcel.
+
+Bab 3 Analisis berisi analisis kebutuhan data, analisis sistem yang sudah ada sekarang dan analisis sistem usulan
+
+Bab 4 Perancangan
+
+Bab 5 Implementasi dan Pengujian
+
+Bab 6 Kesimpulan dan Saran
+
 
 \dtext{10}
