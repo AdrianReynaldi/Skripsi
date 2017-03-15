@@ -5,18 +5,29 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-\paragraph{} Aplikasi \textit{Blue Tape} adalah suatu sistem informasi \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
+\paragraph{} Aplikasi \textit{Blue Tape} adalah aplikasi sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. Selain itu aplikasi \textit{Blue Tape} ini didesain sebagai \textit{framework} agar dapat ditambahkan layanan-layanan baru. Untuk menambahkan layanan baru sudah tersedia menu khusus, developer cukup menambahkan layanan baru dalam bentuk modul. Untuk saat ini \textit{Blue Tape} baru memiliki layanan untuk \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
 
-Aplikasi \textit{Blue Tape} ini didesain sebagai \textit{framework} agar dapat ditambahkan layanan-layanan baru. Untuk menambahkan layanan baru sudah tersedia menu khusus, developer cukup menambahkan layanan baru dalam bentuk modul. Untuk saat ini \textit{Blue Tape} baru memiliki layanan untuk \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
+Pada saat ini untuk menginformasikan jadwalnya masing-masing, dosen harus mencetak \textit{hardcopy}-nya dengan template seperti pada gambar di bawah.
 
-Pada Skripsi ini akan ditambahkan dua modul yaitu modul entri jadwal untuk dosen informatika dan modul lihat jadwal dosen untuk mahasiswa ke dalam sistem informasi Blue Tape. Modul-modul tersebut berfungsi untuk melakukan hal-hal yang berhubungan dengan pembangkitan jadwal dosen. Modul dosen memiliki beberapa fungsi diantarnya: input jadwal mingguan dosen(jadwal dapat berupa jadwal konsultasi, jadwal konsultasi tentatif ataupun jadwal rutin), mencatat \textit{update} terakhir jadwal dosen dan mengekspor jadwal dosen ke XLS. Modul Umum sendiri memiliki fungsi untuk melihat jadwal seluruh dosen dan mengekspor jadwal dosen ke XLS.
+%\includegraphics[scale=0.7]{template-jadwal-dosen.png}
+\begin{figure} [ht]
+	\centering  
+	\includegraphics[scale=0.7]{template-jadwal-dosen.png}  
+	\caption[Template jadwal dosen]{Template jadwal dosen} 
+	\label{fig:template-jadwal-dosen} 
+\end{figure} 
+Jadwal tersebut akan ditempelkan pada dinding ruangan masing-masing dosen. Sedangkan bila menggunakan Blue Tape maka dosen tidak perlu lagi mencetak jadwalnya tersebut karena mahasiswa dapat melihat jadwal setiap dosen di dalam aplikasi ini. Maka dari itu aplikasi ini membuat pencatatan jadwal dosen menjadi \textit{papeless}.
+
+%referensi pake unpublished
+
+Pada Skripsi ini akan ditambahkan dua modul yaitu modul entri jadwal untuk dosen informatika dan modul lihat jadwal dosen untuk mahasiswa ke dalam aplikasi Blue Tape. Modul-modul tersebut berfungsi untuk melakukan hal-hal yang berhubungan dengan pembangkitan jadwal dosen. Modul dosen memiliki beberapa fungsi diantarnya: input jadwal mingguan dosen(jadwal dapat berupa jadwal konsultasi, jadwal konsultasi tentatif ataupun jadwal rutin), mencatat \textit{update} terakhir jadwal dosen dan mengekspor jadwal dosen ke XLS. Modul Umum sendiri memiliki fungsi untuk melihat jadwal seluruh dosen dan mengekspor jadwal dosen ke XLS.
 
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
 Rumusan masalah yang akan dibahas dalam penelitian ini :
 	\begin{itemize}
-		\item Bagaimana mengimplementasikan OAuth 2.0 untuk mengautentikasi mahasiswa maupun staf UNPAR yang mengakses \textit{Blue Tape}?
+		\item Bagaimana mengintegrasikan autentikasi mahasiswa maupun staf UNPAR yang mengakses \textit{Blue Tape}?
 		\item Bagaimana cara mencatat, \textit{update} dan melihat jadwal dosen di \textit{Blue Tape}?
 		\item Bagaimana mengekspor jadwal dosen ke XLS sesuai template yang saat ini berlaku?
 	\end{itemize}
@@ -26,7 +37,7 @@ Rumusan masalah yang akan dibahas dalam penelitian ini :
 \label{sec:tujuan}
 Tujuan yang ingin dicapai dalam penelitian ini : 
 	\begin{itemize}
-		\item Mengimplementasikan OAuth 2.0 ke Google API untuk mengautentikasi pengguna yang mengakses \textit{Blue Tape}
+		\item Mengimplementasikan autentikasi pengguna yang mengakses \textit{Blue Tape}
 		\item Membuat modul entri jadwal dosen dan modul lihat jadwal dosen yang berfungsi untuk menginput jadwal mingguan, \textit{update} dan melihat jadwal dosen
 		\item Mengimplementasikan kode-kode yang diperlukan untuk memasukkan data-data yang ada di dalam PHP ke dalam \textit{file} XLS. 
 
@@ -35,12 +46,12 @@ Tujuan yang ingin dicapai dalam penelitian ini :
 \section{Batasan Masalah}
 \label{sec:batasan}
 Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut:
-\begin{itemize}
-	\item Penggunaan \textit{framework} Codeigniter untuk penulisan kode sistem informasi
-	\item Penggunaan Bootstrap untuk tampilan sistem informasi
-	\item Penggunaan Bootstrap untuk tampilan sistem informasi
-	\item Penggunaan Bootstrap untuk tampilan sistem informasi
-\end{itemize}
+%\begin{itemize}
+	%\item Penggunaan \textit{framework} Codeigniter untuk penulisan kode sistem informasi
+	%\item Penggunaan Bootstrap untuk tampilan sistem informasi
+	%\item Penggunaan Bootstrap untuk tampilan sistem informasi			-----------BATASAN MASALAH ISI NANTI----------------
+	%\item Penggunaan Bootstrap untuk tampilan sistem informasi
+%\end{itemize}
 
 \section{Metodologi}
 \label{sec:metlit}
@@ -53,13 +64,13 @@ Metode penelitian yang akan digunakan dalam skripsi ini adalah:
  		\item modul \textit{Zurb Foundation}, PHPExcel dan \textit{regular expression}
  		\item Prosedur pembangkitan jadwal dosen
 		\end{itemize}
-   \item Analisis kebutuhan sistem informasi dengan mengenali \textit{sort of procedure} pencatatan jadwal dosen saat ini dan mengimplementasikannya ke dalam sistem informasi tersebut
-    \item Membangun sistem informasi yang sesuai dengan kebutuhan dosen dan mahasiswa dalam pembangkitan jadwal dosen agar sistem informasi yang dibuat dapat membantu kedua pihak dalam mengakses informasi-informasi yang berkaitan dengan jadwal dosen . Pembuatan sistem informasi ini dibagi menjadi empat tahap :
+   \item Analisis kebutuhan aplikasi dengan mengenali metode pencatatan jadwal dosen saat ini dan mengimplementasikannya ke dalam modul tersebut
+    \item Membangun modul aplikasi yang sesuai dengan kebutuhan dosen dan mahasiswa dalam pembangkitan jadwal dosen agar aplikasi yang dibuat dapat membantu kedua pihak dalam mengakses informasi-informasi yang berkaitan dengan jadwal dosen . Pembuatan modul aplikasi ini dibagi menjadi empat tahap :
     	\begin{itemize}
- 		\item Analisis kebutuhan sistem informasi 
- 		\item Perancangan sistem informasi
+ 		\item Analisis kebutuhan modul 
+ 		\item Perancangan modul
  		\item Implementasi 
- 		\item Pengujian sistem informasi
+ 		\item Pengujian modul
 		\end{itemize}
 \end{enumerate}
  
