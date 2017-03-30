@@ -5,7 +5,7 @@
 \section{Codeigniter}
 \label{sec:codeigniter} 
  
-\paragraph{} Codeigniter adalah \textit{framework} pengembangan aplikasi untuk \textit{developer} yang membangun situs web menggunakan PHP. Tujuannya adalah untuk memungkinkan Anda mengembangkan proyek lebih cepat, daripada bila \textit{developer} menulis kode dari awal, dengan menyediakan banyak kumpulan \textit{library} untuk tugas-tugas yang sering dibutuhkan dan juga menyediakan tampilan sederhana serta struktur logika untuk mengakses \textit{library-library} tersebut. Codeigniter memungkinkan \textit{developer} untuk fokus secara kretif pada proyek \textit{developer} dengan cara meminimalkan jumlah kode yang dibutuhkan untuk setiap tugas yang diberikan.
+\paragraph{} Codeigniter adalah \textit{framework} pengembangan aplikasi untuk \textit{developer} yang membangun situs web menggunakan PHP. Tujuannya adalah untuk memungkinkan Anda mengembangkan proyek lebih cepat, daripada bila \textit{developer} menulis kode dari awal, dengan menyediakan banyak kumpulan \textit{library} untuk tugas-tugas yang sering dibutuhkan dan juga menyediakan tampilan sederhana serta struktur logika untuk mengakses \textit{library-library} tersebut. Codeigniter memungkinkan \textit{developer} untuk fokus secara kretif pada proyek \textit{developer} dengan cara meminimalkan jumlah kode yang dibutuhkan untuk setiap tugas yang diberikan. \footnote{https://www.codeigniter.com/userguide2/}
 \\
 \\
 Codeigniter dirancang untuk memenuhi kebutuhan :
@@ -22,32 +22,63 @@ Codeigniter dirancang untuk memenuhi kebutuhan :
 	
 \subsection{Model-View-Controller}
 Codeigniter didasari pola pengembangan \textit{Model-View-Controller} atau MVC. MVC memisahkan logika aplikasi dengan tampilannya.
+
 \begin{itemize}
 		\item \textbf{\textit{Model}} merepresentasikan struktur data. Pada umumnya kelas-kelas model menampung fungsi-fungsi untuk mengambil, memperbarui atau memasukan data ke dalam basis data.
 		\item \textbf{\textit{View}} menampilkan informasi ke pengguna. 
 		\item \textbf{\textit{Controller}} berfungsi sebagai perantara antara model dan view.
-	\end{itemize}
-Codeigniter menerapkan MVC secara longgar karena Model tidak diwajibkan ada. Developer dapat mengembangkan aplikasi dengan hanya menggunakan \textit{View} dan \textit{Controller} saja.
+\end{itemize}
 
-\subsection{Flow Chart Aplikasi}
-Gambar dibawah mengilustrasikan aliran data dalam sistem :
-\begin{figure} [ht]
+
+\subsection{Flow Chart Codeignter}
+Gambar dibawah mengilustrasikan aliran data dalam sistem : \footnote{https://www.codeigniter.com/userguide3/overview/appflow.html}
+\begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{appflowchart.png}  
-	\caption[Flow Chart Aplikasi]{Flow Chart Aplikasi} 
-	\label{fig:template-jadwal-dosen} 
+	\caption[Flow Chart Codeignter]{Flow Chart Codeignter} 
+	\label{fig:flow-chart-codeigniter} 
 \end{figure}
-\begin{itemize}
+
+\begin{enumerate}
 		\item index.php berfungsi sebagai controller depan. Menginisialisasi sumber daya yang dibutuhkan untuk menjalankan Codeigniter
 		\item Router memeriksa permintaan HTTP untuk menentukan apa yang akan dilakukan pada permintaan tersebut.
 		\item Jika ada cache file, maka akan dikirim langsung ke browser. Melewati cara eksekusi sistem yang normal.
 		\item Security. Sebelum controller aplikasi dimuat, permintaan HTTP dan data-data pengguna yang telah diserahkan disaring untuk kemanan.
 		\item Controller memuat model, pustaka inti (\textit{core libraries}), pembantu dan sumber daya lain yang dibutuhkan untuk memproses permintaan khusus.
 		\item Kemudian tampilan akhir dibuat dan dikirim ke web browser untuk dilihat. Jika caching diaktifkan, maka tampilan dimasukan ke dalam cache terlebih dahulu sehingga pada permintaan selanjutnya tampilan tersebut dapat diakses lebih cepat.
-	\end{itemize}
-	
+	\end{enumerate}
+
 
 \section{Zurb Foundation}
 \label{zurbfoundation}
 
-\paragraph{}  
+\paragraph{}  Foundation adalah kumpulan pola desain HTML, CSS dan Javascript yang dapat digunakan untuk membuat website. Hal tersebut untuk membantu developer agar tidak perlu menulis kode yang sama berulang kali. Selain membantu mengehemat waktu, Foundation juga membantu developer untuk menulis kode dengan lebih baik. Foundation dapat bekerja pada berbagai media seperi komputer desktop, laptop, tablet, dan telepon genggam. \footnote{http://foundation.zurb.com/}
+
+Komponen-komponen dalam Foundation sendiri ada beberapa macam diantarnya sebagai berikut:\footnote{http://foundation.zurb.com/sites/docs/v/5.5.3/}
+
+\begin{itemize}
+	\item  Grid untuk mempermudah pembagian halaman
+	\item  Desain tombol yang bermacam-macam. Desain tombol ini dapat diubah-ubah dengan cara menambahkan kelas.
+	\item  Navigasi untuk mempermudah pengunjung aplikasi dalam menggunakan aplikasinya.
+	\item  Plugins JavaScript untuk mempermudah \textit{developer} dalam membuat tampilan aplikasinya.
+\end{itemize}
+
+
+\section{Google OAuth 2.0} %https://developers.google.com/identity/protocols/OAuth2
+\label{googleoauth}
+
+\paragraph{} Google OAuth 2.0 merupakan salah satu protokol dari Google Sign-in. Google OAuth 2.0 digunakan oleh Google API untuk otorisasi dan autentikasi. Secara garis besar, cara pemakaian Google OAuth 2.0 adalah sebagai berikut : \footnote{https://developers.google.com/identity/protocols/OAuth2}
+
+	\begin{enumerate}
+  	\item Dapatkan OAuth 2.0 credential dari konsol Google API. OAuth 2.0 credential seperti client ID dan client secret yang diketahui oleh Google dan aplikasi pengguna, dapat didapatkan di halaman https://console.developers.google.com/ . 
+  	\item Dapatkan token akses dari Google Authorization Server. Sebelum aplikasi dapat mengakses data pribadi menggunakan Google API, aplikasi tersebut harus mendapat token akses yang memberikan akses ke API. Satu token akses dapat memberikan berbagai macam akses ke banyak API. Variable parameter "\textit{scope}" mengendalikan kumpulan-kumpulan sumber daya dan operasi yang telah diperbolehkan untuk diakses oleh token akses. Selama masa permintaan token akses, aplikasi mengirimkan satu atau lebih nilai ke dalam parameter "\textit{scope}". Ada beberapa cara untuk melakukan permintaan, tergantung dari tipe aplikasi yang sedang dibuat. Sebagai contoh aplikasi JavaScript dapat meminta token akses menggunakan \textit{redirect} dari \textit{browser} yang mengarah ke Google, sementara aplikasi lain yang terinstall di dalam perangkat yang tidak memiliki browser menggunakan \textit{web service} untuk melakukan permintaan. Beberapa permintaan membutuhkan tahap autentikasi yang meminta pengguna untuk masuk ke akun Google mereka. Setelah masuk ke dalam akun, pengguna akan diminta jika mereka bersedia untuk memberikan izin ke aplikasi yang sedang melakukan permintaan tersebut.
+  	\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{skenario_token.png}  
+	\caption[Skenario OAuth menggunakan token akses]{Skenario OAuth menggunakan token akses} 
+	\label{fig:skenario-token} 
+\end{figure}
+  	\item Mengirim akses token ke API. Setelah aplikasi mendapatkan akses token, aplikasi tersebut akan mengirim token ke Google API dalam bentuk HTTP \textit{authorization header}. Jika memungkinkan, aplikasi dapat mengirim token-token sebagai parameter \textit{URI query-string}. Pengiriman dalam bentuk parameter URI tidak disarankan karena parameter URI dapat tersimpan dalam \textit{log} yang tidak aman. Token akses hanya berlaku untuk kumpulan operasi dan sumber daya yang dideskripsikan dalam parameter \textit{scope} di permintaan token. 
+	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.
+  
+\end{enumerate}
