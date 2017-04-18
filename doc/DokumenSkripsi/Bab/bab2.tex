@@ -1,11 +1,11 @@
 %versi 2 (8-10-2016)
 \chapter{Landasan Teori}
 \label{chap:teori}
-
+\setcounter{secnumdepth}{3}
 \section{Codeigniter}
 \label{sec:codeigniter} 
  
-\paragraph{} Codeigniter adalah \textit{framework} pengembangan aplikasi untuk \textit{developer} yang membangun situs web menggunakan PHP. Tujuannya adalah untuk memungkinkan Anda mengembangkan proyek lebih cepat, daripada bila \textit{developer} menulis kode dari awal, dengan menyediakan banyak kumpulan \textit{library} untuk tugas-tugas yang sering dibutuhkan dan juga menyediakan tampilan sederhana serta struktur logika untuk mengakses \textit{library-library} tersebut. Codeigniter memungkinkan \textit{developer} untuk fokus secara kretif pada proyek \textit{developer} dengan cara meminimalkan jumlah kode yang dibutuhkan untuk setiap tugas yang diberikan. \footnote{https://www.codeigniter.com/userguide2/}
+Codeigniter adalah \textit{framework} pengembangan aplikasi untuk \textit{developer} yang membangun situs web menggunakan PHP. Tujuannya adalah untuk memungkinkan Anda mengembangkan proyek lebih cepat, daripada bila \textit{developer} menulis kode dari awal, dengan menyediakan banyak kumpulan \textit{library} untuk tugas-tugas yang sering dibutuhkan dan juga menyediakan tampilan sederhana serta struktur logika untuk mengakses \textit{library-library} tersebut. Codeigniter memungkinkan \textit{developer} untuk fokus secara kretif pada proyek \textit{developer} dengan cara meminimalkan jumlah kode yang dibutuhkan untuk setiap tugas yang diberikan. \cite{codeigniter:17}
 \\
 \\
 Codeigniter dirancang untuk memenuhi kebutuhan :
@@ -13,9 +13,9 @@ Codeigniter dirancang untuk memenuhi kebutuhan :
 		\item \textit{Framework} dengan tapak keberadaan yang kecil
 		\item performa yang baik
 		\item kompabilitas akun \textit{hosting} yang luas yang dapat berjalan di berbagai versi dan konfigurasi PHP
-		\item Framework yang hampir tidak membutuhkan konfigurasi
+		\item \textit{Framework} yang hampir tidak membutuhkan konfigurasi
 		\item \textit{Framework} yang tidak membutuhkan \textit{command line}
-		\item Framework yang tidak mengikuti aturan pengkodean yang ketat
+		\item \textit{Framework} yang tidak mengikuti aturan pengkodean yang ketat
 		\item membutuhkan solusi yang sederhana
 		\item dokumentasi yang menyeluruh
 	\end{itemize}
@@ -28,6 +28,45 @@ Codeigniter didasari pola pengembangan \textit{Model-View-Controller} atau MVC. 
 		\item \textbf{\textit{View}} menampilkan informasi ke pengguna. 
 		\item \textbf{\textit{Controller}} berfungsi sebagai perantara antara model dan view.
 \end{itemize}
+
+\subsection{Controller}
+Sebuah \textit{controller} adalah kelas yang dinamakan demikian agar dapat diasosiasikan dengan URI.
+sebagai contoh URI "example.com/index.php/blog/" , Codeigniter akan mencari controller bernama blog.php dan menjalankannya.
+
+	\subsubsection{Method}
+	Untuk menjalankan suatu method, maka developer perlu menuliskannya pada segmen kedua URI. Contoh "example.com/index.php/blog/comments" maka akan dijalankan method comments() pada controller blog.php. Method yang akan dijalankan bila bagian kedua URI kosong adalah method index(). Jika URI mengandung lebih dari dua segment, segment-segment tersebut akan dimasukan ke dalam method sebagai parameter.
+	
+	\subsubsection{Default Controller}
+	Codeigniter dapat diperintahkan untuk menjalankan \textit{default controller} jika tidak terdapat URI, pada umumnya terjadi ketika hanya terdapat permintaan menggunakan URL dasar \textit{website}. Penentuan \textit{default controller} terdapat pada \textit{file} "application/config/routes.php" dan set variabel . Nama \textit{controller} tersebut adalah 'blog', maka ketika index.php dijalankan tanpa menspesifikasikan URI akan dijalankan \textit{controller} 'blog'.
+
+\subsection{View}
+\textit{View} adalah sebuah halaman web, bagian-bagian halaman ( seperti \textit{header, footer, sidebar}, dan-lain-lain) atau bagian dari \textit{view} lainnya. \textit{View} tidak pernah dipanggil secara langsung, melainkan harus melalui controller karena dalam framework MVC controller berfungsi sebagai pengatur.
+
+\subsection{Model}
+Model adalah kelas PHP yang dirancang untuk bekerja dengan informasi-informasi di \textit{database}. Sebagai contoh, misalkan codeigniter digunakan untuk mengatur sebuah blog maka model mengandung fungsi-fungsi seperti \textit{select, insert, update }data-data blog.
+
+\subsubsection{Anatomi dari Model}
+Model disimpan di direktori \textbf{application/models}. Model dapat disimpan dalam sub-direktori jika dibutuhkan. Purwarupa dasar kelas model adalah seperti di bawah ini:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{purwarupa-model.png}  
+	\label{fig:purwarupa-model} 
+\end{figure}
+\textbf{Model\_name} adalah nama dari kelasnya. Huruf pertama dari nama kelas harus huruf kapital dengan huruf-huruf setelahnya ditulis menggunakan huruf kecil. Kelas model harus dipastikan meng-\textit{extend} kelas Model dasar. Nama file harus sama dengan nama kelasnya.
+
+\subsubsection{Load Model}
+Pada umumnya model akan di-\textit{load} di dalam method-method \textit{controller}. Untuk \textit{load} model diperlukan method berikut:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{method-load-model.png}  
+	\label{fig:method-load-model} 
+\end{figure}
+Jika model terdapat pada sub-direktori, perlu dimasukan \textit{path}-nya ke dalam direktori 'models'. Misalnya model terdapat di \textit{application/models/blog/Queries.php} maka untuk \textit{load} model digunakan :
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{method-load-model2.png}  
+	\label{fig:method-load-model2} 
+\end{figure}
 
 
 \subsection{Flow Chart Codeignter}
@@ -52,7 +91,7 @@ Gambar dibawah mengilustrasikan aliran data dalam sistem : \footnote{https://www
 \section{Zurb Foundation}
 \label{zurbfoundation}
 
-\paragraph{}  Foundation adalah kumpulan pola desain HTML, CSS dan Javascript yang dapat digunakan untuk membuat website. Hal tersebut untuk membantu developer agar tidak perlu menulis kode yang sama berulang kali. Selain membantu mengehemat waktu, Foundation juga membantu developer untuk menulis kode dengan lebih baik. Foundation dapat bekerja pada berbagai media seperi komputer desktop, laptop, tablet, dan telepon genggam. \footnote{http://foundation.zurb.com/}
+\paragraph{}  Foundation adalah kumpulan pola desain HTML, CSS dan Javascript yang dapat digunakan untuk membuat website. Hal tersebut untuk membantu \textit{developer} agar tidak perlu menulis kode yang sama berulang kali. Selain membantu mengehemat waktu, Foundation juga membantu \textit{developer} untuk menulis kode dengan lebih baik. Foundation dapat bekerja pada berbagai media seperi komputer desktop, laptop, tablet, dan telepon genggam.\cite{zurbfoundation:17} 
 
 Komponen-komponen dalam Foundation sendiri ada beberapa macam diantarnya sebagai berikut:\footnote{http://foundation.zurb.com/sites/docs/v/5.5.3/}
 
@@ -82,3 +121,25 @@ Komponen-komponen dalam Foundation sendiri ada beberapa macam diantarnya sebagai
 	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.
   
 \end{enumerate}
+
+\section{PHPExcel} 
+\label{phpexcel}
+
+\paragraph{} PHPExcel adalah suatu proyek yang menyediakan berbagai kelas-kelas untuk pemrograman bahasa PHP yang memungkinkan \textit{developer} untuk menulis dan membaca dari berbagai macam bentuk \textit{spreadsheet} seperti Excel (BIFF) .xls, Excel 2007 (OfficeOpenXML) .xlsx, CSV, Libre/OpenOffice Calc .ods, Gnumeric, PDF, HTML, dan lain-lain. Proyek ini dibangun sesuai standar Microsoft OpenXML dan PHP.\cite{phpexcel:14} 
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{skematik-phpexcel.png}  
+	\caption[Arsitektur PHPExcel]{Arsitektur PHPExcel} 
+	\label{fig:skematik-phpexcel} 
+\end{figure}
+
+Untuk menjalankan PHPExcel, diperlukan perangkat lunak sebagai berikut :
+\begin{itemize}
+	\item  PHP versi 5.2.0 keatas
+	\item  PHP extension php\_zip enabled
+	\item  PHP extension php\_xml diaktifkan
+	\item  PHP extension php\_gd2 diaktifkan 
+\end{itemize}
+
+
