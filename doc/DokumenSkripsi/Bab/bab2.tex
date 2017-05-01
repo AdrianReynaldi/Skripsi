@@ -46,27 +46,28 @@ sebagai contoh URI "example.com/index.php/blog/" , Codeigniter akan mencari cont
 Model adalah kelas PHP yang dirancang untuk bekerja dengan informasi-informasi di \textit{database}. Sebagai contoh, misalkan codeigniter digunakan untuk mengatur sebuah blog maka model mengandung fungsi-fungsi seperti \textit{select, insert, update }data-data blog.
 
 \subsubsection{Anatomi dari Model}
-Model disimpan di direktori \textbf{application/models}. Model dapat disimpan dalam sub-direktori jika dibutuhkan. Purwarupa dasar kelas model adalah seperti di bawah ini:
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=0.7]{purwarupa-model.png}  
-	\label{fig:purwarupa-model} 
-\end{figure}
+Model disimpan di direktori \textbf{application/models}. Model dapat disimpan dalam sub-direktori jika dibutuhkan. Bentuk dasar kode pada kelas model adalah seperti di bawah ini:
+\begin{lstlisting}
+	class Model_name extends CI_Model {
+	
+		public function_construct()
+		{
+			parent::_construct();
+			//constructor code
+		}
+	}
+\end{lstlisting}
 \textbf{Model\_name} adalah nama dari kelasnya. Huruf pertama dari nama kelas harus huruf kapital dengan huruf-huruf setelahnya ditulis menggunakan huruf kecil. Kelas model harus dipastikan meng-\textit{extend} kelas Model dasar. Nama file harus sama dengan nama kelasnya.
 
 \subsubsection{Load Model}
 Pada umumnya model akan di-\textit{load} di dalam method-method \textit{controller}. Untuk \textit{load} model diperlukan method berikut:
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=0.7]{method-load-model.png}  
-	\label{fig:method-load-model} 
-\end{figure}
+\begin{lstlisting}
+	$this->model->model('model_name');
+\end{lstlisting}
 Jika model terdapat pada sub-direktori, perlu dimasukan \textit{path}-nya ke dalam direktori 'models'. Misalnya model terdapat di \textit{application/models/blog/Queries.php} maka untuk \textit{load} model digunakan :
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=0.7]{method-load-model2.png}  
-	\label{fig:method-load-model2} 
-\end{figure}
+\begin{lstlisting}
+	$this->load->model('blog/queries');
+\end{lstlisting}
 
 
 \subsection{Flow Chart Codeignter}
