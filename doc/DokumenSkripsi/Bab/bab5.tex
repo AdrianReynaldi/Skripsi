@@ -1,0 +1,218 @@
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+\chapter{Implementasi dan Pengujian}
+\label{chap:implementasiDanPengujian}
+\setcounter{secnumdepth}{3}
+
+\section{Lingkungan Pengembangan Perangkat Lunak}
+\paragraph{} Pembangunan perangkat lunak ini memakai bahasa pemrogaraman server PHP 5 dan MySQL 5.0 sebagai basis datanya. Pengembangan perangkat lunak ini dilakukan di komputer dengan spesifikasi perangkat keras dan perangkat lunaknya sebagai berikut:\\
+\textbf{Perangkat Keras}
+\begin{enumerate}
+	\item Prosesor AMD A6 VISION
+	\item RAM 4 GB
+	\item 500 GB harddisk
+	\item Monitor
+	\item Keyboard
+	\item Mouse
+\end{enumerate}
+\textbf{Perangkat Lunak}
+\begin{enumerate}
+	\item Sistem Operasi Windows 8
+	\item NetBeans IDE 8.0.2
+	\item Server phpMyAdmin 127.0.0.1
+	\item XAMPP Control Panel v3.2.1
+	\item Client : Google Chrome 61.0.3163.100 32-bit
+	\item Microsoft Excel 2015
+	\item Paint
+	\item Microsoft PowerPoint 2015
+\end{enumerate}
+
+\section{Implementasi Basis Data}
+\paragraph{}Implementasi basis data dalam Aplikasi Pembangkit Jadwal Dosen menggunakan satu tabel basis data. Tabel tersebut adalah tabel jadwal\_dosen yang menyimpan informasi-informasi seperti:
+\begin{enumerate}
+	\item user yang memiliki jadwal terkait
+	\item hari berlangsungnya jadwal
+	\item jam dimulainya kegiatan jadwal 
+	\item durasi (dalam jam) lama berlangsungya jadwal
+	\item nama kegiatan jadwal
+	\item waktu terakhir jadwal diupdate
+\end{enumerate}
+
+\section{Implementasi Kelas}
+Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - kelas sebagai berikut :
+\begin{enumerate}
+	\item Kelas \textit{controller} EntriJadwalDosen\\
+	Merupakan kelas yang mengatur hubungan antara kelas view EntriJadwalDosen dan kelas model JadwalDosen\_model.
+	\item Kelas \textit{controller} LihatJadwalDosen\\
+	Merupakan kelas yang berfungsi menghubungkan antara kelas view LihatJadwalDosen dan kelas model JadwalDosen\_model.
+	\item Kelas \textit{view} EntriJadwalDosen yang berfungsi membuat \textit{user interface} untuk memasukan jadwal
+	\item Kelas \textit{view} LihatJadwalDosen yang berfungsi membuat \textit{user interface} untuk memlihat jadwal
+	\item Kelas model JadwalDosen\_model yang berfungsi untuk menulis atau membaca ke basis data.
+\end{enumerate}
+
+\section{Pengujian}
+\paragraph{} Pengujian aplikasi ini dilakukan dengan menggunakan metode pengujian \textit{Black-Box Testing}. Pengujian ini difokuskan pada pengujian fungsional. Maksud dari pengujian fungsional ini adalah untuk menguji reaksi perangkat lunak terhadap aksi yang dilakukan oleh pengguna. Bila reaksi sistem tidak sesuai yang diharapkan, maka aplikasi masih memilki kekurangan.
+
+\subsubsection{Pengujian Fungsional Login}
+Hasil pengujian dapat dilihat pada Tabel 5.1
+\begin{center}
+	\begin{table}[H]
+		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
+		\hline
+		Menekan tombol login & Menampilkan menu login & Menampilkan menu login \\
+		\hline
+		\end{tabular}
+		\caption{Pengujian Login}
+	\end{table}
+\end{center}
+
+\subsubsection{Pengujian Fungsional Entri Jadwal Dosen}
+Hasil pengujian dapat dilihat pada Tabel 5.2
+\begin{center}
+	\begin{table}[H]
+		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
+		\hline
+		Memasukan data-data yang diperlukan untuk input jadwal & Jadwal yang sudah dimasukan muncul pada halaman Entri Jadwal Dosen & Jadwal yang sudah dimasukan muncul pada halaman Entri Jadwal Dosen \\
+		\hline
+		Data jadwal yang dimasukan tidak lengkap & Jadwal dimasukan dengan data yang sesuai nilai \textit{default} yang ditampilkan di menu & Jadwal dimasukan dengan data yang sesuai nilai \textit{default} yang ditampilkan di menu \\
+		\hline
+		Waktu dimulainya jadwal baru sama dengan jadwal yang sudah pernah dimasukan sebelumnya & Menampilkan pesan kesalahan dan batal memasukan data ke dalam database & Jadwal masuk ke dalam database, namun tidak muncul di halaman Entri Jadwal Dosen maupun halaman Lihat Jadwal Dosen \\
+		\hline
+		\end{tabular}
+		\caption{Pengujian Fungsional Entri Jadwal Dosen}
+	\end{table}
+\end{center}
+
+\subsubsection{Pengujian Fungsional Edit Jadwal Dosen}
+Hasil pengujian dapat dilihat pada Tabel 5.3
+\begin{center}
+	\begin{table}[H]
+		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
+		\hline
+		Memilih jadwal yang akan diedit & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya \\
+		\hline
+		Memilih tombol simpan & Modal ditutup , data jadwal di \textit{database} diupdate sesuai dengan input user dan menampilkan menu Entri Jadwal Dosen & Modal ditutup , data jadwal di \textit{database} diupdate sesuai dengan input user dan menampilkan menu Entri Jadwal \\
+		\hline
+		Memilih tombol keluar & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen \\
+		\hline
+		\end{tabular}
+		\caption{Pengujian Fungsional Edit Jadwal Dosen}
+	\end{table}
+\end{center}
+
+\subsubsection{Pengujian Fungsional Hapus Jadwal Dosen}
+Hasil pengujian dapat dilihat pada Tabel 5.4
+\begin{center}
+	\begin{table}[H]
+		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
+		\hline
+		Memilih jadwal yang akan diedit & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya \\
+		\hline
+		Memilih tombol hapus & Modal ditutup dan jadwal dihapus dari basis data, lalu sistem menampilkan menu Entri Jadwal Dosen & Modal ditutup dan jadwal dihapus dari basis data, lalu sistem menampilkan menu Entri Jadwal Dosen \\
+		\hline
+		Memilih tombol keluar & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen \\
+		\hline
+		\end{tabular}
+		\caption{Pengujian Fungsional Hapus Jadwal Dosen}
+	\end{table}
+\end{center}
+
+\subsubsection{Pengujian Fungsional Lihat Jadwal Dosen}
+Hasil pengujian dapat dilihat pada Tabel 5.5
+\begin{center}
+	\begin{table}[H]
+		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
+		\hline
+		Menekan tombol Lihat Jadwal Dosen & 
+		Sistem menampilkan semua jadwal dosen dan mengelompokannya ke dalam tab-tab berdasarkan email setiap pemilik jadwal terkait. Kemudian setiap tab diberi label berisi nama lengkap pemilik jadwal tersebut. &
+		Sistem menampilkan semua jadwal dosen dan mengelompokannya ke dalam tab-tab berdasarkan email setiap pemilik jadwal terkait. Kemudian setiap tab diberi label berisi nama lengkap pemilik jadwal tersebut.\\
+		\hline
+		\end{tabular}
+		\caption{Pengujian Fungsional Lihat Jadwal Dosen}
+	\end{table}
+\end{center}
+
+\subsubsection{Pengujian Fungsional Ekspor ke XLS}
+Hasil pengujian dapat dilihat pada Tabel 5.6
+\begin{center}
+	\begin{table}[H]
+		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
+		\hline
+		Menekan tombol ekspor ke XLS & 
+		Sistem membuat file .xls yang berisi seluruh jadwal dosen yang dikelompokan ke dalam \textit{worksheet-worksheet} berdasarkan \textit{email} pemilik jadwal, lalu sistem  menampilkan menu untuk memilih lokasi penyimpanan file .xls yang akan diekspor ke komputer pengguna. &
+		Sistem membuat file .xls yang berisi seluruh jadwal dosen yang dikelompokan ke dalam \textit{worksheet-worksheet} berdasarkan \textit{email} pemilik jadwal, lalu sistem  menampilkan menu untuk memilih lokasi penyimpanan file .xls yang akan diekspor ke komputer pengguna. \\
+		\hline
+		\end{tabular}
+		\caption{Pengujian Fungsional Ekspor ke XLS}
+	\end{table}
+\end{center}
+
+\subsubsection{Pengujian Pembukaan File XLS}
+File yang telah diekspor ke komputer memunculkan eror ketika dibuka di Microsoft Excel 2015.
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.4]{erorXLSX.png}}
+	\caption[Tampilan eror saat membuka file XLS]{Tampilan eror saat membuka file XLS} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.4]{erorXLSXDetail.png}}
+	\caption[Keterangan Eror File XLS]{Keterangan Eror File XLS} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+
+Log dari eror tersebut :
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<recoveryLog xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+<logFileName>error046080_01.xml</logFileName>
+<summary>Errors were detected in file 'C:\Users\Adrian\Documents\Tugas\Skripsi\XLS Testing\JadwalDosen-20170918.xlsx'</summary>
+<removedRecords summary="Following is a list of removed records:"><removedRecord>Removed Records: Merge cells from /xl/worksheets/sheet4.xml part
+</removedRecord></removedRecords></recoveryLog>
+\end{lstlisting}
+Dilihat dari log eror tersebut eror terjadi karena ada perintah \textit{merge cells} yang dihapus oleh MS Excel.
+
+\section{Penambahan Fitur Aplikasi Pembangkit Jadwal Dosen}
+Selama pengerjaan skripsi ini ada beberapa fitur yang ditambahkan ke dalam Aplikasi Pembangkit Jadwal Dosen yang dinilai cukup penting untuk mempermudah penggunaannya.
+\subsubsection{Penambahan Tombol \textit{Delete All}}
+Tombol "Delete All" berfungsi untuk menghapus semua jadwal yang sudah dimasukan oleh pengguna.
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{deleteAllButton.png}}
+	\caption[Tombol \textit{Delete All} di Entri Jadwal Dosen]{Tombol \textit{Delete All} di Entri Jadwal Dosen} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+\subsubsection{Penambahan Informasi Waktu \textit{Update} Terakhir Jadwal}
+Informasi waktu \textit{update} terakhir jadwal oleh pengguna berfungsi agar pengguna dapat membedakan apakah jadwal miliknya merupakan versi lama yang sudah tidak dipakai atau merupakan versi baru.
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{updateTerakhir.png}}
+	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal  di Entri Jadwal Dosen} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{updateTerakhirLihat.png}}
+	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}

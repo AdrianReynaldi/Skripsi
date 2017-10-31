@@ -10,7 +10,13 @@ Mempelajari cara pengembangan perangkat lunak menggunakan \textit{Framework} Blu
 
 \section{BlueTape}
 \paragraph{} Aplikasi \textit{Blue Tape} adalah perangkat lunak \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu perangkat lunak ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
-
+\newline
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.4]{halamanUtama.png}}
+	\caption[Halaman Utama BlueTape Untuk Login dan Membuka Petunjuk Penggunaan]{Halaman Utama BlueTape Untuk Login dan Membuka Petunjuk Penggunaan} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
 Perangkat lunak \textit{Blue Tape} ini didesain sebagai \textit{framework} yang terdiri dari beberapa layanan yang dipisahkan ke dalam modul-modul. Pemisahan layanan ke dalam modul-modul dibuat dengan tujuan agar pemeliharan perangkat lunak lebih mudah dan juga mempermudah cara untuk menambahkan layanan baru ke dalam BlueTape. Sudah ada layanan yang aktif di BlueTape saat ini yaitu \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
 
 \subsection{Modul Saat Ini}
@@ -54,7 +60,7 @@ Tata usaha memiliki beberapa opsi untuk merespon permintaan yang sudah dikirim m
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.4]{managePerubahanKuliah.png}}
-	\caption[Tampilan Menu Manajemen Perubahan Kuliah]{Tampilan Menu Manajemen Perubahan Kuliahp} 
+	\caption[Tampilan Menu Manajemen Perubahan Kuliah]{Tampilan Menu Manajemen Perubahan Kuliah} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 Untuk membuat permintaan perubahan kuliah, mahasiswa perlu mengisi setiap \textit{field} yang ada di menu. Setelah semua \textit{field} diisi, mahasiswa bisa memilih untuk mengirim permohonan atau tambah pertemuan.
