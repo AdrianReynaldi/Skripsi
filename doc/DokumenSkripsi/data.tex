@@ -75,7 +75,7 @@
 %=============================================================================
 %\mode{bimbingan} 		% untuk keperluan bimbingan
 %\mode{sidang} 			% untuk sidang 1
-%\mode{sidangakhir} 	% untuk sidang 2 / sidang pada Skripsi 2(IF)
+\mode{sidangakhir} 	% untuk sidang 2 / sidang pada Skripsi 2(IF)
 %\mode{final} 			% untuk mencetak buku skripsi 
 %=============================================================================
 
@@ -195,10 +195,10 @@
 % !!Lihat singkatan pembimbing dan penguji anda di file dosen.tex!!
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda
 %=============================================================================
-\namanpm{<<Nama Lengkap>>}{<<10 digit NPM UNPAR>>}
-\tanggal{<<tanggal>>}{<<bulan>>}{<<tahun>>}
-\pembimbing{<<pembimbing utama/1>>}{<<pembimbing pendamping/2>>}    
-\penguji{<<penguji 1>>}{<<penguji 2>>} 
+\namanpm{Adrian Reynaldi}{2013730058}
+\tanggal{31}{Oktober}{2017}
+\pembimbing{Pascal Alfadian Nugroho, S.Kom, M.Comp}{<<pembimbing pendamping/2>>}    
+\penguji{ Chandra Wijaya, S.T., M.T.}{<<penguji 2>>} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -214,8 +214,8 @@
 % - gunakan \texorpdfstring{\\}{} untuk pindah ke baris baru
 % - judul TIDAK ditulis dengan menggunakan huruf besar seluruhnya !!
 %=============================================================================
-\judulINA{<<Judul Bahasa Indonesia>>}
-\judulENG{<<Judul Bahasa Inggris>>}
+\judulINA{Aplikasi Pembangkit Jadwal Dosen}
+\judulENG{Aplikasi Pembangkit Jadwal Dosen}
 %_____________________________________________________________________________
 %=============================================================================
 % 								BAGIAN X
@@ -227,8 +227,23 @@
 % - hilangkan tanda << & >>, dan isi sesuai dengan data anda
 % - langsung mulai setelah '{' awal, jangan mulai menulis di baris bawahnya
 %=============================================================================
-\abstrakINA{<<Tuliskan abstrak anda di sini, dalam bahasa Indonesia>>}
-\abstrakENG{<<Tuliskan abstrak anda di sini, dalam bahasa Inggris>>} 
+\abstrakINA{
+\paragraph{} Penggunaan kertas oleh manusia sudah berlangsung selama ribuan tahun. Kemudahannya untuk disimpan, dibawa dan biaya pembuatannya yang relatif rendah membuat kertas sebagai alat yang ideal untuk  mencatat berbagai informasi. Namun, dengan munculnya isu \textit{global warming} membuat penggunaan kertas semakin tidak menarik karena penebangan pohon secara massal (yang sebagian diantaranya dipakai untuk bahan pembuatan kertas) diindikasi merupakan salah satu penyebab utama terjadinya \textit{global warming}. Hal ini membuat berbagai kalangan mulai beralih ke media digital untuk mencatat informasi agar mengurangi penggunaan kertas. Selain itu, pengalihan dari kertas ke media digital juga berguna untuk menekan biaya operasional jangka panjang.
+
+\paragraph{} Fakultas Teknologi Informasi dan Sains di Universitas Katolik Parahyangan mengembangkan aplikasi BlueTape sebagai salah satu cara untuk mengurangi pekerjaan \textit{paper-based} menjadi \textit{paperless}. Aplikasi yang sudah dikembangkan sejak tahun 2015 ini telah berhasil membuat permintaan dan pengaturan transkrip antar mahasiswa dan tata usaha FTIS UNPAR menjadi tidak perlu lagi menggunakan kertas, melainkan cukup menggunakan BlueTape. Saat skripsi ini ditulis, aplikasi ini masih dikembangkan untuk menambah berbagai macam fitur lain. Salah satu diantaranya adalah sistem pencatatan jadwal dosen.
+
+\paragraph{} Pencatatan dan publikasi jadwal dosen saat skripsi ini ditulis masih menggunakan kertas. Jadwal dicetak sendiri oleh masing-masing dosen dan ditempel di depan ruangannya. Metode seperti ini selain menghaburkan kertas, juga tidak efektif karena mahasiswa perlu datang ke ruangan dosen masing-masing untuk mengetahui jadwal dosen terkait. Skripsi ini bertujuan untuk mengatasi hal ini dengan merancang Aplikasi Pembangkit Jadwal Dosen menggunakan BlueTape sebagai basis \textit{framework}-nya. Aplikasi ini bertujuan agar dosen dapat mencatat dan menampilkan jadwalnya di BlueTape sehinga mahasiswa bisa mengetahui jadwal dosen dari manapun dan secara tidak langsung mengurangi penggunaan kertas karena dosen tidak perlu lagi mencetak jadwalnya masing-masing.
+
+}
+
+\abstrakENG{
+\paragraph{} The use of paper has been going on for hundreds of years. It's easy storage, mobility and relatively low production cost makes it ideal device to write all kind of informations. However, the emergence of global warming issue makes paper less appealing to use due to massive tree logging (because some of it are being used to create papers) has been indicated as one of the main causes of global warming. This makes various organisations and individuals shifted to digital media for information writing as to reduce paper use. Furthermore, changing from paper to digital media also reduce long-term operational costs.
+
+\paragraph{}Faculty of Information Technology and Science in Parahyangan Catholic University developed BlueTape as one of the ways to reduce paper-based work into paperless one. The application that has been developed since 2015 has manage to make transcript request and management between college students and the administrator of FTIS UNPAR paperless by using BlueTape. When this thesis is still being written, this application is still being developed to add other features. One of them is a system to record lecturer's schedules.
+
+\paragraph{} Currently when this thesis is being written the record and publication of lecturer's schedules is still done by paper. The schedule is printed by the lecturer's themselves and then placed just outside of their own room. Beside wasting a lot of papers, this method is also ineffective because students need to go to the lecturer room to know their schedule. This thesis purpose is to solve this issue by designing \textit{Aplikasi Pembangkit Jadwal Dosen} or Lecturer's Schedule Generator Application with BlueTape as it's framework. This application is developed to help lecturers to record and publish their schedule in BlueTape so students can access their schedule anywhere and indirectly reduce paper use because the lecturers doesn't need to print their own schedule anymore.
+} 
+
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -240,8 +255,8 @@
 % - kunciENG: keywords in english
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda.
 %=============================================================================
-\kunciINA{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Indonesia>>}
-\kunciENG{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Inggris>>}
+\kunciINA{kertas, BlueTape, tata usaha, jadwal dosen, Aplikasi Pembangkit Jadwal Dosen, \textit{paperless}}
+\kunciENG{paper, BlueTape, administrator, lecturer's schedule, \textit{Aplikasi Pembangkit Jadwal Dosen}, paperless }
 %=============================================================================
 
 %_____________________________________________________________________________

@@ -37,7 +37,7 @@ CodeIgniter dirancang untuk memenuhi kebutuhan :
 	\end{itemize}
 	
 \subsection{\textit{System Requirements} Server Untuk Menjalankan CodeIgniter}
-Server disarankan sudah menggunakan PHP versi 5.6 atau versi-versi setelahnya. CodeIgniter dapat berjalan pada PHP versi lama , namun ada kemungkinan muncul masalah-masalah yang berkaitan dengan performa dan keamanan.
+Server disarankan sudah menggunakan PHP versi 5.6 atau versi-versi setelahnya. CodeIgniter dapat berjalan pada PHP versi lama , namun ada kemungkinan muncul masalah-masalah yang berkaitan dengan performa dan keamanan. \cite{CodeIgniter:17}
 
 \textit{Database} yang didukung oleh CodeIgniter adalah sebagai berikut :
 \begin{itemize}
@@ -54,14 +54,14 @@ Server disarankan sudah menggunakan PHP versi 5.6 atau versi-versi setelahnya. C
 \subsection{Cara Instalasi CodeIgniter}
 Instalasi CodeIgniter dilakukan dalam 4 langkah :
 \begin{itemize}
-	\item \textit{Unzip package} CodeIgniter tersebut
-	\item Unggah folder CodeIgniter dan data-datanya ke dalam server. Pada umumnya \textit{index.php} berada pada \textit{root} server.
-	\item Buka \textit{application/config/config.php} menggunakan program pengolah teks dan tentukan URL-nya. Jika akan digunakan enkripsi, tentukan kunci enkripsinya.
-	\item Jika \textit{database} akan digunakan, buka \textit{application/config/database.php} menggunakan program pengolah teks dan atur \textit{database} anda.
+	\item \textit{Unzip package} CodeIgniter tersebut \cite{CodeIgniter:17}
+	\item Unggah folder CodeIgniter dan data-datanya ke dalam server. Pada umumnya \textit{index.php} berada pada \textit{root} server.\cite{CodeIgniter:17}
+	\item Buka \textit{application/config/config.php} menggunakan program pengolah teks dan tentukan URL-nya. Jika akan digunakan enkripsi, tentukan kunci enkripsinya.\cite{CodeIgniter:17}
+	\item Jika \textit{database} akan digunakan, buka \textit{application/config/database.php} menggunakan program pengolah teks dan atur \textit{database} anda.\cite{CodeIgniter:17}
 \end{itemize}
 
 \subsection{Cross-site Request Forgery (CSRF) }
-\paragraph{} Perlindungan terhadap CSRF dapat dilakukan dengan cara mengubah nilai variabel berikut menjadi TRUE pada file \textbf{application/config/config.php}
+\paragraph{} Perlindungan terhadap CSRF dapat dilakukan dengan cara mengubah nilai variabel berikut menjadi TRUE pada file \textbf{application/config/config.php} \cite{CodeIgniter:17}
 \begin{lstlisting}
 	$config['csrf_protection'] = TRUE;
 \end{lstlisting}
@@ -69,12 +69,12 @@ Jika \textit{form helper} digunakan di view aplikasi, maka field csrf akan secar
 \begin{lstlisting}
 	<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
 \end{lstlisting}
-Token dapat diatur agar selalu meregenerasi setiap terjadi \textit{submission} atau juga dapat diatur agar selalu tetap sama sepanjang masa hidup \textit{cookie} CSRF-nya. Regenerasi token akan membuat keamanan sistem lebih kuat, namun dapat menyebabkan masalah navigasi web (seperti navigasi \textit{back/forward} halaman ke halaman, membuka tab baru , dan lain-lain). Regenerasi token dapat diatur dengan mengubah nilai variabel :
+Token dapat diatur agar selalu meregenerasi setiap terjadi \textit{submission} atau juga dapat diatur agar selalu tetap sama sepanjang masa hidup \textit{cookie} CSRF-nya. Regenerasi token akan membuat keamanan sistem lebih kuat, namun dapat menyebabkan masalah navigasi web (seperti navigasi \textit{back/forward} halaman ke halaman, membuka tab baru , dan lain-lain). Regenerasi token dapat diatur dengan mengubah nilai variabel : \cite{CodeIgniter:17}
 \begin{lstlisting}
 	$config['csrf_regenerate'] = TRUE;
 \end{lstlisting}
 \subsection{Model-View-Controller}
-CodeIgniter didasari pola pengembangan \textit{Model-View-Controller} atau MVC. MVC memisahkan logika aplikasi dengan tampilannya.
+CodeIgniter didasari pola pengembangan \textit{Model-View-Controller} atau MVC. MVC memisahkan logika aplikasi dengan tampilannya. \cite{CodeIgniter:17}
 \begin{itemize}
 		\item \textbf{\textit{Model}} merepresentasikan struktur data. Pada umumnya kelas-kelas model menampung fungsi-fungsi untuk mengambil, memperbarui atau memasukan data ke dalam basis data.
 		\item \textbf{\textit{View}} menampilkan informasi ke pengguna. 
@@ -83,7 +83,7 @@ CodeIgniter didasari pola pengembangan \textit{Model-View-Controller} atau MVC. 
 
 \subsection{Controller}
 Sebuah \textit{controller} adalah kelas yang dinamakan demikian agar dapat diasosiasikan dengan URI.
-sebagai contoh URI "example.com/index.php/blog/" , CodeIgniter akan mencari \textit{controller} bernama Blog.php dan menjalankannya. Nama \textit{controller} harus diawali dengan huruf kapital. Selain itu \textit{controller} juga harus  \textit{extend} kelas "CI\_Controller". \\
+sebagai contoh URI "example.com/index.php/blog/" , CodeIgniter akan mencari \textit{controller} bernama Blog.php dan menjalankannya. Nama \textit{controller} harus diawali dengan huruf kapital. Selain itu \textit{controller} juga harus  \textit{extend} kelas "CI\_Controller". \cite{CodeIgniter:17} \\ 
 Contoh yang benar :
 \begin{lstlisting}
 	<?php
@@ -100,13 +100,13 @@ Contoh yang salah :
 	}
 \end{lstlisting}
 	\subsubsection{Method}
-	Untuk menjalankan suatu method, maka developer perlu menuliskannya pada segmen kedua URI. Contoh "example.com/index.php/blog/comments" maka akan dijalankan method comments() pada controller blog.php. Method yang akan dijalankan bila bagian kedua URI kosong adalah method index(). Jika URI mengandung lebih dari dua segment, segment-segment tersebut akan dimasukan ke dalam method sebagai parameter.
+	Untuk menjalankan suatu method, maka developer perlu menuliskannya pada segmen kedua URI. Contoh "example.com/index.php/blog/comments" maka akan dijalankan method comments() pada controller blog.php. Method yang akan dijalankan bila bagian kedua URI kosong adalah method index(). Jika URI mengandung lebih dari dua segment, segment-segment tersebut akan dimasukan ke dalam method sebagai parameter. \cite{CodeIgniter:17}
 	
 	\subsubsection{Default Controller}
-	CodeIgniter dapat diperintahkan untuk menjalankan \textit{default controller} jika tidak terdapat URI, pada umumnya terjadi ketika hanya terdapat permintaan menggunakan URL dasar \textit{website}. Penentuan \textit{default controller} terdapat pada \textit{file} "application/config/routes.php" dan set variabel . Nama \textit{controller} tersebut adalah 'blog', maka ketika index.php dijalankan tanpa menspesifikasikan URI akan dijalankan \textit{controller} 'blog'.
+	CodeIgniter dapat diperintahkan untuk menjalankan \textit{default controller} jika tidak terdapat URI, pada umumnya terjadi ketika hanya terdapat permintaan menggunakan URL dasar \textit{website}. Penentuan \textit{default controller} terdapat pada \textit{file} "application/config/routes.php" dan set variabel . Nama \textit{controller} tersebut adalah 'blog', maka ketika index.php dijalankan tanpa menspesifikasikan URI akan dijalankan \textit{controller} 'blog'.\cite{CodeIgniter:17}
 	
 	\subsubsection{Memproses Output}
-	CodeIgniter memiliki kelas \textit{output} yang mengurus pengiriman data ke \textit{web browser} secara otomatis. Untuk kasus-kasus saat pengguna ingin mengubah cara pengiriman data tersebut, CodeIgniter menyediakan caranya dengan menambahkan method bernama "\_output()" ke \textit{controller} terkait. Jika controler memiliki method bernama "\_output()" maka controller tersebut akan  selalu dipanggil oleh kelas "output".\\
+	CodeIgniter memiliki kelas \textit{output} yang mengurus pengiriman data ke \textit{web browser} secara otomatis. Untuk kasus-kasus saat pengguna ingin mengubah cara pengiriman data tersebut, CodeIgniter menyediakan caranya dengan menambahkan method bernama "\_output()" ke \textit{controller} terkait. Jika controler memiliki method bernama "\_output()" maka controller tersebut akan  selalu dipanggil oleh kelas "output".\cite{CodeIgniter:17} \\
 Contoh penggunaan method "\_output()" : 
 \begin{lstlisting}
 	public function _output(\$output)
@@ -116,7 +116,7 @@ Contoh penggunaan method "\_output()" :
 \end{lstlisting}
 
 	\subsubsection{Private Method}
-	Method-method dengan tipe \textit{private} tidak dapat diakses oleh publik. Method ini hanya dapat diakses oleh method lain dalam \textit{controller} yang sama. Selain it           u method ini juga tidak akan dapat diakses melalui URL.\\
+	Method-method dengan tipe \textit{private} tidak dapat diakses oleh publik. Method ini hanya dapat diakses oleh method lain dalam \textit{controller} yang sama. Selain it           u method ini juga tidak akan dapat diakses melalui URL.\cite{CodeIgniter:17}\\
 Contoh penulisan \textit{private method}:
 \begin{lstlisting}
 	private function _utility()
@@ -130,7 +130,7 @@ Method di atas tidak dapat diakses dengan cara pemanggilan method pada umumnya s
 \end{lstlisting}
 
 	\subsubsection{Mengorganisir Controller-controller ke Dalam Sub Direktori}
-\paragraph{} Di CodeIgniter pengguna dapat mengorganisir \textit{controller-controller} ke dalam sub direktori. Untuk melakukannya cukup dengan membuat sub direktori di dalam direktori \textit{application/controllers/} dan simpan kelas-kelas \textit{controller} ke dalamnya. Ketika menggunakan fitur ini, pengguna harus menspesifikasikan foldernya ke dalam URI. \\
+\paragraph{} Di CodeIgniter pengguna dapat mengorganisir \textit{controller-controller} ke dalam sub direktori. Untuk melakukannya cukup dengan membuat sub direktori di dalam direktori \textit{application/controllers/} dan simpan kelas-kelas \textit{controller} ke dalamnya. Ketika menggunakan fitur ini, pengguna harus menspesifikasikan foldernya ke dalam URI.\cite{CodeIgniter:17} \\
 Contoh ada controller yang berlokasi di:
 \begin{lstlisting}
 	application/controllers/products/Shoes.php
@@ -141,7 +141,7 @@ Untuk memanggil controller tersebut URI harus menuliskan nama sub direktorinya :
 \end{lstlisting}
 
 \subsection{View}
-\textit{View} adalah sebuah halaman web, bagian-bagian halaman ( seperti \textit{header, footer, sidebar}, dan-lain-lain) atau bagian dari \textit{view} lainnya. \textit{View} tidak pernah dipanggil secara langsung, melainkan harus melalui controller karena dalam framework MVC controller berfungsi sebagai pengatur.\\
+\textit{View} adalah sebuah halaman web, bagian-bagian halaman ( seperti \textit{header, footer, sidebar}, dan-lain-lain) atau bagian dari \textit{view} lainnya. \textit{View} tidak pernah dipanggil secara langsung, melainkan harus melalui controller karena dalam framework MVC controller berfungsi sebagai pengatur.\cite{CodeIgniter:17} \\
 Controller dapat memanggil view menggunakan potongan kode seperti di bawah ini :
 \begin{lstlisting}
 	$this->load->view('name');
@@ -169,10 +169,10 @@ BIla ada data lain yang akan dikirimkan ke view dari controller, gunakan potonga
 \end{lstlisting}
 
 \subsection{Model}
-Model adalah kelas PHP yang dirancang untuk bekerja dengan informasi-informasi di \textit{database}. Sebagai contoh, misalkan CodeIgniter digunakan untuk mengatur sebuah blog maka model mengandung fungsi-fungsi seperti \textit{select, insert, update }data-data blog.
+Model adalah kelas PHP yang dirancang untuk bekerja dengan informasi-informasi di \textit{database}. Sebagai contoh, misalkan CodeIgniter digunakan untuk mengatur sebuah blog maka model mengandung fungsi-fungsi seperti \textit{select, insert, update }data-data blog. \cite{CodeIgniter:17}
 
 \subsubsection{Anatomi dari Model}
-Model disimpan di direktori \textbf{application/models}. Model dapat disimpan dalam sub-direktori jika dibutuhkan. Bentuk dasar kode pada kelas model adalah seperti di bawah ini:
+Model disimpan di direktori \textbf{application/models}. Model dapat disimpan dalam sub-direktori jika dibutuhkan. Bentuk dasar kode pada kelas model adalah seperti di bawah ini: \cite{CodeIgniter:17}
 \begin{lstlisting}
 	class Model_name extends CI_Model {
 	
@@ -183,7 +183,7 @@ Model disimpan di direktori \textbf{application/models}. Model dapat disimpan da
 		}
 	}
 \end{lstlisting}
-\textbf{Model\_name} adalah nama dari kelasnya. Huruf pertama dari nama kelas harus huruf kapital dengan huruf-huruf setelahnya ditulis menggunakan huruf kecil. Kelas model harus dipastikan meng-\textit{extend} kelas Model dasar. Nama file harus sama dengan nama kelasnya.
+\textbf{Model\_name} adalah nama dari kelasnya. Huruf pertama dari nama kelas harus huruf kapital dengan huruf-huruf setelahnya ditulis menggunakan huruf kecil. Kelas model harus dipastikan meng-\textit{extend} kelas Model dasar. Nama file harus sama dengan nama kelasnya. \cite{CodeIgniter:17}
 
 \subsubsection{\textit{Load} Model}
 Pada umumnya model akan di-\textit{load} di dalam method-method \textit{controller}. Untuk \textit{load} model diperlukan method berikut:
@@ -194,13 +194,13 @@ Jika model terdapat pada sub-direktori, perlu dimasukan \textit{path}-nya ke dal
 \begin{lstlisting}
 	$this->load->model('blog/queries');
 \end{lstlisting}
-Bila ada sebuah model yang akan digunakan secara global pada aplikasi pengguna, CodeIgniter bisa diperintahkan untuk \textit{auto-load} model tersebut ketika instalasi sistem. Untuk melakukan hal ini, tambahkan model ke dalam \textit{autload array} yang berlokasi di "\textit{application/config/autoload.php}".
+Bila ada sebuah model yang akan digunakan secara global pada aplikasi pengguna, CodeIgniter bisa diperintahkan untuk \textit{auto-load} model tersebut ketika instalasi sistem. Untuk melakukan hal ini, tambahkan model ke dalam \textit{autload array} yang berlokasi di "\textit{application/config/autoload.php}". \cite{CodeIgniter:17}
 
 \subsubsection{Menghubungkan Model Dengan \textit{Database}}
-\paragraph{}Ketika Model dipanggil, model tidak akan terhubung ke database secara otomatis. Ada dua cara untuk menghubungkan model dengan \textit{database} :
+\paragraph{}Ketika Model dipanggil, model tidak akan terhubung ke database secara otomatis. Ada dua cara untuk menghubungkan model dengan \textit{database} : \cite{CodeIgniter:17}
 \begin{enumerate}
 	\item Menghubungkan secara otomatis ketika instalasi sistem dilakukan menggunakan fitur auto-load seperti disebutkan di bagian \textit{Load} Model di atas.
-	\item Menghubungkan \textit{database} secara manual. Untuk menghubungkan \textit{database} dengan model, pengguna perlu untuk memanggil \textit{database}-nya di \textit{controller} atau di \textit{model} itu sendiri dengan menuliskan potongan kode:
+	\item Menghubungkan \textit{database} secara manual. Untuk menghubungkan \textit{database} dengan model, pengguna perlu untuk memanggil \textit{database}-nya di \textit{controller} atau di \textit{model} itu sendiri dengan menuliskan potongan kode: \cite{CodeIgniter:17}
 	\begin{lstlisting}
 	$this->load->database();	
 	\end{lstlisting}
@@ -213,7 +213,7 @@ Parameter-parameter yang tersedia untuk potongan kode di atas adalah:
 \end{enumerate}
 
 \subsection{Kelas Migrasi}
-\paragraph{}Kelas ini digunakan untuk memudahkan pengubahan \textit{database} secara terstruktur dan terorganisir dengan baik. Dengan cara ini maka penguna tidak perlu memberi tahu penguna lainnya yang sedang mengembangkan aplikasi yang sama untuk melakukan perubahan \textit{database} secara manual, penguna lain cukup menjalankan kelas migrasi ini. Kelas ini akan secara otomatis membuat tabel bernama "\textit{migration}" di \textit{database} yang mencatat migrasi-migrasi mana saja yang sudah dijalankan, yang perlu dilakukan secara manual oleh pengguna adalah untuk memperbarui \textit{file} aplikasinya dan memanggil \textit{\$this->migration->current()} untuk menentukan migrasi mana yang perlu dijalankan. Untuk mengatur preferensi dari kelas migrasi terdapat di \textbf{aplication/config/migration.php}. 
+\paragraph{}Kelas ini digunakan untuk memudahkan pengubahan \textit{database} secara terstruktur dan terorganisir dengan baik. Dengan cara ini maka penguna tidak perlu memberi tahu penguna lainnya yang sedang mengembangkan aplikasi yang sama untuk melakukan perubahan \textit{database} secara manual, penguna lain cukup menjalankan kelas migrasi ini. Kelas ini akan secara otomatis membuat tabel bernama "\textit{migration}" di \textit{database} yang mencatat migrasi-migrasi mana saja yang sudah dijalankan, yang perlu dilakukan secara manual oleh pengguna adalah untuk memperbarui \textit{file} aplikasinya dan memanggil \textit{\$this->migration->current()} untuk menentukan migrasi mana yang perlu dijalankan. Untuk mengatur preferensi dari kelas migrasi terdapat di \textbf{aplication/config/migration.php}. \cite{CodeIgniter:17} 
 \begin{center}
 	\begin{table}[H]
 	\begin{tabular}{|c|c|c|p{3cm}|}
@@ -239,7 +239,7 @@ Parameter-parameter yang tersedia untuk potongan kode di atas adalah:
 \subsubsection{Nama Kelas Migrasi}
 Setiap migrasi dijalankan sesuai urutan numerik baik dengan urutan menaik atau menurun tergantung dari metode yang digunakan. Ada dua cara penomoran yang bisa dilakukan yaitu :
 \begin{itemize}
-	\item \textbf{Sekuensial}: setiap migrasi dinomori secara sekuensial, dimulai dengan angka \textbf{001}. Setiap nomor harus terdiri dari 3 digit dan tidak ada jeda di angka tersebut. Cara penomoran ini adalah satu-satunya cara yang digunakan sebelum versi CodeIgniter 3.0 .
+	\item \textbf{Sekuensial}: setiap migrasi dinomori secara sekuensial, dimulai dengan angka \textbf{001}. Setiap nomor harus terdiri dari 3 digit dan tidak ada jeda di angka tersebut. Cara penomoran ini adalah satu-satunya cara yang digunakan sebelum versi CodeIgniter 3.0 . \cite{CodeIgniter:17}
 	\item \textbf{\textit{Timestamp}}: setiap migrasi menggunakan \textit{timestamp} ketika kelas migrasinya dibuat. Format penomrannya adalah YYYYMMDDHHIISS.
 		\begin{itemize}
 		\item YYYY	: tahun terdiri dari 4 digit
@@ -249,16 +249,16 @@ Setiap migrasi dijalankan sesuai urutan numerik baik dengan urutan menaik atau m
 		\item II	: menit terdiri dari 2 digit
 		\item SS	: detik terdiri dari 2 digit
 		\end{itemize}
-Cara ini digunakan untuk menghindari konflik penomoran ketika bekerja dalam tim. Cara penomoran ini merupakan cara yang lebih banyak digunakan sejak versi CodeIgniter 3.0 dan setelahnya.
+Cara ini digunakan untuk menghindari konflik penomoran ketika bekerja dalam tim. Cara penomoran ini merupakan cara yang lebih banyak digunakan sejak versi CodeIgniter 3.0 dan setelahnya. \cite{CodeIgniter:17}
 \end{itemize}
-Urutan penomran dapat diatur menggunakan \textit{\$config['migration\_type']} di \textit{file} \textit{application/config/migration.php} . Apapun cara yang dipilih, pisahkan nama file dan penomoran kelasnya menggunakan tanda garis bawah. Sebagai contoh:
+Urutan penomran dapat diatur menggunakan \textit{\$config['migration\_type']} di \textit{file} \textit{application/config/migration.php} . Apapun cara yang dipilih, pisahkan nama file dan penomoran kelasnya menggunakan tanda garis bawah. Sebagai contoh: \cite{CodeIgniter:17}
 \begin{itemize}
 	\item 001\_add\_blog.php (penomoran sekuensial)
 	\item 20121031100537\_add\_blog.php (penomoran dengan \textit{timestamp})
 \end{itemize}
 
 \subsection{Flow Chart Codeignter}
-Gambar dibawah mengilustrasikan aliran data dalam sistem : \footnote{https://www.codeigniter.com/userguide3/overview/appflow.html}
+Gambar dibawah mengilustrasikan aliran data dalam sistem : \footnote{https://www.codeigniter.com/userguide3/overview/appflow.html} 
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{appflowchart.png}  
@@ -275,37 +275,64 @@ Gambar dibawah mengilustrasikan aliran data dalam sistem : \footnote{https://www
 		\item Kemudian tampilan akhir dibuat dan dikirim ke web browser untuk dilihat. Jika caching diaktifkan, maka tampilan dimasukan ke dalam cache terlebih dahulu sehingga pada permintaan selanjutnya tampilan tersebut dapat diakses lebih cepat.
 	\end{enumerate}
 
+\section{phpMyAdmin}
+\paragraph{} phpMyAdmin dapat mengatur keseluruhan server MySQL (membutuhkan \textit{super-user}) dan juga satu basis data. Untuk mengatur satu basis data, dibutuhkan pengaturan \textit{user} MySQL yang hanya dapat membaca/menulis database yang ditentukan.\cite{phpmyadmin:17} \\ 
+Fitur yang didukung :
+\begin{itemize}
+	\item \textit{browse} dan \textit{drop} basis data.
+	\item menampilkan hasil pencarian \textit{query}.
+	\item membuat, menduplikasi, menghapus, mengubah nama basis data, tabel, kolom dan indeks.
+	\item memelihara server, basis data dan tabel.
+	\item mengeksekusi, mengubah, dan \textit{bookmark} laporan SQL.
+	\item memuat file teks ke dalam tabel. \cite{phpmyadmin:17}
+	\item membuat dan membaca \textit{dump} dari tabel.
+	\item mengeskpor data ke berbagai format: CSV, XML, PDF, ISO/IEC 26300 - OpenDocument Text and Spreadsheet, Microsoft Word 2000 dan format LATEX.
+	\item mengimpor data dan struktur MySQL dari CSV, XML, PDF dan ISO/IEC 26300 - OpenDocument Text and Spreadsheet.
+	\item mengatur banyak server.
+	\item mengatur pengguna MySQL dan hak aksesnya.
+	\item memeriksa integritas tabel MyISAM.
+	\item memakai \textit{Query-by-example }(QBE) untuk membuat \textit{query} kompleks yang menghubungkan tabel-tabel.
+	\item membuat grafik PDF dari basis data.
+	\item Mencari secara global di dalam basis data.
+	\item mengubah data yang disimpan di basis data ke dalam format apapun berdasarkan fungsi yang sudah ditentukan pengguna. Misalnya menampilkan data BLOB sebagai gambar atau \textit{link} pengunduhan.
+	\item mencatat perubahan-perubahan basis data, tabel dan \textit{view}.
+	\item mendukung tabel InnoDB dan \textit{foreign key}. \cite{phpmyadmin:17}
+	\item mendukung mysqli dan ekstensi MySQL.
+	\item menambah, mengubah, memanggil, mengekspor dan menghapus prosedur dan fungsi yang disimpan.
+	\item menambah, mengubah, mengekspor dan menghapus \textit{events} dan \textit{triggers}.
+	\item tersedia dalam 80 bahasa berbeda.
+\end{itemize}
 
 \section{Cross Site Request Forgery}
-\paragraph{}"Cross Site Request Forgery" atau "Session Riding" adalah teknik penyerangan yang mengeksploitasi otentikasi implisit. Penyerangan ini dilakukan dengan cara menyebabkan browser korban membuat \textit{http requests} tersembunyi ke sumber daya - sumber daya terlarang. Pada kasus ketika \textit{request} untuk sumber daya tersebut berhasil, akan menyebabkan browser atau aplikasi web terkait untuk melakukan tindakan-tindakan penyerangan tersebut secara terus menerus. Penyerangan ini bertujuan untuk berbagai hal seperti mengubah \textit{field-field} di dalam \textit{database}, mengirim email atau mengubah bagian-bagian aplikasi. Semua aksi tersebut dilakukan menggunakan token otentikasi milik korban. 
+\paragraph{}"Cross Site Request Forgery" atau "Session Riding" adalah teknik penyerangan yang mengeksploitasi otentikasi implisit. Penyerangan ini dilakukan dengan cara menyebabkan browser korban membuat \textit{http requests} tersembunyi ke sumber daya - sumber daya terlarang. Pada kasus ketika \textit{request} untuk sumber daya tersebut berhasil, akan menyebabkan browser atau aplikasi web terkait untuk melakukan tindakan-tindakan penyerangan tersebut secara terus menerus. Penyerangan ini bertujuan untuk berbagai hal seperti mengubah \textit{field-field} di dalam \textit{database}, mengirim email atau mengubah bagian-bagian aplikasi. Semua aksi tersebut dilakukan menggunakan token otentikasi milik korban. \cite{barth08csrf}
 
-\paragraph{}Pada umumnya \textit{web browser} memiliki kebijakan untuk memperbolehkan \textit{website-website} untuk mengirim \textit{HTTP request} ke alamat jaringan manapun. Akibat dari kebijakan ini, maka penyerang dapat mengendalikan konten-konten yang dianggap oleh \textit{browser} bukan di bawah kendali pengguna. Konten yang dapat dikendalikan oleh penyerang diantaranya :
+\paragraph{}Pada umumnya \textit{web browser} memiliki kebijakan untuk memperbolehkan \textit{website-website} untuk mengirim \textit{HTTP request} ke alamat jaringan manapun. Akibat dari kebijakan ini, maka penyerang dapat mengendalikan konten-konten yang dianggap oleh \textit{browser} bukan di bawah kendali pengguna. Konten yang dapat dikendalikan oleh penyerang diantaranya : \cite{barth08csrf}
 \begin{itemize}
 	\item \textbf{Konektivitas Jaringan}. Misalnya bila korban menggunakan \textit{firewall}, maka penyerang dapat mempengaruhi browser pada mesin korban untuk mengirim \textit{network request} ke mesin-mesin lain yang menggunakan firewall juga yang tidak dapat diakses secara langsung melalui mesin milik penyerang.
 	\item \textbf{Membaca Status Browser}. \textit{Request-request} yang dikirimkan ke jaringan melalui \textit{browser} pada umumnya berisi status browser seperti cookies, sertifikat klien atau data otentikasi sederhana.
 	\item\textbf{ Menulis Status Browser}. Penyerang membuat \textit{browser} untuk menulis \textit{network request}. \textit{Browser} juga akan bereaksi pada respon dari website yang dituju. Hal ini mengakibatkan \textit{browser} memodifikasi beberapa bagian status browser.
 \end{itemize}
 
-\paragraph{}Serangan CSRF tidak terbatas pada satu \textit{request} palsu saja. Alur kerja yang membutuhkan serangkaian \textit{request} http juga rentan terhadap serangan ini selama kondisi-kondisi yang diperlukan terpenuhi. Misalnya bila setiap konten dan \textit{identifier} dalam setiap langkah pada alur kerja \textit{web form} diketahui dan alur kerja dari \textit{website} tersebut tidak memiliki mekanisme lain untuk melacak cara kerja langkah per-langkah \textit{web form}-nya, melainkan hanya menggunakan \textit{identifier} dari \textit{session} saja. Jika kondisi tersebut dipenuhi, maka penyerang dapat membuat serangkaian \textit{iframe-iframe} tersembunyi yang mengandung \textit{web form} berbahaya. \textit{Form-form} tersebut lalu dikirimkan secara sekuensial melalui JavaScript menggunakan \textit{event} \textit{onload} dari \textit{iframe} untuk membuat server yang menerimanya mengira bahwa \textit{form-form} tersebut diisi oleh user dengan benar.
+\paragraph{}Serangan CSRF tidak terbatas pada satu \textit{request} palsu saja. Alur kerja yang membutuhkan serangkaian \textit{request} http juga rentan terhadap serangan ini selama kondisi-kondisi yang diperlukan terpenuhi. Misalnya bila setiap konten dan \textit{identifier} dalam setiap langkah pada alur kerja \textit{web form} diketahui dan alur kerja dari \textit{website} tersebut tidak memiliki mekanisme lain untuk melacak cara kerja langkah per-langkah \textit{web form}-nya, melainkan hanya menggunakan \textit{identifier} dari \textit{session} saja. Jika kondisi tersebut dipenuhi, maka penyerang dapat membuat serangkaian \textit{iframe-iframe} tersembunyi yang mengandung \textit{web form} berbahaya. \textit{Form-form} tersebut lalu dikirimkan secara sekuensial melalui JavaScript menggunakan \textit{event} \textit{onload} dari \textit{iframe} untuk membuat server yang menerimanya mengira bahwa \textit{form-form} tersebut diisi oleh user dengan benar. \cite{JohnsWinter2006}
 
 \section{Zurb Foundation}
 \label{zurbfoundation}
 
 \paragraph{}  Foundation adalah kumpulan pola desain HTML, CSS dan Javascript yang dapat digunakan untuk membuat website. Hal tersebut untuk membantu \textit{developer} agar tidak perlu menulis kode yang sama berulang kali. Selain membantu mengehemat waktu, Foundation juga membantu \textit{developer} untuk menulis kode dengan lebih baik. Foundation dapat bekerja pada berbagai media seperi komputer desktop, laptop, tablet, dan telepon genggam.\cite{zurbfoundation:17} \\
-Komponen-komponen dalam Foundation sendiri ada beberapa macam diantarnya sebagai berikut:\footnote{http://foundation.zurb.com/sites/docs/v/5.5.3/}
+Komponen-komponen dalam Foundation sendiri ada beberapa macam diantarnya sebagai berikut:
 
 \begin{itemize}
-	\item  Grid untuk mempermudah pembagian halaman
-	\item  Desain tombol yang bermacam-macam. Desain tombol ini dapat diubah-ubah dengan cara menambahkan kelas.
-	\item  Navigasi untuk mempermudah pengunjung aplikasi dalam menggunakan aplikasinya.
-	\item  Plugins JavaScript untuk mempermudah \textit{developer} dalam membuat tampilan aplikasinya.
+	\item  Grid untuk mempermudah pembagian halaman.\footnote{\label{note2}http://foundation.zurb.com/sites/docs/v/5.5.3/}
+	\item  Desain tombol yang bermacam-macam. Desain tombol ini dapat diubah-ubah dengan cara menambahkan kelas.\textsuperscript{\ref{note2}}
+	\item  Navigasi untuk mempermudah pengunjung aplikasi dalam menggunakan aplikasinya.\textsuperscript{\ref{note2}}
+	\item  Plugins JavaScript untuk mempermudah \textit{developer} dalam membuat tampilan aplikasinya.\textsuperscript{\ref{note2}}
 \end{itemize}
 
 \subsection{Top Bar}
-\paragraph{} Top bar adalah \textit{wrapper} sederhana untuk komponen-komponen menu website. Top bar dapat memiliki 2 bagian yaitu bagian kiri \textbf{(.top-bar-left)} dan bagian kanan \textbf{(.top-bar-right)}. Pada layar yang kecil bagian top bar ini bisa menjadi di atas atau di bawah sisi lainnya.
+\paragraph{} Top bar adalah \textit{wrapper} sederhana untuk komponen-komponen menu website. Top bar dapat memiliki 2 bagian yaitu bagian kiri \textbf{(.top-bar-left)} dan bagian kanan \textbf{(.top-bar-right)}. Pada layar yang kecil bagian top bar ini bisa menjadi di atas atau di bawah sisi lainnya. .\cite{zurbfoundation:17} 
 
 \subsection{Reveal Modal}
-\paragraph{} Pada dasarnya modal hanyalah sebuah kontainer kosong, jadi pengguna dapat memasukan konten apapun ke dalamnya. Untuk membuat modal, buat kelas \textbf{.reveal} dan atribut \textbf{data-reveal} lalu beri id unik ke kontainernya tersebut seperti contoh di bawah ini :
+\paragraph{} Pada dasarnya modal hanyalah sebuah kontainer kosong, jadi pengguna dapat memasukan konten apapun ke dalamnya. Untuk membuat modal, buat kelas \textbf{.reveal} dan atribut \textbf{data-reveal} lalu beri id unik ke kontainernya tersebut seperti contoh di bawah ini : .\cite{zurbfoundation:17} 
 \begin{lstlisting}
 <div class="reveal" id="exampleModal1" data-reveal>
   		...
@@ -315,7 +342,7 @@ Untuk membuka modal, tambahkan atribut \textbf{data-open} ke elemen apapun. Nila
 \begin{lstlisting}
 <p><button class="button" data-open="exampleModal1">Click me for a modal</button></p>
 \end{lstlisting}
-Jika tidak diberi aturan tambahan, pada dasarnya modal akan ditutup jika pengguna menekan area di luar dari modal atau ketika tombol ESC ditekan. Untuk memberi tombol "\textit{close}" di menu modal tambahkan atribut \textbf{data-close} ke elemen yang berisi pemicu modal. Contoh dapat dilihat pada potongan kode di bawah.
+Jika tidak diberi aturan tambahan, pada dasarnya modal akan ditutup jika pengguna menekan area di luar dari modal atau ketika tombol ESC ditekan. Untuk memberi tombol "\textit{close}" di menu modal tambahkan atribut \textbf{data-close} ke elemen yang berisi pemicu modal. Contoh dapat dilihat pada potongan kode di bawah. .\cite{zurbfoundation:17} 
 \begin{lstlisting}
 <button class="close-button" data-close aria-label="Close modal" type="button">
   <span aria-hidden="true">&times;</span>
@@ -409,19 +436,19 @@ Berikut adalah daftar variabel Sass yang dapat dikustomisasi untuk mengubah tamp
 \section{Google OAuth 2.0} %https://developers.google.com/identity/protocols/OAuth2
 \label{googleoauth}
 
-\paragraph{} Google OAuth 2.0 merupakan salah satu protokol dari Google Sign-in. Google OAuth 2.0 digunakan oleh Google API untuk otorisasi dan autentikasi. Secara garis besar, cara pemakaian Google OAuth 2.0 adalah sebagai berikut : \footnote{https://developers.google.com/identity/protocols/OAuth2}
+\paragraph{} Google OAuth 2.0 merupakan salah satu protokol dari Google Sign-in. Google OAuth 2.0 digunakan oleh Google API untuk otorisasi dan autentikasi. Secara garis besar, cara pemakaian Google OAuth 2.0 adalah sebagai berikut : \footnote{\label{noteOauth}https://developers.google.com/identity/protocols/OAuth2}
 
 	\begin{enumerate}
-  	\item Dapatkan OAuth 2.0 credential dari konsol Google API. OAuth 2.0 credential seperti client ID dan client secret yang diketahui oleh Google dan aplikasi pengguna, dapat didapatkan di halaman https://console.developers.google.com/ . 
-  	\item Dapatkan token akses dari Google Authorization Server. Sebelum aplikasi dapat mengakses data pribadi menggunakan Google API, aplikasi tersebut harus mendapat token akses yang memberikan akses ke API. Satu token akses dapat memberikan berbagai macam akses ke banyak API. Variable parameter "\textit{scope}" mengendalikan kumpulan-kumpulan sumber daya dan operasi yang telah diperbolehkan untuk diakses oleh token akses. Selama masa permintaan token akses, aplikasi mengirimkan satu atau lebih nilai ke dalam parameter "\textit{scope}". Ada beberapa cara untuk melakukan permintaan, tergantung dari tipe aplikasi yang sedang dibuat. Sebagai contoh aplikasi JavaScript dapat meminta token akses menggunakan \textit{redirect} dari \textit{browser} yang mengarah ke Google, sementara aplikasi lain yang terinstall di dalam perangkat yang tidak memiliki browser menggunakan \textit{web service} untuk melakukan permintaan. Beberapa permintaan membutuhkan tahap autentikasi yang meminta pengguna untuk masuk ke akun Google mereka. Setelah masuk ke dalam akun, pengguna akan diminta jika mereka bersedia untuk memberikan izin ke aplikasi yang sedang melakukan permintaan tersebut.
+  	\item Dapatkan OAuth 2.0 credential dari konsol Google API. OAuth 2.0 credential seperti client ID dan client secret yang diketahui oleh Google dan aplikasi pengguna, dapat didapatkan di halaman https://console.developers.google.com/ .  \textsuperscript{\ref{noteOauth}}
+  	\item Dapatkan token akses dari Google Authorization Server. Sebelum aplikasi dapat mengakses data pribadi menggunakan Google API, aplikasi tersebut harus mendapat token akses yang memberikan akses ke API. Satu token akses dapat memberikan berbagai macam akses ke banyak API. Variable parameter "\textit{scope}" mengendalikan kumpulan-kumpulan sumber daya dan operasi yang telah diperbolehkan untuk diakses oleh token akses. Selama masa permintaan token akses, aplikasi mengirimkan satu atau lebih nilai ke dalam parameter "\textit{scope}". Ada beberapa cara untuk melakukan permintaan, tergantung dari tipe aplikasi yang sedang dibuat. Sebagai contoh aplikasi JavaScript dapat meminta token akses menggunakan \textit{redirect} dari \textit{browser} yang mengarah ke Google, sementara aplikasi lain yang terinstall di dalam perangkat yang tidak memiliki browser menggunakan \textit{web service} untuk melakukan permintaan. Beberapa permintaan membutuhkan tahap autentikasi yang meminta pengguna untuk masuk ke akun Google mereka. Setelah masuk ke dalam akun, pengguna akan diminta jika mereka bersedia untuk memberikan izin ke aplikasi yang sedang melakukan permintaan tersebut.\textsuperscript{\ref{noteOauth}}
   	\begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{skenario_token.png}  
 	\caption[Skenario OAuth menggunakan token akses]{Skenario OAuth menggunakan token akses} 
 	\label{fig:skenario-token} 
 \end{figure}
-  	\item Mengirim akses token ke API. Setelah aplikasi mendapatkan akses token, aplikasi tersebut akan mengirim token ke Google API dalam bentuk HTTP \textit{authorization header}. Jika memungkinkan, aplikasi dapat mengirim token-token sebagai parameter \textit{URI query-string}. Pengiriman dalam bentuk parameter URI tidak disarankan karena parameter URI dapat tersimpan dalam \textit{log} yang tidak aman. Token akses hanya berlaku untuk kumpulan operasi dan sumber daya yang dideskripsikan dalam parameter \textit{scope} di permintaan token. 
-	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.
+  	\item Mengirim akses token ke API. Setelah aplikasi mendapatkan akses token, aplikasi tersebut akan mengirim token ke Google API dalam bentuk HTTP \textit{authorization header}. Jika memungkinkan, aplikasi dapat mengirim token-token sebagai parameter \textit{URI query-string}. Pengiriman dalam bentuk parameter URI tidak disarankan karena parameter URI dapat tersimpan dalam \textit{log} yang tidak aman. Token akses hanya berlaku untuk kumpulan operasi dan sumber daya yang dideskripsikan dalam parameter \textit{scope} di permintaan token. \textsuperscript{\ref{noteOauth}}
+	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.\textsuperscript{\ref{noteOauth}}
   
 \end{enumerate}
 
@@ -446,7 +473,7 @@ Untuk menjalankan PHPExcel, diperlukan :
 \end{itemize}
 
 \subsubsection{Membuat \textit{Spreadsheet}}
-\paragraph{} Untuk membuat \textit{spreadsheet} pengguna perlu menggunakan kelas PHPExcel. Kelas PHPExcel ini merupakan bagian inti dari PHPExcel, kelas ini merepresentasikan \textit{workbook} yang akan dibuat. Pada umumnya ada dua cara untuk membuat \textit{workbook} sebagai berikut :
+\paragraph{} Untuk membuat \textit{spreadsheet} pengguna perlu menggunakan kelas PHPExcel. Kelas PHPExcel ini merupakan bagian inti dari PHPExcel, kelas ini merepresentasikan \textit{workbook} yang akan dibuat. Pada umumnya ada dua cara untuk membuat \textit{workbook} sebagai berikut :\cite{phpexcel:14} 
 \begin{enumerate}
 	\item \textbf{Memuat \textit{workbook} dari file \textit{spreadsheet} yang sudah ada}.\\
 Cara paling mudah untuk memuat sebuah \textit{workbook} adalah dengan memerintahkan \textit{PHPExcel IO Factory} untuk mengidentifikasi file \textit{workbook-}nya lalu memuatnya dengan cara memanggil \textit{static method} load() dari kelas "\textit{PHPExcel\_IOFactory}" . Contoh cara pemuatan \textit{workbook} di dalam kode aplikasi adalah sebagai berikut:
@@ -456,8 +483,8 @@ Cara paling mudah untuk memuat sebuah \textit{workbook} adalah dengan memerintah
 	/** Load $inputFileName ke dalam obyek PHPExcel **/
 	$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
 	\end{lstlisting}
-Method load() bekerja dengan cara mengidentifikasi terlebih dahulu tipe filenya, lalu menginstansiasi sebuah \textit{loader} untuk tipe file terkait.\textit{Loader} ini lalu digunakan untuk memuat \textit{file workbook}-nya dan menyimpan data-data lalu membentuknya ke dalam obyek PHPExcel. 
-\paragraph{} Pada awalnya method load() akan memuat \textit{loader} yang dibutuhkan sesuai dari ekstensi \textit{file} \textit{workbook}, namun method ini akan memeriksa secara mendalam file tersebut sebelum memulai pemuatan \textit{workbook}-nya ke dalam obyek PHPExcel. Sebagai contoh bila sebuah file merupakan file CSV namun memiliki ekstensi .xls , maka file tersebut akan menolak \textit{loader} Excel5 yang biasanya digunakan untuk file .xls . Bila hal tersebut terjadi, maka method load() akan terus mencoba memuat workbook tersebut menggunakan \textit{loader-loader} lainnya sampai ditemukan \textit{loader} yang sesuai untuk file tersebut.  \textit{Loader} yang sudah cocok tersebut kemudian akan digunakan untuk membaca \textit{file}-nya.
+Method load() bekerja dengan cara mengidentifikasi terlebih dahulu tipe filenya, lalu menginstansiasi sebuah \textit{loader} untuk tipe file terkait.\textit{Loader} ini lalu digunakan untuk memuat \textit{file workbook}-nya dan menyimpan data-data lalu membentuknya ke dalam obyek PHPExcel. \cite{phpexcel:14} 
+\paragraph{} Pada awalnya method load() akan memuat \textit{loader} yang dibutuhkan sesuai dari ekstensi \textit{file} \textit{workbook}, namun method ini akan memeriksa secara mendalam file tersebut sebelum memulai pemuatan \textit{workbook}-nya ke dalam obyek PHPExcel. Sebagai contoh bila sebuah file merupakan file CSV namun memiliki ekstensi .xls , maka file tersebut akan menolak \textit{loader} Excel5 yang biasanya digunakan untuk file .xls . Bila hal tersebut terjadi, maka method load() akan terus mencoba memuat workbook tersebut menggunakan \textit{loader-loader} lainnya sampai ditemukan \textit{loader} yang sesuai untuk file tersebut.  \textit{Loader} yang sudah cocok tersebut kemudian akan digunakan untuk membaca \textit{file}-nya.\cite{phpexcel:14} 
 \paragraph{} Format file \textit{spreadsheet} yang didukung oleh PHPExcel adalah sebagai berikut:
 \begin{itemize}
 	\item BIFF (Excel5)
@@ -470,7 +497,7 @@ Method load() bekerja dengan cara mengidentifikasi terlebih dahulu tipe filenya,
 	\item HTML
 \end{itemize}
 	\item \textbf{Membuat \textit{workbook} baru secara manual}.\\
-Untuk membuat \textit{workbook} baru , instansiasi obyek PHPExcel di dalam kode aplikasi.
+Untuk membuat \textit{workbook} baru , instansiasi obyek PHPExcel di dalam kode aplikasi.\cite{phpexcel:14} 
 	\begin{lstlisting}
 	$objPHPExcel = new PHPExcel();
 	\end{lstlisting}
@@ -478,7 +505,7 @@ Untuk membuat \textit{workbook} baru , instansiasi obyek PHPExcel di dalam kode 
 \end{enumerate}
 
 \subsubsection{Mengakses Sel}
-Untuk memasukan atau mengubah nilai dalam suatu sel berdasarkan koordinatnya dapat dilakukan dengan menggunakan method \textit{setCellValue()}.\\
+Untuk memasukan atau mengubah nilai dalam suatu sel berdasarkan koordinatnya dapat dilakukan dengan menggunakan method \textit{setCellValue()}.\cite{phpexcel:14} \\
 Contoh :
 \begin{lstlisting}
 	// Memasukan nilai string ke sel A1
@@ -506,9 +533,9 @@ Tujuh tipe data yang didukung MS Excel :
  	\item eror
  	\item \textit{inline string}
 \end{itemize}
-Ketika method \textit{setCellValue()} atu \textit{setValue()} dipanggil, PHPExcel akan memakai tipe data yang sesuai untuk tipe data null, boolean, float atau integer yang didapat dari PHP. PHPExcel juga bisa mengubah string yang dikirimkan dari PHP ke Excel menjadi tipe data yang lebih sesuai. Sebagai contoh string yang terdiri dari angka-angka saja akan diubah menjadi tipe data numerik, atau string yang memiliki awalan tanda sama dengan "=" akan dianggap sebagai formula.
+Ketika method \textit{setCellValue()} atu \textit{setValue()} dipanggil, PHPExcel akan memakai tipe data yang sesuai untuk tipe data null, boolean, float atau integer yang didapat dari PHP. PHPExcel juga bisa mengubah string yang dikirimkan dari PHP ke Excel menjadi tipe data yang lebih sesuai. Sebagai contoh string yang terdiri dari angka-angka saja akan diubah menjadi tipe data numerik, atau string yang memiliki awalan tanda sama dengan "=" akan dianggap sebagai formula.\cite{phpexcel:14} 
 
-\paragraph{} Konversi-konversi tipe data tersebut ditangani oleh sebuah "\textit{value binder}" yang dapat diubah-ubah sesuai keinginan pengguna bila pengguna ingin mengatur cara-cara konversinya. PHPExcel standar juga menyediakan "\textit{advanced value binder}" yang menangani konversi-konversi yang lebih kompleks seperti mengonversi string menjadi bilangan pecahan seperi "3/4" menjadi nilai numerik (untuk kasus ini menjadi 0,75). Fitur ini berguna ketika memuat data dari csv atau memasukan nilai ke dalam sel dari \textit{database}.\\
+\paragraph{} Konversi-konversi tipe data tersebut ditangani oleh sebuah "\textit{value binder}" yang dapat diubah-ubah sesuai keinginan pengguna bila pengguna ingin mengatur cara-cara konversinya. PHPExcel standar juga menyediakan "\textit{advanced value binder}" yang menangani konversi-konversi yang lebih kompleks seperti mengonversi string menjadi bilangan pecahan seperi "3/4" menjadi nilai numerik (untuk kasus ini menjadi 0,75). Fitur ini berguna ketika memuat data dari csv atau memasukan nilai ke dalam sel dari \textit{database}.\cite{phpexcel:14}  \\
 Beberapa format yang ditangani oleh \textit{advanced value binder} adalah sebagai berikut:
 \begin{itemize}
 	\item TRUE atau FALSE dikonversi menjadi boolean
@@ -520,7 +547,7 @@ Beberapa format yang ditangani oleh \textit{advanced value binder} adalah sebaga
 \end{itemize}
 
 \subsubsection{Memasukan Tanggal dan atau Waktu ke Dalam Sel}
-Nilai tanggal dan waktu disimpan dalam rupa \textit{timestamp} (bilangan desimal biasa) di dalam Excel. Bilangan tersebut kemudian dibungkus oleh bilangan lain yang menentukan format penulisan tanggalnya. Jadi untuk memasukan tanggal ke dalam sel, perlu dihitung \textit{timestamp} yang benar, dan menentukan bilangan pembungkusnya.
+Nilai tanggal dan waktu disimpan dalam rupa \textit{timestamp} (bilangan desimal biasa) di dalam Excel. Bilangan tersebut kemudian dibungkus oleh bilangan lain yang menentukan format penulisan tanggalnya. Jadi untuk memasukan tanggal ke dalam sel, perlu dihitung \textit{timestamp} yang benar, dan menentukan bilangan pembungkusnya.\cite{phpexcel:14} 
 \begin{lstlisting}
 	// Mendapatkan tanggal dan waktu saat ini
 	$dateTimeNow = time();
@@ -539,7 +566,7 @@ Nilai tanggal dan waktu disimpan dalam rupa \textit{timestamp} (bilangan desimal
 \end{lstlisting}
 
 \subsubsection{Memasukan Data Numerik yang Diawali Angka Nol}
-\paragraph{} Pada umumnya PHPExcel secara otomatis akan mendeteksi tipe dari nilai yang dimasukan dan mengubahnya menjadi tipe data numerik di Excel. Tipe konversi ini ditangani oleh \textit{value binder}. Karena bilangan tidak memiliki awal angka nol, maka jika ada nilai numerik yang memiliki awalan angka nol (misalnya nomor telpon), maka nilai tersebut akan kehilangan angka-angka nol yang berada di depan.\\
+\paragraph{} Pada umumnya PHPExcel secara otomatis akan mendeteksi tipe dari nilai yang dimasukan dan mengubahnya menjadi tipe data numerik di Excel. Tipe konversi ini ditangani oleh \textit{value binder}. Karena bilangan tidak memiliki awal angka nol, maka jika ada nilai numerik yang memiliki awalan angka nol (misalnya nomor telpon), maka nilai tersebut akan kehilangan angka-angka nol yang berada di depan.\cite{phpexcel:14}  \\
 Untuk mencegah konversi demikian, ada beberapa cara untuk melakukannya diantaranya sebagai berikut:
 \begin{enumerate}
 	\item Menentukan secara manual di dalam kode agar tipe datanya tidak dikonversi ke dalam bilangan.

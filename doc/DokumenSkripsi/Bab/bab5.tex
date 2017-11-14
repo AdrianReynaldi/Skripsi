@@ -9,9 +9,10 @@
 \label{chap:implementasiDanPengujian}
 \setcounter{secnumdepth}{3}
 
-\section{Lingkungan Pengembangan Perangkat Lunak}
-\paragraph{} Pembangunan perangkat lunak ini memakai bahasa pemrogaraman server PHP 5 dan MySQL 5.0 sebagai basis datanya. Pengembangan perangkat lunak ini dilakukan di komputer dengan spesifikasi perangkat keras dan perangkat lunaknya sebagai berikut:\\
-\textbf{Perangkat Keras}
+\section{Lingkungan Pengembangan dan Pengujian Fungsional Perangkat Lunak}
+\paragraph{} Pembangunan perangkat lunak ini memakai bahasa pemrogaraman server PHP 5 dan MySQL 5.0 sebagai basis datanya. Pengembangan perangkat lunak ini dilakukan di komputer dengan spesifikasi perangkat keras dan perangkat lunaknya sebagai berikut:
+\begin{itemize}
+\item \textbf{Perangkat Keras}
 \begin{enumerate}
 	\item Prosesor AMD A6 VISION
 	\item RAM 4 GB
@@ -20,18 +21,17 @@
 	\item Keyboard
 	\item Mouse
 \end{enumerate}
-\textbf{Perangkat Lunak}
+\item \textbf{Perangkat Lunak}
 \begin{enumerate}
 	\item Sistem Operasi Windows 8
 	\item NetBeans IDE 8.0.2
-	\item Server phpMyAdmin 127.0.0.1
+	\item Server phpMyAdmin 4.3.11
 	\item XAMPP Control Panel v3.2.1
-	\item Client : Google Chrome 61.0.3163.100 32-bit
+	\item Client: Google Chrome 61.0.3163.100 32-bit
 	\item Microsoft Excel 2015
-	\item Paint
-	\item Microsoft PowerPoint 2015
 \end{enumerate}
 
+\end{itemize}
 \section{Implementasi Basis Data}
 \paragraph{}Implementasi basis data dalam Aplikasi Pembangkit Jadwal Dosen menggunakan satu tabel basis data. Tabel tersebut adalah tabel jadwal\_dosen yang menyimpan informasi-informasi seperti:
 \begin{enumerate}
@@ -44,7 +44,7 @@
 \end{enumerate}
 
 \section{Implementasi Kelas}
-Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - kelas sebagai berikut :
+Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - kelas sebagai berikut:
 \begin{enumerate}
 	\item Kelas \textit{controller} EntriJadwalDosen\\
 	Merupakan kelas yang mengatur hubungan antara kelas view EntriJadwalDosen dan kelas model JadwalDosen\_model.
@@ -58,7 +58,7 @@ Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - k
 \section{Pengujian}
 \paragraph{} Pengujian aplikasi ini dilakukan dengan menggunakan metode pengujian \textit{Black-Box Testing}. Pengujian ini difokuskan pada pengujian fungsional. Maksud dari pengujian fungsional ini adalah untuk menguji reaksi perangkat lunak terhadap aksi yang dilakukan oleh pengguna. Bila reaksi sistem tidak sesuai yang diharapkan, maka aplikasi masih memilki kekurangan.
 
-\subsubsection{Pengujian Fungsional Login}
+\subsection{Fungsional Login}
 Hasil pengujian dapat dilihat pada Tabel 5.1
 \begin{center}
 	\begin{table}[H]
@@ -73,7 +73,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.1
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Entri Jadwal Dosen}
+\subsection{Pengujian Fungsional Entri Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.2
 \begin{center}
 	\begin{table}[H]
@@ -92,7 +92,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.2
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Edit Jadwal Dosen}
+\subsection{Pengujian Fungsional Edit Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.3
 \begin{center}
 	\begin{table}[H]
@@ -111,7 +111,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.3
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Hapus Jadwal Dosen}
+\subsection{Pengujian Fungsional Hapus Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.4
 \begin{center}
 	\begin{table}[H]
@@ -130,7 +130,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.4
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Lihat Jadwal Dosen}
+\subsection{Pengujian Fungsional Lihat Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.5
 \begin{center}
 	\begin{table}[H]
@@ -147,7 +147,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.5
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Ekspor ke XLS}
+\subsection{Pengujian Fungsional Ekspor ke XLS}
 Hasil pengujian dapat dilihat pada Tabel 5.6
 \begin{center}
 	\begin{table}[H]
@@ -156,31 +156,35 @@ Hasil pengujian dapat dilihat pada Tabel 5.6
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
 		\hline
 		Menekan tombol ekspor ke XLS & 
-		Sistem membuat file .xls yang berisi seluruh jadwal dosen yang dikelompokan ke dalam \textit{worksheet-worksheet} berdasarkan \textit{email} pemilik jadwal, lalu sistem  menampilkan menu untuk memilih lokasi penyimpanan file .xls yang akan diekspor ke komputer pengguna. &
-		Sistem membuat file .xls yang berisi seluruh jadwal dosen yang dikelompokan ke dalam \textit{worksheet-worksheet} berdasarkan \textit{email} pemilik jadwal, lalu sistem  menampilkan menu untuk memilih lokasi penyimpanan file .xls yang akan diekspor ke komputer pengguna. \\
+		Sistem membuat file .xlsx yang berisi seluruh jadwal dosen yang dikelompokan ke dalam \textit{worksheet-worksheet} berdasarkan \textit{email} pemilik jadwal, lalu sistem  menampilkan menu untuk memilih lokasi penyimpanan file .xlsx yang akan diekspor ke komputer pengguna. &
+		Sistem membuat file .xlsx yang berisi seluruh jadwal dosen yang dikelompokan ke dalam \textit{worksheet-worksheet} berdasarkan \textit{email} pemilik jadwal, lalu sistem  menampilkan menu untuk memilih lokasi penyimpanan file .xlsx yang akan diekspor ke komputer pengguna. \\
 		\hline
 		\end{tabular}
 		\caption{Pengujian Fungsional Ekspor ke XLS}
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Pembukaan File XLS}
-File yang telah diekspor ke komputer memunculkan eror ketika dibuka di Microsoft Excel 2015.
+
+\section{Penugjian Ekperimental}
+\subsection{Pengujian Eksperimental Pembuatan File Spreadsheet Menggunakan Tipe .xlsx}
+Pengujian ini dilakukan dengan tujuan agar aplikasi yang dikembangkan dapat membuat file \textit{spreadsheet} menggunakan tipe yang terbaru untuk mengantisipasi perkembangan-perkembangan selanjutnya. Tipe file .xlsx sudah digunakan sejak Microsoft Excel 2007 dan merupakan tipe utama yang digunakan Microsoft Excel sampai saat penulisan skripsi ini dibuat. Pengujian ini dilakukan dengan membuka file .xlsx yang telah diekspor ke komputer. 
+\subsubsection{Hasil Pengujian}
+Ketika file .xlsx tersebut dibuka menggunakan Microsoft Excel 2015, muncul eror yang dapat dilihat pada Gambar 5.1 dan Gambar 5.2.
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.4]{erorXLSX.png}}
-	\caption[Tampilan eror saat membuka file XLS]{Tampilan eror saat membuka file XLS} 
+	\caption[Tampilan eror saat membuka file bertipe .xlsx]{Tampilan eror saat membuka file bertipe .xlsx} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.4]{erorXLSXDetail.png}}
-	\caption[Keterangan Eror File XLS]{Keterangan Eror File XLS} 
+	\caption[Keterangan Eror File .xlsx]{Keterangan Eror File .xlsx} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 
-Log dari eror tersebut :
+Log eror:
 \begin{lstlisting}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <recoveryLog xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
@@ -189,30 +193,76 @@ Log dari eror tersebut :
 <removedRecords summary="Following is a list of removed records:"><removedRecord>Removed Records: Merge cells from /xl/worksheets/sheet4.xml part
 </removedRecord></removedRecords></recoveryLog>
 \end{lstlisting}
-Dilihat dari log eror tersebut eror terjadi karena ada perintah \textit{merge cells} yang dihapus oleh MS Excel.
+\paragraph{}Dilihat dari log eror tersebut, eror ini terjadi karena ada perintah \textit{merge cells} yang dihapus oleh MS Excel. Hal ini terjadi karena adanya perintah dari PHPExcel versi 1.8.0 yang belum mendukung file bertipe .xlsx.
+\paragraph{}Karena eror di atas disebabkan oleh permasalahan kompabilitas PHPExcel 1.8.0 dan tipe file .xlsx, maka hal ini dapat diatasi dengan cara mengubah tipe file yang diekspor dari file .xlsx menjadi tipe yang lebih lama yaitu .xls.
+\newline
+\newline
+Potongan kode lama yang menyebabkan eror:
+\begin{lstlisting}
+ $filename = 'JadwalDosen-'.date("Ymd").'.xlsx'; //Nama file XLS yang akan dibuat
+        header('Content-type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
 
-\section{Penambahan Fitur Aplikasi Pembangkit Jadwal Dosen}
-Selama pengerjaan skripsi ini ada beberapa fitur yang ditambahkan ke dalam Aplikasi Pembangkit Jadwal Dosen yang dinilai cukup penting untuk mempermudah penggunaannya.
-\subsubsection{Penambahan Tombol \textit{Delete All}}
-Tombol "Delete All" berfungsi untuk menghapus semua jadwal yang sudah dimasukan oleh pengguna.
+        $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
+\end{lstlisting}
+Potongan kode baru untuk menghilangkan eror:
+\begin{lstlisting}
+ $filename = 'JadwalDosen-'.date("Ymd").'.xls'; //Nama file XLS yang akan dibuat
+        header('Content-type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+
+        $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+\end{lstlisting}
+Seperti bisa dilihat pada dua potongan kode program di atas, terjadi perubahan pada baris pertama kode dan baris terakhir kode. Pada baris pertama ekstensi file diubah dari .xlsx menjadi .xls. Pada baris terakhir tipe spreadsheet diubah dari 'Excel2007' menjadi 'Excel5'.
+\paragraph{}Setelah tipe file diubah menjadi  .xls, eror di Microsoft Excel pun hilang.
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.4]{tesXLSSukses.png}}
+	\caption[Eror Sudah Tidak Muncul Ketika File Dibuka]{Eror Sudah Tidak Muncul Ketika File Dibuka} 
+	\label{fig:eror-hilang} 
+\end{figure}
+
+\subsection{Pengujian Eksperimental Penambahan Tombol \textit{Delete All}}
+Tombol "Delete All" berfungsi untuk menghapus semua jadwal yang sudah dimasukan oleh pengguna. Hasil yang diharapkan adalah ketika tombol ini ditekan akan memunculkan pop-up dan ketika tombol "ok" ditekan akan mengeksekusi perintah untuk menghapus semua jadwal milik user.
+\subsubsection{Hasil Pengujian}
+Tombol "Delete All" dibuat di halaman EntriJadwalDosen di pojok kiri bawah.
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{deleteAllButton.png}}
 	\caption[Tombol \textit{Delete All} di Entri Jadwal Dosen]{Tombol \textit{Delete All} di Entri Jadwal Dosen} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
-\subsubsection{Penambahan Informasi Waktu \textit{Update} Terakhir Jadwal}
-Informasi waktu \textit{update} terakhir jadwal oleh pengguna berfungsi agar pengguna dapat membedakan apakah jadwal miliknya merupakan versi lama yang sudah tidak dipakai atau merupakan versi baru.
+Ketika tombol "Delete All" ditekan muncul tampilan konfirmasi
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{popupDeleteAll.png}}
+	\caption[Tampilan Konfirmasi]{\textbf{Tombol \textit{Delete All} di Entri Jadwal Dosen}} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+Setelah tombol "ok" ditekan, semua jadwal dihapus
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{empty.png}}
+	\caption[Semua Jadwal Dihapus]{Semua Jadwal Dihapus} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
+
+\subsection{Pengujian Eksperimental Penambahan Informasi Waktu \textit{Update} Terakhir Jadwal}
+Informasi waktu \textit{update} terakhir jadwal oleh pengguna berfungsi agar pengguna dapat membedakan apakah jadwal miliknya merupakan versi lama yang sudah tidak dipakai atau merupakan versi baru. Hasil yang diharapkan adalah muncul label di halaman EntriJadwalDosen dan LihatJadwalDosen.
+\subsubsection{Hasil Pengujian}
+Label berisi tanggal terakhir update jadwal muncul di halaman EntriJadwalDosen
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{updateTerakhir.png}}
-	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal  di Entri Jadwal Dosen} 
+	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
-
+Label berisi tanggal terakhir update jadwal muncul di halaman LihatJadwalDosen
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{updateTerakhirLihat.png}}
 	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
+Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
