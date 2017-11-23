@@ -148,20 +148,15 @@ Controller dapat memanggil view menggunakan potongan kode seperti di bawah ini :
 \end{lstlisting}
 Jika 1 halaman terdiri dari beberapa view, CodeIgniter juga menyediakan cara untuk memanggil banyak view sekaligus:
 \begin{lstlisting}
-	<?php
+	class Page
 
-	class Page extends CI_Controller {
+       	 function INDEX()
+        	     $data['page_title'] = 'Your title'
+        	     load->view('header')
+        	     load->view('menu')
+       	         load->view('content', $data)
+       	         load->view('footer')
 
-       	 public function index()
-       	 {
-        	     $data['page_title'] = 'Your title';
-        	     $this->load->view('header');
-        	     $this->load->view('menu');
-       	         $this->load->view('content', $data);
-       	         $this->load->view('footer');
-       	 }
-
-	}
 \end{lstlisting}
 BIla ada data lain yang akan dikirimkan ke view dari controller, gunakan potongan kode seperti di bawah ini :
 \begin{lstlisting}
@@ -258,7 +253,7 @@ Urutan penomran dapat diatur menggunakan \textit{\$config['migration\_type']} di
 \end{itemize}
 
 \subsection{Flow Chart Codeignter}
-Gambar dibawah mengilustrasikan aliran data dalam sistem : \footnote{https://www.codeigniter.com/userguide3/overview/appflow.html} 
+Gambar dibawah mengilustrasikan aliran data dalam sistem : 
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{appflowchart.png}  
@@ -322,10 +317,10 @@ Fitur yang didukung :
 Komponen-komponen dalam Foundation sendiri ada beberapa macam diantarnya sebagai berikut:
 
 \begin{itemize}
-	\item  Grid untuk mempermudah pembagian halaman.\footnote{\label{note2}http://foundation.zurb.com/sites/docs/v/5.5.3/}
-	\item  Desain tombol yang bermacam-macam. Desain tombol ini dapat diubah-ubah dengan cara menambahkan kelas.\textsuperscript{\ref{note2}}
-	\item  Navigasi untuk mempermudah pengunjung aplikasi dalam menggunakan aplikasinya.\textsuperscript{\ref{note2}}
-	\item  Plugins JavaScript untuk mempermudah \textit{developer} dalam membuat tampilan aplikasinya.\textsuperscript{\ref{note2}}
+	\item  Grid untuk mempermudah pembagian halaman.
+	\item  Desain tombol yang bermacam-macam. Desain tombol ini dapat diubah-ubah dengan cara menambahkan kelas.
+	\item  Navigasi untuk mempermudah pengunjung aplikasi dalam menggunakan aplikasinya.
+	\item  Plugins JavaScript untuk mempermudah \textit{developer} dalam membuat tampilan aplikasinya.
 \end{itemize}
 
 \subsection{Top Bar}
@@ -436,19 +431,18 @@ Berikut adalah daftar variabel Sass yang dapat dikustomisasi untuk mengubah tamp
 \section{Google OAuth 2.0} %https://developers.google.com/identity/protocols/OAuth2
 \label{googleoauth}
 
-\paragraph{} Google OAuth 2.0 merupakan salah satu protokol dari Google Sign-in. Google OAuth 2.0 digunakan oleh Google API untuk otorisasi dan autentikasi. Secara garis besar, cara pemakaian Google OAuth 2.0 adalah sebagai berikut : \footnote{\label{noteOauth}https://developers.google.com/identity/protocols/OAuth2}
-
+\paragraph{} Google OAuth 2.0 merupakan salah satu protokol dari Google Sign-in. Google OAuth 2.0 digunakan oleh Google API untuk otorisasi dan autentikasi. Secara garis besar, cara pemakaian Google OAuth 2.0 adalah sebagai berikut : 
 	\begin{enumerate}
-  	\item Dapatkan OAuth 2.0 credential dari konsol Google API. OAuth 2.0 credential seperti client ID dan client secret yang diketahui oleh Google dan aplikasi pengguna, dapat didapatkan di halaman https://console.developers.google.com/ .  \textsuperscript{\ref{noteOauth}}
-  	\item Dapatkan token akses dari Google Authorization Server. Sebelum aplikasi dapat mengakses data pribadi menggunakan Google API, aplikasi tersebut harus mendapat token akses yang memberikan akses ke API. Satu token akses dapat memberikan berbagai macam akses ke banyak API. Variable parameter "\textit{scope}" mengendalikan kumpulan-kumpulan sumber daya dan operasi yang telah diperbolehkan untuk diakses oleh token akses. Selama masa permintaan token akses, aplikasi mengirimkan satu atau lebih nilai ke dalam parameter "\textit{scope}". Ada beberapa cara untuk melakukan permintaan, tergantung dari tipe aplikasi yang sedang dibuat. Sebagai contoh aplikasi JavaScript dapat meminta token akses menggunakan \textit{redirect} dari \textit{browser} yang mengarah ke Google, sementara aplikasi lain yang terinstall di dalam perangkat yang tidak memiliki browser menggunakan \textit{web service} untuk melakukan permintaan. Beberapa permintaan membutuhkan tahap autentikasi yang meminta pengguna untuk masuk ke akun Google mereka. Setelah masuk ke dalam akun, pengguna akan diminta jika mereka bersedia untuk memberikan izin ke aplikasi yang sedang melakukan permintaan tersebut.\textsuperscript{\ref{noteOauth}}
+  	\item Dapatkan OAuth 2.0 credential dari konsol Google API. OAuth 2.0 credential seperti client ID dan client secret yang diketahui oleh Google dan aplikasi pengguna, dapat didapatkan di halaman https://console.developers.google.com/ .
+  	\item Dapatkan token akses dari Google Authorization Server. Sebelum aplikasi dapat mengakses data pribadi menggunakan Google API, aplikasi tersebut harus mendapat token akses yang memberikan akses ke API. Satu token akses dapat memberikan berbagai macam akses ke banyak API. Variable parameter "\textit{scope}" mengendalikan kumpulan-kumpulan sumber daya dan operasi yang telah diperbolehkan untuk diakses oleh token akses. Selama masa permintaan token akses, aplikasi mengirimkan satu atau lebih nilai ke dalam parameter "\textit{scope}". Ada beberapa cara untuk melakukan permintaan, tergantung dari tipe aplikasi yang sedang dibuat. Sebagai contoh aplikasi JavaScript dapat meminta token akses menggunakan \textit{redirect} dari \textit{browser} yang mengarah ke Google, sementara aplikasi lain yang terinstall di dalam perangkat yang tidak memiliki browser menggunakan \textit{web service} untuk melakukan permintaan. Beberapa permintaan membutuhkan tahap autentikasi yang meminta pengguna untuk masuk ke akun Google mereka. Setelah masuk ke dalam akun, pengguna akan diminta jika mereka bersedia untuk memberikan izin ke aplikasi yang sedang melakukan permintaan tersebut.
   	\begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{skenario_token.png}  
 	\caption[Skenario OAuth menggunakan token akses]{Skenario OAuth menggunakan token akses} 
 	\label{fig:skenario-token} 
 \end{figure}
-  	\item Mengirim akses token ke API. Setelah aplikasi mendapatkan akses token, aplikasi tersebut akan mengirim token ke Google API dalam bentuk HTTP \textit{authorization header}. Jika memungkinkan, aplikasi dapat mengirim token-token sebagai parameter \textit{URI query-string}. Pengiriman dalam bentuk parameter URI tidak disarankan karena parameter URI dapat tersimpan dalam \textit{log} yang tidak aman. Token akses hanya berlaku untuk kumpulan operasi dan sumber daya yang dideskripsikan dalam parameter \textit{scope} di permintaan token. \textsuperscript{\ref{noteOauth}}
-	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.\textsuperscript{\ref{noteOauth}}
+  	\item Mengirim akses token ke API. Setelah aplikasi mendapatkan akses token, aplikasi tersebut akan mengirim token ke Google API dalam bentuk HTTP \textit{authorization header}. Jika memungkinkan, aplikasi dapat mengirim token-token sebagai parameter \textit{URI query-string}. Pengiriman dalam bentuk parameter URI tidak disarankan karena parameter URI dapat tersimpan dalam \textit{log} yang tidak aman. Token akses hanya berlaku untuk kumpulan operasi dan sumber daya yang dideskripsikan dalam parameter \textit{scope} di permintaan token. 
+	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.
   
 \end{enumerate}
 

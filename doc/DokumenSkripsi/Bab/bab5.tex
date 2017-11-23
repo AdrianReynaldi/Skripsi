@@ -9,7 +9,8 @@
 \label{chap:implementasiDanPengujian}
 \setcounter{secnumdepth}{3}
 
-\section{Lingkungan Pengembangan dan Pengujian Fungsional Perangkat Lunak}
+\section{Implementasi}
+\subsubsection{Lingkungan Pengembangan dan Pengujian Fungsional}
 \paragraph{} Pembangunan perangkat lunak ini memakai bahasa pemrogaraman server PHP 5 dan MySQL 5.0 sebagai basis datanya. Pengembangan perangkat lunak ini dilakukan di komputer dengan spesifikasi perangkat keras dan perangkat lunaknya sebagai berikut:
 \begin{itemize}
 \item \textbf{Perangkat Keras}
@@ -32,7 +33,7 @@
 \end{enumerate}
 
 \end{itemize}
-\section{Implementasi Basis Data}
+\subsection{Implementasi Basis Data}
 \paragraph{}Implementasi basis data dalam Aplikasi Pembangkit Jadwal Dosen menggunakan satu tabel basis data. Tabel tersebut adalah tabel jadwal\_dosen yang menyimpan informasi-informasi seperti:
 \begin{enumerate}
 	\item user yang memiliki jadwal terkait
@@ -43,7 +44,7 @@
 	\item waktu terakhir jadwal diupdate
 \end{enumerate}
 
-\section{Implementasi Kelas}
+\subsection{Implementasi Kelas}
 Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - kelas sebagai berikut:
 \begin{enumerate}
 	\item Kelas \textit{controller} EntriJadwalDosen\\
@@ -58,7 +59,8 @@ Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - k
 \section{Pengujian}
 \paragraph{} Pengujian aplikasi ini dilakukan dengan menggunakan metode pengujian \textit{Black-Box Testing}. Pengujian ini difokuskan pada pengujian fungsional. Maksud dari pengujian fungsional ini adalah untuk menguji reaksi perangkat lunak terhadap aksi yang dilakukan oleh pengguna. Bila reaksi sistem tidak sesuai yang diharapkan, maka aplikasi masih memilki kekurangan.
 
-\subsection{Fungsional Login}
+\subsection{Pengujian Fungsional}
+\subsubsection{Pengujian Fungsional Login}
 Hasil pengujian dapat dilihat pada Tabel 5.1
 \begin{center}
 	\begin{table}[H]
@@ -73,7 +75,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.1
 	\end{table}
 \end{center}
 
-\subsection{Pengujian Fungsional Entri Jadwal Dosen}
+\subsubsection{Pengujian Fungsional Entri Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.2
 \begin{center}
 	\begin{table}[H]
@@ -92,7 +94,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.2
 	\end{table}
 \end{center}
 
-\subsection{Pengujian Fungsional Edit Jadwal Dosen}
+\subsubsection{Pengujian Fungsional Edit Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.3
 \begin{center}
 	\begin{table}[H]
@@ -111,7 +113,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.3
 	\end{table}
 \end{center}
 
-\subsection{Pengujian Fungsional Hapus Jadwal Dosen}
+\subsubsection{Pengujian Fungsional Hapus Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.4
 \begin{center}
 	\begin{table}[H]
@@ -130,7 +132,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.4
 	\end{table}
 \end{center}
 
-\subsection{Pengujian Fungsional Lihat Jadwal Dosen}
+\subsubsection{Pengujian Fungsional Lihat Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.5
 \begin{center}
 	\begin{table}[H]
@@ -147,7 +149,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.5
 	\end{table}
 \end{center}
 
-\subsection{Pengujian Fungsional Ekspor ke XLS}
+\subsubsection{Pengujian Fungsional Ekspor ke XLS}
 Hasil pengujian dapat dilihat pada Tabel 5.6
 \begin{center}
 	\begin{table}[H]
@@ -200,18 +202,18 @@ Log eror:
 Potongan kode lama yang menyebabkan eror:
 \begin{lstlisting}
  $filename = 'JadwalDosen-'.date("Ymd").'.xlsx'; //Nama file XLS yang akan dibuat
-        header('Content-type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="' . $filename . '"');
+ header('Content-type: application/vnd.ms-excel');
+ header('Content-Disposition: attachment;filename="' . $filename . '"');
 
-        $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
+ $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
 \end{lstlisting}
 Potongan kode baru untuk menghilangkan eror:
 \begin{lstlisting}
  $filename = 'JadwalDosen-'.date("Ymd").'.xls'; //Nama file XLS yang akan dibuat
-        header('Content-type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="' . $filename . '"');
+ header('Content-type: application/vnd.ms-excel');
+ header('Content-Disposition: attachment;filename="' . $filename . '"');
 
-        $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+ $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
 \end{lstlisting}
 Seperti bisa dilihat pada dua potongan kode program di atas, terjadi perubahan pada baris pertama kode dan baris terakhir kode. Pada baris pertama ekstensi file diubah dari .xlsx menjadi .xls. Pada baris terakhir tipe spreadsheet diubah dari 'Excel2007' menjadi 'Excel5'.
 \paragraph{}Setelah tipe file diubah menjadi  .xls, eror di Microsoft Excel pun hilang.
