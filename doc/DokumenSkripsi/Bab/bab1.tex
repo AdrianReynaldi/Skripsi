@@ -7,16 +7,16 @@
 
 \paragraph{} Aplikasi \textit{Blue Tape} adalah aplikasi sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. Selain itu aplikasi \textit{Blue Tape} ini didesain sebagai \textit{framework} agar dapat ditambahkan layanan-layanan baru. Untuk menambahkan layanan baru sudah tersedia menu khusus, developer cukup menambahkan layanan baru dalam bentuk modul. Untuk saat ini \textit{Blue Tape} baru memiliki layanan untuk \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
 
-Pada saat ini untuk menginformasikan jadwalnya masing-masing, dosen harus mencetak \textit{hardcopy}-nya dengan template seperti pada gambar di bawah.
+Pada saat ini untuk menginformasikan jadwalnya masing-masing, dosen harus mencetak \textit{hardcopy}-nya dengan template seperti pada Gambar 1.1. di bawah ini.
 
 %\includegraphics[scale=0.7]{template-jadwal-dosen.png}
-\begin{figure} [ht]
+\begin{figure} [h]
 	\centering  
-	\includegraphics[scale=0.7]{template-jadwal-dosen.png}  
+	\includegraphics[scale=0.5]{template-jadwal-dosen.png}  
 	\caption[Template jadwal dosen]{Template jadwal dosen} 
 	\label{fig:template-jadwal-dosen} 
 \end{figure} 
-Jadwal tersebut akan ditempelkan pada dinding ruangan masing-masing dosen. Sedangkan bila menggunakan Blue Tape maka dosen tidak perlu lagi mencetak jadwalnya tersebut karena mahasiswa dapat melihat jadwal setiap dosen di dalam aplikasi ini. Maka dari itu aplikasi ini membuat pencatatan jadwal dosen menjadi \textit{papeless}.
+Jadwal tersebut akan ditempel pada dinding ruangan masing-masing dosen. Sedangkan bila menggunakan Blue Tape maka dosen tidak perlu lagi mencetak jadwalnya tersebut karena mahasiswa dapat melihat jadwal setiap dosen di dalam aplikasi ini. Maka dari itu aplikasi ini membuat pencatatan jadwal dosen menjadi \textit{papeless}.
 
 %referensi pake unpublished
 
@@ -46,14 +46,13 @@ Tujuan yang ingin dicapai dalam penelitian ini :
 \section{Batasan Masalah}
 \label{sec:batasan}
 Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut:
+
 -tidak memeriksa hasil akhir XLS atau tidak
 -user experience tidak dibuat serumit atau selengkap Google Calendar
-%\begin{itemize}
-	%\item Penggunaan \textit{framework} Codeigniter untuk penulisan kode sistem informasi
-	%\item Penggunaan Bootstrap untuk tampilan sistem informasi
-	%\item Penggunaan Bootstrap untuk tampilan sistem informasi			-----------BATASAN MASALAH ISI NANTI----------------
-	%\item Penggunaan Bootstrap untuk tampilan sistem informasi
-%\end{itemize}
+\begin{itemize}
+	\item Aplikasi ini tidak memeriksa hasil akhir bertipe file .xls, .xlsx atau tipe file lainnya.
+	\item Aplikasi ini tidak memiliki fitur serumit atau selengkap Google Calendar. Aplikasi ini hanya didesign khusus untuk memasukan, menampilkan dan mengeskpor jadwal dosen.
+\end{itemize}
 
 \section{Metodologi}
 \label{sec:metlit}
@@ -83,12 +82,12 @@ Untuk penulisan skripsi ini akan dibagi dalam enam bagian sebagai berikut :
 
 Bab 1 Pendahuluan berisi latar belakang, rumusan masalah, tujuan, batasan masalah,  metodologi penelitian dan sistematika penulisan.
 
-Bab 2 Landasan Teori berisi dasar-dasar teori yang akan digunakan dalam pembuatan aplikasi pembangkit jadwal dosen. Dasar-dasar teori yang akan digunakan diantarnya adalah bahasa pemrograman PHP, framework Codeigniter, Zurb Foundation dan PHPExcel.
+Bab 2 Landasan Teori berisi dasar-dasar teori yang akan digunakan dalam pembuatan aplikasi pembangkit jadwal dosen. Dasar-dasar teori yang akan digunakan diantarnya adalah bahasa pemrograman PHP, framework Codeigniter, Google OAuth, CSRF, Zurb Foundation dan PHPExcel.
 
-Bab 3 Analisis berisi analisis kebutuhan data, analisis sistem yang sudah ada sekarang dan analisis sistem usulan
+Bab 3 Analisis berisi analisis kebutuhan data, analisis sistem yang sudah ada sekarang dan analisis sistem usulan.
 
-Bab 4 Perancangan
+Bab 4 Perancangan berisi perancangan basis data, perancangan kelas-kelas program dan perancangan antarmuka program.
 
-Bab 5 Implementasi dan Pengujian
+Bab 5 Implementasi dan Pengujian menjelaskan mengenai lingkungan yang digunakan dalam proses implementasi dan pengujian Aplikasi Pembangkit Jadwal Dosen. Bab ini juga mencatat hasil pengujian fungsional dan hasil pengujian eksperimental program.
 
-Bab 6 Kesimpulan dan Saran
+Bab 6 Kesimpulan dan Saran berisi kesimpulan dari hasil pembuatan Aplikasi Pembangkit Jadwal Dosen ini dan kegunaannya, serta memberikan saran-saran untuk kelanjutan pengembangan aplikasi ini.

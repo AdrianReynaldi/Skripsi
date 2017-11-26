@@ -29,7 +29,7 @@
 	\item Server phpMyAdmin 4.3.11
 	\item XAMPP Control Panel v3.2.1
 	\item Client: Google Chrome 61.0.3163.100 32-bit
-	\item Microsoft Excel 2015
+	\item Microsoft Excel 2013
 \end{enumerate}
 
 \end{itemize}
@@ -168,10 +168,14 @@ Hasil pengujian dapat dilihat pada Tabel 5.6
 
 
 \section{Penugjian Ekperimental}
-\subsection{Pengujian Eksperimental Pembuatan File Spreadsheet Menggunakan Tipe .xlsx}
-Pengujian ini dilakukan dengan tujuan agar aplikasi yang dikembangkan dapat membuat file \textit{spreadsheet} menggunakan tipe yang terbaru untuk mengantisipasi perkembangan-perkembangan selanjutnya. Tipe file .xlsx sudah digunakan sejak Microsoft Excel 2007 dan merupakan tipe utama yang digunakan Microsoft Excel sampai saat penulisan skripsi ini dibuat. Pengujian ini dilakukan dengan membuka file .xlsx yang telah diekspor ke komputer. 
-\subsubsection{Hasil Pengujian}
-Ketika file .xlsx tersebut dibuka menggunakan Microsoft Excel 2015, muncul eror yang dapat dilihat pada Gambar 5.1 dan Gambar 5.2.
+\paragraph{}Pengujian eksperimtal dilakukan dengan cara mengunggah kode-kode program ke bluetape.azure yang sudah digunakan oleh mahasiswa dan staf UNPAR sehingga dosen dapat memakai fasilitas baru ini untuk didapatkan. Pengujian ini dilakukan pada semester ganjil 2017/2018.Dari hasil pemakaian, didapatkan masukan-masukan dari pengguna aplkasi ini yang menjadi basis pengujian eksperimental.
+Masukan-masukan ini disimpan ke dalam \textit{issue} git proyek BlueTape yang memiliki \textit{tag} "Jadwal Dosen". Semua \textit{issue} dapat dilihat di \textit{https://github.com/ftisunpar/BlueTape}.
+
+\subsection{Pengujian Eksperimental Pembuatan File Spreadsheet Menggunakan Tipe Extensi File .xlsx}
+\subsubsection{Permasalahan}
+Pengujian ini merupakan hasil dari masukan Ibu Mariskha yang memilki masalah bahwa tab jadwal milik beliau tidak muncul setelah jadwal-jadwal diekspor ke dalam \textit{spreadsheet}.Pengujian ini dilakukan dengan mengekspor jadwal ke dalam tipe file .xlsx yang sudah digunakan sejak Microsoft Excel 2007.
+\subsubsection{Analisis}
+Ketika file .xlsx tersebut dibuka menggunakan Microsoft Excel 2013, muncul eror yang dapat dilihat pada Gambar 5.1 dan Gambar 5.2.
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.4]{erorXLSX.png}}
@@ -195,12 +199,13 @@ Log eror:
 <removedRecords summary="Following is a list of removed records:"><removedRecord>Removed Records: Merge cells from /xl/worksheets/sheet4.xml part
 </removedRecord></removedRecords></recoveryLog>
 \end{lstlisting}
-\paragraph{}Dilihat dari log eror tersebut, eror ini terjadi karena ada perintah \textit{merge cells} yang dihapus oleh MS Excel. Hal ini terjadi karena adanya perintah dari PHPExcel versi 1.8.0 yang belum mendukung file bertipe .xlsx.
-\paragraph{}Karena eror di atas disebabkan oleh permasalahan kompabilitas PHPExcel 1.8.0 dan tipe file .xlsx, maka hal ini dapat diatasi dengan cara mengubah tipe file yang diekspor dari file .xlsx menjadi tipe yang lebih lama yaitu .xls.
+
+\subsubsection{Hasil Pengujian dan Penyelesaian Masalah} 
+\paragraph{}Dilihat dari log eror pada bagian Analisis di atas, eror terjadi karena ada perintah \textit{merge cells} yang dihapus oleh MS Excel. Hal ini terjadi karena adanya perintah dari PHPExcel versi 1.8.0 yang belum mendukung file bertipe .xlsx sehingga tab jadwal milik ibu Mariskha tidak muncul. Maka karena eror disebabkan oleh permasalahan kompabilitas PHPExcel 1.8.0 dan tipe file .xlsx,  hal ini dapat diatasi dengan cara mengubah tipe file yang diekspor dari file .xlsx menjadi tipe yang lebih lama yaitu .xls.
 \newline
 \newline
 Potongan kode lama yang menyebabkan eror:
-\begin{lstlisting}
+\begin{lstlisting}[caption={Kode Lama},captionpos=b]
  $filename = 'JadwalDosen-'.date("Ymd").'.xlsx'; //Nama file XLS yang akan dibuat
  header('Content-type: application/vnd.ms-excel');
  header('Content-Disposition: attachment;filename="' . $filename . '"');
@@ -208,7 +213,7 @@ Potongan kode lama yang menyebabkan eror:
  $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel2007');
 \end{lstlisting}
 Potongan kode baru untuk menghilangkan eror:
-\begin{lstlisting}
+\begin{lstlisting}[caption={Kode Baru},captionpos=b]
  $filename = 'JadwalDosen-'.date("Ymd").'.xls'; //Nama file XLS yang akan dibuat
  header('Content-type: application/vnd.ms-excel');
  header('Content-Disposition: attachment;filename="' . $filename . '"');
@@ -225,8 +230,19 @@ Seperti bisa dilihat pada dua potongan kode program di atas, terjadi perubahan p
 \end{figure}
 
 \subsection{Pengujian Eksperimental Penambahan Tombol \textit{Delete All}}
-Tombol "Delete All" berfungsi untuk menghapus semua jadwal yang sudah dimasukan oleh pengguna. Hasil yang diharapkan adalah ketika tombol ini ditekan akan memunculkan pop-up dan ketika tombol "ok" ditekan akan mengeksekusi perintah untuk menghapus semua jadwal milik user.
-\subsubsection{Hasil Pengujian}
+\subsubsection{Masalah}
+\paragraph{}Ketika jadwal yang dimasukan sudah sangat banyak, maka akan sulit untuk membersihkan tabel jadwal bila pengguna harus menghapus jadwal-jadwal tersebut satu per satu. Oleh karena itu Bapak Pascal mengusulkan untuk mengimplementasikan tombol "Delete All" yang berfungsi untuk menghapus semua jadwal yang sudah dimasukan oleh pengguna. 
+
+\subsubsection{Analisis}
+\paragraph{}Karena tombol "Delete All" ini memiliki pengaruh yang besar bila tidak sengaja tertekan oleh pengguna, maka diperlukan konfirmasi sebelum perintah penghapusan jadwal dieksekusi sistem.\newline
+Untuk menangani itu diperlukan cara kerja sistem sebagai berikut:
+\begin{enumerate}
+	\item Ketika tombol "Delete All" ditekan akan ditampilkan \textit{pop-up} konfirmasi penghapusan jadwal.
+	\item Lalu ketika tombol "ok" ditekan akan mengeksekusi perintah untuk menghapus semua jadwal milik user.
+	\item Jika pengguna menekan tombol "cancel", sistem akan membatalkan perintah penghapusan jadwal dan menutup \textit{pop-up} konfirmasi.
+\end{enumerate}
+
+\subsubsection{Hasil Pengujian dan Penyelesaian Masalah}
 Tombol "Delete All" dibuat di halaman EntriJadwalDosen di pojok kiri bawah.
 \begin{figure} [H]
 	\centering  
@@ -234,7 +250,7 @@ Tombol "Delete All" dibuat di halaman EntriJadwalDosen di pojok kiri bawah.
 	\caption[Tombol \textit{Delete All} di Entri Jadwal Dosen]{Tombol \textit{Delete All} di Entri Jadwal Dosen} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
-Ketika tombol "Delete All" ditekan muncul tampilan konfirmasi
+Ketika tombol "Delete All" ditekan memunculkan tampilan konfirmasi
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{popupDeleteAll.png}}
@@ -251,20 +267,87 @@ Setelah tombol "ok" ditekan, semua jadwal dihapus
 Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
 
 \subsection{Pengujian Eksperimental Penambahan Informasi Waktu \textit{Update} Terakhir Jadwal}
+\subsubsection{Masalah}
+\paragraph{}Fitur ini merupakan usulan dari Bapak Pascal karena sering kali pengguna lupa kapan terakhir kali pengguna memasukan atau mengubah jadwal. Hal ini menyulitkan pengguna untuk mengetahui apakah jadwal yang telah ia masukan dapat dipakai atau tidak.
+\subsubsection{Analisis}
 Informasi waktu \textit{update} terakhir jadwal oleh pengguna berfungsi agar pengguna dapat membedakan apakah jadwal miliknya merupakan versi lama yang sudah tidak dipakai atau merupakan versi baru. Hasil yang diharapkan adalah muncul label di halaman EntriJadwalDosen dan LihatJadwalDosen.
-\subsubsection{Hasil Pengujian}
-Label berisi tanggal terakhir update jadwal muncul di halaman EntriJadwalDosen
+\subsubsection{Hasil Pengujian dan Penyelesaian Masalah}
+Label yang bertuliskan informasi mengenai tanggal terakhir \textit{update} jadwal muncul di halaman EntriJadwalDosen
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{updateTerakhir.png}}
-	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen} 
-	\label{fig:flow-chart-CodeIgniter} 
+	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal di Entri Jadwal Dosen}
 \end{figure}
 Label berisi tanggal terakhir update jadwal muncul di halaman LihatJadwalDosen
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{updateTerakhirLihat.png}}
-	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen} 
-	\label{fig:flow-chart-CodeIgniter} 
+	\caption[Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen]{Informasi Waktu \textit{Update} Terakhir Jadwal di Lihat Jadwal Dosen}
 \end{figure}
 Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
+
+\subsection{Pengujian Eksperimental \textit{Conflict Handler}}
+\subsubsection{Masalah}
+\paragraph{}Terdapat masalah bila ketika pengguna memasukan atau mengupdate jadwal, sistem tidak memeriksa apakah sudah ada jadwal pada waktu yang dimasukan oleh pengguna. Masalah ini merupakan masalah yang ditemukan oleh penulis sendiri.
+\subsubsection{Analisis}
+Untuk mencegah pengguna memasukan jadwal yang akan menimbulkan konflik dengan jadwal yang sudah ada, maka sistem perlu memeriksa:
+\begin{itemize}
+	\item Memeriksa apakah sudah ada jadwal di jam mulai jadwal baru.
+	\item Memeriksa apakah sudah ada jadwal di jam akhir jadwal baru.
+\end{itemize}
+Untuk mencegah pengguna juga kebingungan ketika sistem menolak memasukan jadwal karena terjadinya konflik, maka perlu adanya:
+\begin{itemize}
+	\item Tampilan eror bahwa jadwal baru gagal dimasukan karena terjadi bentrok dengan jadwal lama.
+	\item Tampilan eror bahwa edit jadwal gagal dilakukan karena terjadi bentrok dengan jadwal lain.
+\end{itemize}
+\subsubsection{Hasil Pengujian dan Penyelesaian Masalah}
+Terdapat dua pengujian, yaitu pengujian pertama untuk memeriksa apakah konflik ketika memasukan jadwal baru sudah tertangani. Lalu pengujian kedua untuk memeriksa apakah konflik ketika mengubah jadwal yang menyebabkan bentrok dengan jadwal lain sudah ditangani.
+\begin{enumerate}
+	\item \textbf{Pengujian Pertama}\\
+	Mencoba memasukan jadwal di hari Selasa jam 7 pagi ketika sudah ada jadwal lain di jam dan hari tersebut.
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{memasukanBentrok.png}}
+	\caption[Memasukan Jadwal ke Waktu yang Sudah Ada Jadwal]{Memasukan Jadwal ke Waktu yang Sudah Ada Jadwal} 
+\end{figure}
+	Muncul tampilan eror yang memberi tahu pengguna bahwa jadwal yang ingin dimasukan gagal masuk karena terjadi bentrok.
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{GagalMasuk.png}}
+	\caption[Tampilan Eror Gagal Masuk]{Tampilan Eror Gagal Masuk} 
+\end{figure}
+
+	\item \textbf{Pengujian Kedua}
+	Daftar jadwal yang sudah ada dapat dilihat di Gambar 5.11
+	\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{daftarJadwal.png}}
+	\caption[Jadwal yang Sudah Ada]{Jadwal yang Sudah Ada} 
+	\end{figure}
+	Mencoba mengubah jadwal "1" menjadi berdurasi 3 jam sehingga memicu bentrok dengan jadwal "Tengah".
+	\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{mengeditBentrok.png}}
+	\caption[Mengubah Jadwal "1"]{Mengubah Jadwal "1"} 
+	\end{figure}
+	Muncul tampilan eror yang memberi tahu bahwa jadwal gagal diubah.
+	\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{gagalUpdate.png}}
+	\caption[Tampilan Eror Gagal \textit{Update}]{Tampilan Eror Gagal \textit{Update}} 
+	\end{figure}
+	Mencoba mengubah jadwal "2" menjadi mulai pada jam 10 sehingga memicu bentrok dengan jadwal "Tengah".
+	\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{mengeditBentrok.png}}
+	\caption[Mengubah Jadwal "2"]{Mengubah Jadwal "2"} 
+	\end{figure}
+	Muncul tampilan eror yang memberi tahu bahwa jadwal gagal diubah.
+	\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{gagalUpdate.png}}
+	\caption[Tampilan Eror Gagal \textit{Update}]{Tampilan Eror Gagal \textit{Update}} 
+	\end{figure}
+\end{enumerate}
+Setelah kedua pengujian di atas maka dapat disimpulkan pengujian berjalan dengan lancar dan hasil yang diharapkan tercapai.
+
