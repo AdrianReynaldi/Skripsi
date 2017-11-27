@@ -16,6 +16,7 @@ Dari analisis yang telah dilakukan, maka dibuatlah Diagram Hubungan Entitas sepe
 \subsection{Perancangan Tabel}
 \begin{center}
 	\begin{table}[H]
+	\caption{Perancangan Tabel jadwal\_dosen}
 	\begin{tabular}{|c|c|c|c|c|c|}
  			\hline
 		\textbf{Atribut} & \textbf{Tipe Data} & \textbf{Ukuran} & \textbf{PK* / FK*}  & \textbf{Keterangan} \\
@@ -35,7 +36,6 @@ Dari analisis yang telah dilakukan, maka dibuatlah Diagram Hubungan Entitas sepe
 			 label & varchar & 256 & bukan keduanya &   nama kegiatan\\
 			 \hline
 	\end{tabular}
-	\caption{Perancangan Tabel jadwal\_dosen}
 	\end{table}
 \end{center}
 \textit{*PK = Primary Key} \\
@@ -54,6 +54,7 @@ Keterangan atribut:
 \paragraph{} Berikut adalah perancangan kelas Controller EntriJadwalDosen \\
 \begin{center}
 	\begin{table}[H]
+	\caption{Perincian method insert}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	insert 	\\
@@ -75,12 +76,12 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method insert}
 \end{table}
 \end{center}
 
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method edit}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	edit 	\\
@@ -102,12 +103,12 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method edit}
 \end{table}
 \end{center}
 
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method \textit{delete}}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	delete 	\\
@@ -126,15 +127,15 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method \textit{delete}}
 \end{table}
 \end{center}
 
 
 \subsubsection{Controller LihatJadwalDosen}
-\paragraph{} Berikut adalah perincian rancangan kelas Controller LihatJadwalDosen \\
+\paragraph{} Berikut adalah perincian rancangan kelas Controller LihatJadwalDosen
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method index}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	index 	\\
@@ -157,13 +158,13 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method index}
 \end{table}
 \end{center}
 
 
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method ekspor}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	ekspor 	\\
@@ -186,7 +187,6 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method ekspor}
 \end{table}
 \end{center}
 
@@ -196,6 +196,7 @@ Algoritma	& \begin{itemize}
 
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method add\_jadwal}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	add\_jadwal 	\\
@@ -214,13 +215,13 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method add\_jadwal}
 \end{table}
 \end{center}
 
 
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method update\_jadwal}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	update\_jadwal 	\\
@@ -239,13 +240,13 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method update\_jadwal}
 \end{table}
 \end{center}
 
 
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method delete\_jadwal}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	delete\_jadwal 	\\
@@ -264,13 +265,13 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method delete\_jadwal}
 \end{table}
 \end{center}
 
 
 \begin{center}
 \begin{table}[H]
+\caption{Perincian method get\_jadwal}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	get\_jadwal 	\\
@@ -289,7 +290,6 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perincian method get\_jadwal}
 \end{table}
 \end{center}
 
@@ -307,13 +307,13 @@ Perancangan tamnpilan untuk modul Entri Jadwal Dosen dapat dilihat pada gambar d
 \end{figure}
 \textbf{Keterangan}
 \begin{enumerate}
-\item \textbf{Menu Tambah Jadwal}\\ Menu ini berisi field-field yang dapat digunakan pengguna untuk menentukan berbagai macam hal mengenai jadwal yang akan dimasukan sepeti jam dimulainya jadwal, durasi dan lain-lain.
+\item \textbf{Menu Tambah Jadwal}\\ Menu ini berisi\textit{ field-field} yang dapat digunakan pengguna untuk menentukan berbagai macam hal mengenai jadwal yang akan dimasukan sepeti jam dimulainya jadwal, durasi dan lain-lain.
 	\begin{itemize}
-		\item field Hari: berisi pilihan hari-hari berlangsungnya jadwal. Ada 5 pilihan hari yaitu hari senin, selasa, rabu, kamis, dan jumat.
-		\item field Jam Mulai: berisi pilihan jam berlangsungnya jadwal. Jam yang dapat dipilih adalah jam 8 sampai jam 16 (jam 4 sore) dan semua 		pilihan jam tepat pada menit 0, tidak ada pilihan menitnya.
-		\item field Durasi: berisi pilihan lama berlangsungnya jadwal. Ada 10 pilihan mulai dari 1 jam, 2 jam, 3 jam dan seterusnya sampai 10 			jam. Sama seperti field Jam Mulai di pilihan ini juga tidak ada pilihan menit.
-		\item field Jenis: berisi pilihan jenis kegiatan jadwalnya. Ada 3 pilihan yaitu Konsultasi, Terjadwal dan Kelas.
-		\item field Label: diisi dengan nama kegiatan jadwal. Field ini dapat dikosongkan.
+		\item \textit{field} Hari: berisi pilihan hari-hari berlangsungnya jadwal. Ada 5 pilihan hari yaitu hari senin, selasa, rabu, kamis, dan jumat.
+		\item \textit{field} Jam Mulai: berisi pilihan jam berlangsungnya jadwal. Jam yang dapat dipilih adalah jam 8 sampai jam 16 (jam 4 sore) dan semua 		pilihan jam tepat pada menit 0, tidak ada pilihan menitnya.
+		\item \textit{field} Durasi: berisi pilihan lama berlangsungnya jadwal. Ada 10 pilihan mulai dari 1 jam, 2 jam, 3 jam dan seterusnya sampai 10 			jam. Sama seperti field Jam Mulai di pilihan ini juga tidak ada pilihan menit.
+		\item \textit{field} Jenis: berisi pilihan jenis kegiatan jadwalnya. Ada 3 pilihan yaitu Konsultasi, Terjadwal dan Kelas.
+		\item \textit{field} Label: diisi dengan nama kegiatan jadwal. Field ini dapat dikosongkan.
 		\item tombol Tambah: bila pengguna menekan tombol ini, maka jadwal baru akan ditambahkan sesuai dengan input yang sudah dipilih atau dimasukan oleh pengguna pada field-field di atas.
 	\end{itemize}
 \item \textbf{Menu Daftar Jadwal} \newline
@@ -324,7 +324,7 @@ Tabel pada menu in merepresentasikan hari dan jam perkuliahan. Bila pada jam ter
 			\caption[Contoh Jadwal]{Contoh Jadwal} 
 			\label{fig:flow-chart-CodeIgniter} 
 		\end{figure}
-		Pada contoh diatas berarti jadwal dengan nama kegiatan "Konsultasi" yang diberi warna kuning berlangsung pada hari Senin dari jam 8 pagi sampai jam 1 siang. Warna kuning ini untuk membedakan jenis kegiatan "Konsulatsi" dengan jenis kegiatan lainnya misalnya kegiatan "Kelas" diberi warna putih. Jadwal yang ada pada tabel juga dapat ditekan untuk memunculkan menu edit yang akan dijelaskan lebih lanjut di Bagian 4.2.2 di bawah.
+		Pada Gambar 4.3 diatas berarti jadwal dengan nama kegiatan "Konsultasi" yang diberi warna kuning berlangsung pada hari Senin dari jam 8 pagi sampai jam 1 siang. Warna kuning ini untuk membedakan jenis kegiatan "Konsultasi" dengan jenis kegiatan lainnya misalnya kegiatan "Kelas" diberi warna putih. Jadwal yang ada pada tabel juga dapat ditekan untuk memunculkan menu edit yang akan dijelaskan lebih lanjut di Bagian 4.2.2 di bawah.
 \end{enumerate}
 \subsection{Perancangan Antarmuka Edit Jadwal Dosen}
 Perancangan antarmuka untuk \textit{pop-up} yang berisi menu pengubahan data jadwal yang sudah dimasukan dapat dilihat pada gambar berikut
@@ -336,11 +336,11 @@ Perancangan antarmuka untuk \textit{pop-up} yang berisi menu pengubahan data jad
 \end{figure}
 \textbf{Keterangan}
 \begin{itemize}
-		\item field Hari: berisi pilihan hari-hari berlangsungnya jadwal. Ada 5 pilihan hari yaitu hari senin, selasa, rabu, kamis, dan jumat.
-		\item field Jam Mulai: berisi pilihan jam berlangsungnya jadwal. Jam yang dapat dipilih adalah jam 8 sampai jam 16 (jam 4 sore) dan semua 		pilihan jam tepat pada menit 0, tidak ada pilihan menitnya.
-		\item field Durasi: berisi pilihan lama berlangsungnya jadwal. Ada 10 pilihan mulai dari 1 jam, 2 jam, 3 jam dan seterusnya sampai 10 			jam. Sama seperti field Jam Mulai di pilihan ini juga tidak ada pilihan menit.
-		\item field Jenis: berisi pilihan jenis kegiatan jadwalnya. Ada 3 pilihan yaitu Konsultasi, Terjadwal dan Kelas.
-		\item field Label: diisi dengan nama kegiatan jadwal. Field ini dapat dikosongkan.
+		\item \textit{field} Hari: berisi pilihan hari-hari berlangsungnya jadwal. Ada 5 pilihan hari yaitu hari senin, selasa, rabu, kamis, dan jumat.
+		\item \textit{field} Jam Mulai: berisi pilihan jam berlangsungnya jadwal. Jam yang dapat dipilih adalah jam 8 sampai jam 16 (jam 4 sore) dan semua 		pilihan jam tepat pada menit 0, tidak ada pilihan menitnya.
+		\item \textit{field} Durasi: berisi pilihan lama berlangsungnya jadwal. Ada 10 pilihan mulai dari 1 jam, 2 jam, 3 jam dan seterusnya sampai 10 			jam. Sama seperti field Jam Mulai di pilihan ini juga tidak ada pilihan menit.
+		\item \textit{field} Jenis: berisi pilihan jenis kegiatan jadwalnya. Ada 3 pilihan yaitu Konsultasi, Terjadwal dan Kelas.
+		\item \textit{field} Label: diisi dengan nama kegiatan jadwal. Field ini dapat dikosongkan.
 		\item tombol Tambah: bila pengguna menekan tombol ini, maka jadwal baru akan ditambahkan sesuai dengan input yang sudah dipilih atau dimasukan oleh pengguna pada field-field di atas.
 	\end{itemize}
 Berdasarkan keterangan di atas menu Edit Jadwal Dosen ini sama persis dengan menu Entri Jadwal Dosen. Satu-satunya perbedaan adalah setiap \textit{field} menampilkan keterangan detil jadwal yang dipilih tersebut. Misalkan jadwal yang dipilih berlangsung dari jam 8 sampai 9, maka \textit{field} jam mulai akan menampilkan jam 8 dan \textit{field} durasi menampilkan 1 jam.

@@ -22,13 +22,11 @@ Perangkat lunak \textit{Blue Tape} ini didesain sebagai \textit{framework} yang 
 	\centering  
 	\includegraphics[scale=0.48]{cetakTranskrip.png}
 	\caption[Tampilan Cetak Transkrip]{Tampilan Cetak Transkrip} 
-	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.4]{manageTranskrip.png}}
 	\caption[Tampilan Manajemen Transkrip]{Tampilan Manajemen Transkrip} 
-	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 Untuk memohon pencetakan transkrip pada halaman tersebut mahasiswa diperlukan untuk melakukan :
 \begin{enumerate}
@@ -43,28 +41,49 @@ Tata usaha memiliki beberapa opsi untuk merespon permintaan yang sudah dikirim m
 	\item Mencetak detail permintaan transkrip
 	\item Menghapus permintaan transkrip
 \end{enumerate}
+\subsubsection{Struktur Kode Program}
+\paragraph{}Kode program untuk modul \textit{Transcript Request / Manage} distruktur menggunakan struktur Model-View-Controller sebagai berikut:
+\begin{itemize}
+	\item Controller:
+		\begin{itemize}
+			\item TranskripManage.php: berfungsi untuk menghubungkan view dan model TranskripManage.
+			\item TranskripRequest.php: berfungsi untuk menghubungkan view dan model TranskripRequest.
+		\end{itemize}
+	\item View:
+		\begin{itemize}
+			\item /TranskripManage/email.php: \textit{template} untuk email konfirmasi yang akan dikirim ke mahasiswa yang meminta transkrip.
+			\item /TranskripManage/main.php: tampilan menu utama TranskripManage.
+			\item /TranskripRequest/main.php: tampilan menu utama TranskripRequest.
+			\item /TranskripRequest/email.php: \textit{template} untuk email pemberitahuan ke tata usaha bahwa ada mahasiswa yang meminta transkrip.
+		\end{itemize}
+	\item Model: Transkrip\_model.php: menghubungkan basis data tabel "transkrip" dengan modul. \textit{Transkrip Request/ Manage}
+	\item \textit{Migration file}:
+		\begin{itemize}
+			\item 20160222153100\_Transkrip\_Initial.php: pembuatan tabel "transkrip".
+			\item 20160513150200\_Transkrip\_TipeTranskrip.php: penambahan field \textit{requestType} di tabel "transkrip" dengan tipe \textit{varchar} berukuran 3.
+			\item 20160520154600\_Transkrip\_BahasaTranskrip.php: mengubah ukuran field \textit{requestType} dari 3 menjadi 8.
+		\end{itemize}
+\end{itemize}
 
 \subsection{Perubahan Kuliah}
-\paragraph{} Perubahan kuliah adalah modul kedua yang sudah aktif di BlueTape. Modul ini berfungsi sebagai alat bagi mahasiswa untuk mengirimkan permintaan perubahan kuliah dari mahasiswa ke karyawan tata usaha. Selain itu karyawan tata usaha juga dapat menggunakan modul ini untuk mengatur permintaan-permintaan yang sudah dikirim dari mahasiswa tadi. 
+\paragraph{} Perubahan kuliah adalah modul kedua yang sudah aktif di BlueTape. Modul ini berfungsi sebagai alat bagi staf UNPAR untuk mengirimkan permintaan perubahan kuliah ke karyawan tata usaha. Selain itu karyawan tata usaha juga dapat menggunakan modul ini untuk mengatur permintaan-permintaan yang sudah dikirim dari staf UNPAR tadi. 
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.4]{perubahanKuliah.png}}
 	\caption[Tampilan Menu Perubahan Kuliah]{Tampilan Menu Perubahan Kuliah} 
-	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.4]{managePerubahanKuliah.png}}
 	\caption[Tampilan Menu Manajemen Perubahan Kuliah]{Tampilan Menu Manajemen Perubahan Kuliah} 
-	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
-Untuk membuat permintaan perubahan kuliah, mahasiswa perlu mengisi setiap \textit{field} yang ada di menu. Setelah semua \textit{field} diisi, mahasiswa bisa memilih untuk mengirim permohonan atau tambah pertemuan.
+Untuk membuat permintaan perubahan kuliah, staf UNPAR perlu mengisi setiap \textit{field} yang ada di menu. Setelah semua \textit{field} diisi, dosen bisa memilih untuk mengirim permohonan atau tambah pertemuan.
 \begin{itemize}
 	\item Tombol "Kirim Permohonan" akan memeriksa apakah data yang sudah dimasukan sudah benar, bila sudah maka data permohonan akan dikrim ke server dan apabila ada yang masih salah maka sistem akan menandai bagian yang salah.
 	
-	\item Tombol "Tambah Pertemuan Ekstra" akan memunculkan 2 \textit{field} baru yaitu \textit{field} "Menjadi Hari dan jam" dan \textit{field} "Menjadi Ruang". Bila mahasiswa ingin mengirimkan permintaan penambahan pertemuan, tetap harus menekan tombol "Kirim Permohonan" setelah kedua \textit{field} yang baru tersebut juga diisi.
+	\item Tombol "Tambah Pertemuan Ekstra" akan memunculkan 2 \textit{field} baru yaitu \textit{field} "Menjadi Hari dan jam" dan \textit{field} "Menjadi Ruang". Bila dosen ingin mengirimkan permintaan penambahan pertemuan, tetap harus menekan tombol "Kirim Permohonan" setelah kedua \textit{field} yang baru tersebut juga diisi.
 \end{itemize}
-Di sisi tata usaha , modul ini memiliki fungsi untuk :
+Di sisi tata usaha , modul ini memiliki fungsi untuk:
 \begin{itemize}
 	\item Menolak permintaan perubahan kuliah
 	\item Menyetujui permintaan perubahan kuliah
@@ -72,16 +91,45 @@ Di sisi tata usaha , modul ini memiliki fungsi untuk :
 	\item Melihat detail perubahan kuliah
 	\item Menghapus permintaan perubahan kuliah
 \end{itemize}
-  
-\subsection{Pengguna Aplikasi}
-Pada bagian ini akan dijelaskan pengelompokan tipe-tipe pengguna aplikasi BlueTape.
+ 
+\subsubsection{Struktur Kode Program}
+\paragraph{}Kode program untuk modul Perubahan Kuliah distruktur menggunakan struktur Model-View-Controller sebagai berikut:
+\begin{itemize}
+	\item Controller:
+		\begin{itemize}
+			\item PerubahanKuliahManage.php: menghubungkan view dan model PerubahanKuliahManage.
+			\item PerubahanKuliahRequest.php: menghubungkan view dan model PerubahanKuliahRequest.
+		\end{itemize}
+	\item View:
+		\begin{itemize}
+			\item /PerubahanKuliahManage/email.php: \textit{template} email konfirmasi ke pemohon perubahan kuliah.
+			\item /PerubahanKuliahManage/main.php: tampilan menu utama PerubahanKuliahManage
+			\item /PerubahanKuliahManage/printview.php: \textit{template} untuk membentuk file berisi data permohonan perubahan kuliah yang dapat dicetak oleh tata usaha.
+			\item /PerubahanKuliahRequest/main.php: tampilan menu utama PerubahanKuliahRequest
+			\item /PerubahanKuliahRequest/email.php: \textit{template} email pemberitahuan ke tata usaha bahwa ada yang memohon perubahan kuliah.
+		\end{itemize}
+	\item Model: PerubahanKuliah\_model.php: menghubungkan basis data dengan modul PerubahanKuliah
+	\item \textit{Migration file}:
+		\begin{itemize}
+			\item 20161123123700\_PerubahanKuliah\_Initial.php: pembentukan tabel "perubahankuliah"
+			\item 20170523125600\_PerubahanKuliah\_MultipleTo.php: \\
+			File Migrasi ini berfungsi untuk beberapa hal:
+				\begin{enumerate}
+					\item menambah \textit{field} baru "to" di tabel "perubahankuliah" bertipe varchar dengan ukuran 1024 yang disimpan setelah field "toRoom".
+					\item menghapus \textit{field} "toRoom".
+					\item menghapus \textit{field} "toDateTime".
+				\end{enumerate}
+		\end{itemize}
+\end{itemize}
+
+\subsection{Golongan Pengguna Aplikasi}
+Pada bagian ini akan dijelaskan pengelompokan tipe-tipe golongan pengguna aplikasi BlueTape yang diatur di file \textit{modules.php}.
 
 \subsubsection{Mahasiswa FTIS}
-Mahasiswa FTIS adalah semua mahasiswa Fakultas Teknik Informasi dan Sains. Saat ini golongan Mahasiwa FTIS baru memiliki satu akses yaitu untuk memnita transkrip.
-
+Mahasiswa FTIS adalah semua mahasiswa Fakultas Teknologi Informasi dan Sains. Saat ini golongan Mahasiwa FTIS baru memiliki satu akses ke fitur untuk memnita transkrip.
 
 \subsubsection{Tata Usaha UNPAR}
-Tata Usaha UNPAR adalah golongan pengguna yang bekerja sebagai staff tata usaha di Universitas Katolik Parahyangan. Di BlueTape, Tata Usaha UNPAR memilki akses fitur-fitur sebagai berikut :
+Tata Usaha UNPAR adalah golongan pengguna yang bekerja sebagai staff tata usaha di Universitas Katolik Parahyangan. Di BlueTape, Tata Usaha UNPAR memilki akses fitur-fitur sebagai berikut:
 \begin{itemize}
 	\item Mengatur permintaan transkrip dari mahasiswa
 	\item Mengatur permintaan perubahan kuliah 
@@ -106,7 +154,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 \begin{enumerate}
 	\item Skenario Meminta Perubahan Kuliah
 	\begin{itemize}
-		\item Aktor : Staf UNPAR, Tata Usaha UNPAR
+		\item Aktor: Staf UNPAR, Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Staf UNPAR mengisi data-data yang diperlukan untuk melakukan perubahan kuliah
@@ -123,7 +171,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 
 	\item Skenario Melihat Detail Perubahan Kuliah
 	\begin{itemize}
-		\item Aktor : Tata Usaha UNPAR
+		\item Aktor: Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Aktor memilih data perubahan kuliah 
@@ -134,7 +182,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 	
 	\item Skenario Menolak Perubahan Kuliah 
 	\begin{itemize}
-		\item Aktor : Staf UNPAR, Tata Usaha UNPAR
+		\item Aktor: Staf UNPAR, Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Tata Usaha UNPAR memilih data perubahan kuliah 
@@ -147,7 +195,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 	
 	\item Skenario Menyetujui Perubahan Kuliah 
 	\begin{itemize}
-		\item Aktor : Staf UNPAR, Tata Usaha UNPAR
+		\item Aktor: Staf UNPAR, Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Tata Usaha UNPAR memilih data perubahan kuliah 
@@ -160,7 +208,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 	
 	\item Skenario Menghapus Perubahan Kuliah 
 	\begin{itemize}
-		\item Aktor : Tata Usaha UNPAR
+		\item Aktor: Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Tata Usaha UNPAR memilih data perubahan kuliah 
@@ -171,7 +219,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 
 \item Skenario Cetak Detail Perubahan Kuliah 
 	\begin{itemize}
-		\item Aktor : Tata Usaha UNPAR
+		\item Aktor: Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Tata Usaha UNPAR memilih data perubahan kuliah 
@@ -183,7 +231,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 
 	\item Skenario Meminta Transkrip
 	\begin{itemize}
-		\item Aktor : Mahasiswa FTIS
+		\item Aktor: Mahasiswa FTIS
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Mahasiswa FTIS mengisi data keterangan dan tipe transkrip 
@@ -193,7 +241,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 	
 	\item Skenario Lihat Detail Permintaan Transkrip
 	\begin{itemize}
-		\item Aktor : Tata Usaha UNPAR
+		\item Aktor: Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Tata Usaha UNPAR memilih data permintaan
@@ -204,7 +252,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 	
 	\item Tolak Permintaan Transkrip
 	\begin{itemize}
-		\item Aktor : Tata Usaha UNPAR
+		\item Aktor: Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Tata Usaha UNPAR memilih data permintaan
@@ -217,7 +265,7 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gamba
 	
 	\item Hapus Permintaan Transkrip
 	\begin{itemize}
-		\item Aktor : Tata Usaha UNPAR
+		\item Aktor: Tata Usaha UNPAR
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Tata Usaha UNPAR memilih data permintaan
@@ -268,7 +316,7 @@ Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini 
 \begin{enumerate}
 	\item Skenario Menambah Jadwal
 	\begin{itemize}
-		\item Aktor : Dosen Informatika
+		\item Aktor: Dosen Informatika
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Dosen Informatika mengisi data jadwal
@@ -278,7 +326,7 @@ Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini 
 
 	\item Skenario Mengubah Jadwal
 	\begin{itemize}
-		\item Aktor : Dosen Informatika
+		\item Aktor: Dosen Informatika
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Dosen Informatika memilih jadwal yang akan diubah
@@ -291,7 +339,7 @@ Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini 
 
 	\item Skenario Menghapus Jadwal
 	\begin{itemize}
-		\item Aktor : Dosen Informatika
+		\item Aktor: Dosen Informatika
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Dosen Informatika memilih jadwal yang akan dihapus
@@ -303,7 +351,7 @@ Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini 
 
 	\item Skenario Menampilkan Semua Jadwal Dosen
 	\begin{itemize}
-		\item Aktor : Mahasiswa Informatika , Dosen Informatika
+		\item Aktor: Mahasiswa Informatika, Dosen Informatika
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Aktor memilih menu lihat jadwal dosen
@@ -317,7 +365,7 @@ Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini 
 
 	\item Skenario Mengekspor Semua Jadwal Dosen ke Dalam File .xls
 	\begin{itemize}
-		\item Aktor : Mahasiswa Informatika , Dosen Informatika
+		\item Aktor: Mahasiswa Informatika, Dosen Informatika
 		\item Skenario Normal
 			\begin{enumerate}[1.]
 				\item Aktor memilih menu lihat jadwal dosen
@@ -345,11 +393,11 @@ Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini 
 Pada bagian ini akan dijelaskan pengelompokan tipe-tipe pengguna aplikasi BlueTape dengan sistem usulan. Perubahan terjadi pada kelompok "Mahasiswa Informatika" yang mendapat fitur tambahan. Selain itu , ada penambahan kelompok pengguna yaitu "Dosen Informatika". Perubahan-perubahan akan dijelaskan pada bagian masing-masing.
 
 \subsubsection{Mahasiswa FTIS}
-Mahasiswa FTIS adalah semua mahasiswa Fakultas Teknik Informasi dan Sains. Saat ini golongan Mahasiwa FTIS baru memiliki satu akses yaitu untuk memnita transkrip.
+Mahasiswa FTIS adalah semua mahasiswa Fakultas Teknologi Informasi dan Sains. Saat ini golongan Mahasiwa FTIS baru memiliki satu akses yaitu untuk memnita transkrip.
 
 
 \subsubsection{Tata Usaha UNPAR}
-Tata Usaha UNPAR adalah golongan pengguna yang bekerja sebagai staff tata usaha di Universitas Katolik Parahyangan. Di BlueTape, Tata Usaha UNPAR memilki akses fitur-fitur sebagai berikut :
+Tata Usaha UNPAR adalah golongan pengguna yang bekerja sebagai staff tata usaha di Universitas Katolik Parahyangan. Di BlueTape, Tata Usaha UNPAR memilki akses fitur-fitur sebagai berikut:
 \begin{itemize}
 	\item Mengatur permintaan transkrip dari mahasiswa
 	\item Mengatur permintaan perubahan kuliah 
@@ -359,7 +407,7 @@ Tata Usaha UNPAR adalah golongan pengguna yang bekerja sebagai staff tata usaha 
 Staf UNPAR adalah para pekerja dan karyawan di Universitas Katolik Parahyangan. Untuk saat ini golongan staf UNPAR hanya memiliki akses fitur untuk meminta perubahan kuliah.
 
 \subsubsection{Mahasiswa Informatika}
-Mahasiswa Informatika adalah pengguna yang memiliki kepentingan untuk melihat jadwal-jadwal semua dosen Informatika. Dengan mengetahui jadwal dosen, maka mahasiswa dapat mengatur jadwal bimbingan atau konsultasi lainnya dengan dosen terkait secara lebih teratur. 
+Mahasiswa Informatika adalah semua mahasiswa jurusan Informatika di FTIS. Mahasiswa informatika memiliki akses pada beberapa fitur sebagai berikut:
 \begin{itemize}
 	\item Melihat semua jadwal dosen Informatika
 	\item Mengekspor semua jadwal dosen Informatika ke dalam tipe file .xls
@@ -367,7 +415,7 @@ Mahasiswa Informatika adalah pengguna yang memiliki kepentingan untuk melihat ja
 \end{itemize}
 
 \subsubsection{Dosen Informatika}
-Dosen merupakan pengguna yang dapat memasukan jadwal-jadwalnya ke dalam BlueTape agar dapat dilihat mahasiswa. Dosen memilki akses pada fitur :
+Dosen merupakan pengguna yang dapat memasukan jadwal-jadwalnya ke dalam BlueTape agar dapat dilihat mahasiswa. Dosen memilki akses pada fitur:
 \begin{itemize}
 	\item Memasukan jadwal ke dalam BlueTape
 	\item Mengubah jadwal yang sudah dimasukan  

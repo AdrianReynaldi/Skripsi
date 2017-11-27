@@ -51,9 +51,10 @@ Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - k
 	Merupakan kelas yang mengatur hubungan antara kelas view EntriJadwalDosen dan kelas model JadwalDosen\_model.
 	\item Kelas \textit{controller} LihatJadwalDosen\\
 	Merupakan kelas yang berfungsi menghubungkan antara kelas view LihatJadwalDosen dan kelas model JadwalDosen\_model.
-	\item Kelas \textit{view} EntriJadwalDosen yang berfungsi membuat \textit{user interface} untuk memasukan jadwal
-	\item Kelas \textit{view} LihatJadwalDosen yang berfungsi membuat \textit{user interface} untuk memlihat jadwal
+	\item Kelas \textit{view} EntriJadwalDosen yang berfungsi membuat \textit{user interface} untuk memasukan jadwal dan menampilkan jadwal milik pengguna itu sendiri.
+	\item Kelas \textit{view} LihatJadwalDosen yang berfungsi membuat \textit{user interface} untuk melihat jadwal dan menmpilkan opsi untuk ekspor jadwal ke XLS.
 	\item Kelas model JadwalDosen\_model yang berfungsi untuk menulis atau membaca ke basis data.
+	\item Kelas \textit{config} modules yang berfungsi untuk membatasi hak ases pengguna.
 \end{enumerate}
 
 \section{Pengujian}
@@ -64,6 +65,7 @@ Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - k
 Hasil pengujian dapat dilihat pada Tabel 5.1
 \begin{center}
 	\begin{table}[H]
+		\caption{Pengujian Login}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -71,7 +73,6 @@ Hasil pengujian dapat dilihat pada Tabel 5.1
 		Menekan tombol login & Menampilkan menu login & Menampilkan menu login \\
 		\hline
 		\end{tabular}
-		\caption{Pengujian Login}
 	\end{table}
 \end{center}
 
@@ -79,6 +80,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.1
 Hasil pengujian dapat dilihat pada Tabel 5.2
 \begin{center}
 	\begin{table}[H]
+		\caption{Pengujian Fungsional Entri Jadwal Dosen}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -90,7 +92,6 @@ Hasil pengujian dapat dilihat pada Tabel 5.2
 		Waktu dimulainya jadwal baru sama dengan jadwal yang sudah pernah dimasukan sebelumnya & Menampilkan pesan kesalahan dan batal memasukan data ke dalam database & Jadwal masuk ke dalam database, namun tidak muncul di halaman Entri Jadwal Dosen maupun halaman Lihat Jadwal Dosen \\
 		\hline
 		\end{tabular}
-		\caption{Pengujian Fungsional Entri Jadwal Dosen}
 	\end{table}
 \end{center}
 
@@ -98,6 +99,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.2
 Hasil pengujian dapat dilihat pada Tabel 5.3
 \begin{center}
 	\begin{table}[H]
+		\caption{Pengujian Fungsional Edit Jadwal Dosen}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -109,7 +111,6 @@ Hasil pengujian dapat dilihat pada Tabel 5.3
 		Memilih tombol keluar & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen \\
 		\hline
 		\end{tabular}
-		\caption{Pengujian Fungsional Edit Jadwal Dosen}
 	\end{table}
 \end{center}
 
@@ -117,6 +118,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.3
 Hasil pengujian dapat dilihat pada Tabel 5.4
 \begin{center}
 	\begin{table}[H]
+		\caption{Pengujian Fungsional Hapus Jadwal Dosen}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -128,7 +130,6 @@ Hasil pengujian dapat dilihat pada Tabel 5.4
 		Memilih tombol keluar & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen & Modal ditutup lalu menampilkan menu Entri Jadwal Dosen \\
 		\hline
 		\end{tabular}
-		\caption{Pengujian Fungsional Hapus Jadwal Dosen}
 	\end{table}
 \end{center}
 
@@ -136,6 +137,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.4
 Hasil pengujian dapat dilihat pada Tabel 5.5
 \begin{center}
 	\begin{table}[H]
+		\caption{Pengujian Fungsional Lihat Jadwal Dosen}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -145,7 +147,6 @@ Hasil pengujian dapat dilihat pada Tabel 5.5
 		Sistem menampilkan semua jadwal dosen dan mengelompokannya ke dalam tab-tab berdasarkan email setiap pemilik jadwal terkait. Kemudian setiap tab diberi label berisi nama lengkap pemilik jadwal tersebut.\\
 		\hline
 		\end{tabular}
-		\caption{Pengujian Fungsional Lihat Jadwal Dosen}
 	\end{table}
 \end{center}
 
@@ -153,6 +154,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.5
 Hasil pengujian dapat dilihat pada Tabel 5.6
 \begin{center}
 	\begin{table}[H]
+	\caption{Pengujian Fungsional Ekspor ke XLS}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -162,14 +164,11 @@ Hasil pengujian dapat dilihat pada Tabel 5.6
 		Sistem membuat file .xlsx yang berisi seluruh jadwal dosen yang dikelompokan ke dalam \textit{worksheet-worksheet} berdasarkan \textit{email} pemilik jadwal, lalu sistem  menampilkan menu untuk memilih lokasi penyimpanan file .xlsx yang akan diekspor ke komputer pengguna. \\
 		\hline
 		\end{tabular}
-		\caption{Pengujian Fungsional Ekspor ke XLS}
 	\end{table}
 \end{center}
 
-
-\section{Penugjian Ekperimental}
-\paragraph{}Pengujian eksperimtal dilakukan dengan cara mengunggah kode-kode program ke bluetape.azure yang sudah digunakan oleh mahasiswa dan staf UNPAR sehingga dosen dapat memakai fasilitas baru ini untuk didapatkan. Pengujian ini dilakukan pada semester ganjil 2017/2018.Dari hasil pemakaian, didapatkan masukan-masukan dari pengguna aplkasi ini yang menjadi basis pengujian eksperimental.
-Masukan-masukan ini disimpan ke dalam \textit{issue} git proyek BlueTape yang memiliki \textit{tag} "Jadwal Dosen". Semua \textit{issue} dapat dilihat di \textit{https://github.com/ftisunpar/BlueTape}.
+\section{Pengujian Ekperimental}
+\paragraph{}Pengujian eksperimtal dilakukan dengan cara mengunggah kode-kode program ke \textit{bluetape.azurewebsites.net} yang sudah digunakan oleh mahasiswa dan staf UNPAR sehingga dosen dapat memakai fasilitas baru ini untuk didapatkan. Pengujian ini dilakukan pada semester ganjil 2017/2018. Dari hasil pemakaian, didapatkan masukan-masukan dari pengguna aplkasi ini yang menjadi basis pengujian eksperimental. Masukan-masukan ini disimpan ke dalam \textit{issue} git proyek BlueTape yang memiliki \textit{tag} "Jadwal Dosen". Semua \textit{issue} dapat dilihat di \textit{https://github.com/ftisunpar/BlueTape}.
 
 \subsection{Pengujian Eksperimental Pembuatan File Spreadsheet Menggunakan Tipe Extensi File .xlsx}
 \subsubsection{Permasalahan}
@@ -201,7 +200,7 @@ Log eror:
 \end{lstlisting}
 
 \subsubsection{Hasil Pengujian dan Penyelesaian Masalah} 
-\paragraph{}Dilihat dari log eror pada bagian Analisis di atas, eror terjadi karena ada perintah \textit{merge cells} yang dihapus oleh MS Excel. Hal ini terjadi karena adanya perintah dari PHPExcel versi 1.8.0 yang belum mendukung file bertipe .xlsx sehingga tab jadwal milik ibu Mariskha tidak muncul. Maka karena eror disebabkan oleh permasalahan kompabilitas PHPExcel 1.8.0 dan tipe file .xlsx,  hal ini dapat diatasi dengan cara mengubah tipe file yang diekspor dari file .xlsx menjadi tipe yang lebih lama yaitu .xls.
+\paragraph{}Dilihat dari log eror pada bagian Analisis di atas, eror terjadi karena ada perintah \textit{merge cells} yang dihapus oleh MS Excel. Hal ini terjadi karena adanya perintah dari PHPExcel versi 1.8.0 yang belum mendukung file bertipe .xlsx sehingga tab jadwal milik Ibu Mariskha tidak muncul. Maka karena eror disebabkan oleh permasalahan kompabilitas PHPExcel 1.8.0 dan tipe file .xlsx,  hal ini dapat diatasi dengan cara mengubah tipe file yang diekspor dari file .xlsx menjadi tipe yang lebih lama yaitu .xls.
 \newline
 \newline
 Potongan kode lama yang menyebabkan eror:
@@ -244,6 +243,7 @@ Untuk menangani itu diperlukan cara kerja sistem sebagai berikut:
 Untuk mengimplementasikan tombol "Delete All" diperlukan method tambahan pada controller EntriJadwalDosen dan JadwalDosen\_model untuk menghapus semua jadwal berdasarkan username/email pengguna..
 \begin{center}
 \begin{table}[H]
+\caption{Perancangan method deleteAll di Controller EntriJadwalDosen}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	deleteAll 	\\
@@ -262,12 +262,12 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perancangan method deleteAll}
 \end{table}
 \end{center}
 
 \begin{center}
 \begin{table}[H]
+\caption{Perancangan method deleteByUsername di Model JadwalDosen\_model}
 \begin{tabular}{|c|p{11cm}|}
 \hline
 Nama Method 	& 	deleteByUsername 	\\
@@ -286,7 +286,6 @@ Algoritma	& \begin{itemize}
 				\end{itemize} \\
 \hline
 \end{tabular}
-\caption{Perancangan method deleteByUsername}
 \end{table}
 \end{center}
 
@@ -296,21 +295,18 @@ Tombol "Delete All" dibuat di halaman EntriJadwalDosen di pojok kiri bawah.
 	\centering  
 	\frame{\includegraphics[scale=0.5]{deleteAllButton.png}}
 	\caption[Tombol \textit{Delete All} di Entri Jadwal Dosen]{Tombol \textit{Delete All} di Entri Jadwal Dosen} 
-	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 Ketika tombol "Delete All" ditekan memunculkan tampilan konfirmasi
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{popupDeleteAll.png}}
-	\caption[Tampilan Konfirmasi]{\textbf{Tombol \textit{Delete All} di Entri Jadwal Dosen}} 
-	\label{fig:flow-chart-CodeIgniter} 
+	\caption[Tampilan Konfirmasi]{Tampilan Konfirmasi} 
 \end{figure}
 Setelah tombol "ok" ditekan, semua jadwal dihapus
 \begin{figure} [H]
 	\centering  
 	\frame{\includegraphics[scale=0.5]{empty.png}}
-	\caption[Semua Jadwal Dihapus]{Semua Jadwal Dihapus} 
-	\label{fig:flow-chart-CodeIgniter} 
+	\caption[Semua Jadwal Terhapus]{Semua Jadwal Terhapus} 
 \end{figure}
 Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
 
@@ -322,6 +318,7 @@ Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
 Untuk mengimplementasikan fitur ini perlu ditambahkan field baru di tabel jadwal\_dosen:
 \begin{center}
 \begin{table}[h]
+\caption{Perancangan field tambahan di jadwal\_dosen}
 \begin{tabular}{|c|c|c|c|c|c|}
  			\hline
 		\textbf{Atribut} & \textbf{Tipe Data} & \textbf{Ukuran} & \textbf{PK* / FK*}  & \textbf{Keterangan} \\
@@ -329,7 +326,6 @@ Untuk mengimplementasikan fitur ini perlu ditambahkan field baru di tabel jadwal
 		 lastUpdate & datetime & - & bukan PK/FK &  tanggal terakhir jadwal di-\textit{update}\\
 		 \hline
 	\end{tabular}
-	\caption{Perancangan field tambahan di jadwal\_dosen}
 	\end{table}
 \end{center}
 \subsubsection{Hasil Pengujian dan Penyelesaian Masalah}
@@ -378,7 +374,7 @@ Terdapat dua pengujian, yaitu pengujian pertama untuk memeriksa apakah konflik k
 	\caption[Tampilan Eror Gagal Masuk]{Tampilan Eror Gagal Masuk} 
 \end{figure}
 
-	\item \textbf{Pengujian Kedua}
+	\item \textbf{Pengujian Kedua}\\
 	Daftar jadwal yang sudah ada dapat dilihat di Gambar 5.11
 	\begin{figure} [H]
 	\centering  

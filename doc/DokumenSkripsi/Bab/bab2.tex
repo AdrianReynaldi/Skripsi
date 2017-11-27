@@ -13,11 +13,11 @@
 
 
 \section{BlueTape}
-\paragraph{} Aplikasi \textit{Blue Tape} adalah perangkat lunak \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu perangkat lunak ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
+\paragraph{} Aplikasi \textit{Blue Tape} adalah perangkat lunak \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu perangkat lunak ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. \footnotemark
 
-Perangkat lunak \textit{Blue Tape} ini didesain sebagai \textit{framework} yang terdiri dari beberapa layanan yang dipisahkan ke dalam modul-modul. Pemisahan layanan ke dalam modul-modul dibuat dengan tujuan agar pemeliharan perangkat lunak lebih mudah dan juga mempermudah cara untuk menambahkan layanan baru ke dalam BlueTape. Sudah ada layanan yang aktif di BlueTape saat ini yaitu \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
+Perangkat lunak \textit{Blue Tape} ini didesain sebagai \textit{framework} yang terdiri dari beberapa layanan yang dipisahkan ke dalam modul-modul. Pemisahan layanan ke dalam modul-modul dibuat dengan tujuan agar pemeliharan perangkat lunak lebih mudah dan juga mempermudah cara untuk menambahkan layanan baru ke dalam BlueTape. Sudah ada dua layanan yang aktif di BlueTape saat ini yaitu \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa dan layanan Perubahan Kuliah untuk melayani permintaan perubahan kuliah dari staf UNPAR ke tata usaha.\footnotemark[\value{footnote}]
 
-
+\footnotetext{https://github.com/ftisunpar/BlueTape}
 
 \section{CodeIgniter}
 \label{sec:CodeIgniter}  
@@ -148,15 +148,15 @@ Controller dapat memanggil view menggunakan potongan kode seperti di bawah ini :
 \end{lstlisting}
 Jika 1 halaman terdiri dari beberapa view, CodeIgniter juga menyediakan cara untuk memanggil banyak view sekaligus:
 \begin{lstlisting}
-	class Page
-
-       	 function INDEX()
-        	     $data['page_title'] = 'Your title'
-        	     load->view('header')
-        	     load->view('menu')
-       	         load->view('content', $data)
-       	         load->view('footer')
-
+class Page{
+    public function INDEX(){
+        	$data['page_title'] = 'Your title';
+        	$load->view('header');
+            $load->view('menu');
+			$load->view('content', $data);
+       	    $load->view('footer');
+   }
+}
 \end{lstlisting}
 BIla ada data lain yang akan dikirimkan ke view dari controller, gunakan potongan kode seperti di bawah ini :
 \begin{lstlisting}
@@ -211,6 +211,7 @@ Parameter-parameter yang tersedia untuk potongan kode di atas adalah:
 \paragraph{}Kelas ini digunakan untuk memudahkan pengubahan \textit{database} secara terstruktur dan terorganisir dengan baik. Dengan cara ini maka penguna tidak perlu memberi tahu penguna lainnya yang sedang mengembangkan aplikasi yang sama untuk melakukan perubahan \textit{database} secara manual, penguna lain cukup menjalankan kelas migrasi ini. Kelas ini akan secara otomatis membuat tabel bernama "\textit{migration}" di \textit{database} yang mencatat migrasi-migrasi mana saja yang sudah dijalankan, yang perlu dilakukan secara manual oleh pengguna adalah untuk memperbarui \textit{file} aplikasinya dan memanggil \textit{\$this->migration->current()} untuk menentukan migrasi mana yang perlu dijalankan. Untuk mengatur preferensi dari kelas migrasi terdapat di \textbf{aplication/config/migration.php}. \cite{CodeIgniter:17} 
 \begin{center}
 	\begin{table}[H]
+	\caption{Daftar Preferensi di Kelas Migrasi}
 	\begin{tabular}{|c|c|c|p{3cm}|}
  			\hline
 		Preferensi & \textit{Default} & Opsi & Deskripsi  \\
@@ -228,7 +229,6 @@ Parameter-parameter yang tersedia untuk potongan kode di atas adalah:
 			  migration\_type & \'timestamp\' & 	\'timestamp\' / \'sequential\' & 	Tipe penomoran kelas migrasi yang digunakan. \\
 			 \hline
 	\end{tabular}
-	\caption{Daftar Preferensi di Kelas Migrasi}
 	\end{table}
 \end{center}
 \subsubsection{Nama Kelas Migrasi}
@@ -320,6 +320,7 @@ Jika tidak diberi aturan tambahan, pada dasarnya modal akan ditutup jika penggun
 Berikut adalah variabel-variabel yang dapat digunakan untuk mengkostumisasi modal :
 \begin{center}
 	\begin{table}[H]
+	\caption{Daftar Variabel Sass Untuk \textit{Reveal Modal}}
 	\begin{tabular}{|c|c|c|p{3cm}|}
  				\hline
 			Nama & Tipe & Nilai \textit{Default} & Deskripsi  \\
@@ -339,7 +340,6 @@ Berikut adalah variabel-variabel yang dapat digunakan untuk mengkostumisasi moda
 			 	\$reveal-overlay-background & Color & rgba(\$black,0,45) & Warna latar belakang penutup modal \\
 			 	\hline
 	\end{tabular}
-	\caption{Daftar Variabel Sass Untuk \textit{Reveal Modal}}
 	\end{table}
 \end{center}
 
@@ -355,6 +355,7 @@ Scrolling table diguanakan bila banyak data yang ada pada tabel. Dengan mengguna
 Berikut adalah daftar variabel Sass yang dapat dikustomisasi untuk mengubah tampilan komponen-komponen dari tabel 
 \begin{center}
 	\begin{table}[H]
+	\caption{Daftar Variabel Sass Untuk Kelas Tabel}
 	\begin{tabular}{|c|c|p{4cm}|p{5cm}|}
  				\hline
 			Nama & Tipe & Nilai \textit{Default} & Deskripsi  \\
@@ -396,27 +397,27 @@ Berikut adalah daftar variabel Sass yang dapat dikustomisasi untuk mengubah tamp
 			 	\$table-stack-breakpoint & Breakpoint & medium & Batas pemicu perubahan jenis tabel dari tipe \textit{mobile} menjadi \textit{desktop} atau sebaliknya \\
 			 	\hline
 	\end{tabular}
-	\caption{Daftar Variabel Sass Untuk Kelas Tabel}
 	\end{table}
 \end{center}
 
 \section{Google OAuth 2.0} %https://developers.google.com/identity/protocols/OAuth2
 \label{googleoauth}
 
-\paragraph{} Google OAuth 2.0 merupakan salah satu protokol dari Google Sign-in. Google OAuth 2.0 digunakan oleh Google API untuk otorisasi dan autentikasi. Secara garis besar, cara pemakaian Google OAuth 2.0 adalah sebagai berikut : 
+\paragraph{} Google OAuth 2.0 merupakan salah satu protokol dari Google Sign-in. Google OAuth 2.0 digunakan oleh Google API untuk otorisasi dan autentikasi. Secara garis besar, cara pemakaian Google OAuth 2.0 adalah sebagai berikut : \footnotemark 
 	\begin{enumerate}
-  	\item Dapatkan OAuth 2.0 credential dari konsol Google API. OAuth 2.0 credential seperti client ID dan client secret yang diketahui oleh Google dan aplikasi pengguna, dapat didapatkan di halaman https://console.developers.google.com/ .
-  	\item Dapatkan token akses dari Google Authorization Server. Sebelum aplikasi dapat mengakses data pribadi menggunakan Google API, aplikasi tersebut harus mendapat token akses yang memberikan akses ke API. Satu token akses dapat memberikan berbagai macam akses ke banyak API. Variable parameter "\textit{scope}" mengendalikan kumpulan-kumpulan sumber daya dan operasi yang telah diperbolehkan untuk diakses oleh token akses. Selama masa permintaan token akses, aplikasi mengirimkan satu atau lebih nilai ke dalam parameter "\textit{scope}". Ada beberapa cara untuk melakukan permintaan, tergantung dari tipe aplikasi yang sedang dibuat. Sebagai contoh aplikasi JavaScript dapat meminta token akses menggunakan \textit{redirect} dari \textit{browser} yang mengarah ke Google, sementara aplikasi lain yang terinstall di dalam perangkat yang tidak memiliki browser menggunakan \textit{web service} untuk melakukan permintaan. Beberapa permintaan membutuhkan tahap autentikasi yang meminta pengguna untuk masuk ke akun Google mereka. Setelah masuk ke dalam akun, pengguna akan diminta jika mereka bersedia untuk memberikan izin ke aplikasi yang sedang melakukan permintaan tersebut.
+  	\item Dapatkan OAuth 2.0 credential dari konsol Google API. OAuth 2.0 credential seperti client ID dan client secret yang diketahui oleh Google dan aplikasi pengguna, dapat didapatkan di halaman https://console.developers.google.com/ .\footnotemark[\value{footnote}]
+  	\item Dapatkan token akses dari Google Authorization Server. Sebelum aplikasi dapat mengakses data pribadi menggunakan Google API, aplikasi tersebut harus mendapat token akses yang memberikan akses ke API. Satu token akses dapat memberikan berbagai macam akses ke banyak API. Variable parameter "\textit{scope}" mengendalikan kumpulan-kumpulan sumber daya dan operasi yang telah diperbolehkan untuk diakses oleh token akses. Selama masa permintaan token akses, aplikasi mengirimkan satu atau lebih nilai ke dalam parameter "\textit{scope}". Ada beberapa cara untuk melakukan permintaan, tergantung dari tipe aplikasi yang sedang dibuat. Sebagai contoh aplikasi JavaScript dapat meminta token akses menggunakan \textit{redirect} dari \textit{browser} yang mengarah ke Google, sementara aplikasi lain yang terinstall di dalam perangkat yang tidak memiliki browser menggunakan \textit{web service} untuk melakukan permintaan. Beberapa permintaan membutuhkan tahap autentikasi yang meminta pengguna untuk masuk ke akun Google mereka. Setelah masuk ke dalam akun, pengguna akan diminta jika mereka bersedia untuk memberikan izin ke aplikasi yang sedang melakukan permintaan tersebut.\footnotemark[\value{footnote}]
   	\begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{skenario_token.png}  
 	\caption[Skenario OAuth menggunakan token akses]{Skenario OAuth menggunakan token akses} 
 	\label{fig:skenario-token} 
 \end{figure}
-  	\item Mengirim akses token ke API. Setelah aplikasi mendapatkan akses token, aplikasi tersebut akan mengirim token ke Google API dalam bentuk HTTP \textit{authorization header}. Jika memungkinkan, aplikasi dapat mengirim token-token sebagai parameter \textit{URI query-string}. Pengiriman dalam bentuk parameter URI tidak disarankan karena parameter URI dapat tersimpan dalam \textit{log} yang tidak aman. Token akses hanya berlaku untuk kumpulan operasi dan sumber daya yang dideskripsikan dalam parameter \textit{scope} di permintaan token. 
-	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.
+  	\item Mengirim akses token ke API. Setelah aplikasi mendapatkan akses token, aplikasi tersebut akan mengirim token ke Google API dalam bentuk HTTP \textit{authorization header}. Jika memungkinkan, aplikasi dapat mengirim token-token sebagai parameter \textit{URI query-string}. Pengiriman dalam bentuk parameter URI tidak disarankan karena parameter URI dapat tersimpan dalam \textit{log} yang tidak aman. Token akses hanya berlaku untuk kumpulan operasi dan sumber daya yang dideskripsikan dalam parameter \textit{scope} di permintaan token. \footnotemark[\value{footnote}]
+	\item Jika dibutuhkan, token akses dapat di-\textit{refresh} karena token akses memiliki masa berlaku terbatas. Jika aplikasi membutuhkan akses ke Google API lebih dari masa berlaku satu buah token, aplikasi dapat mendapatkan token \textit{refresh}. Token \textit{refresh} memungkinkan aplikasi untuk mendapatkan token akses baru.\footnotemark[\value{footnote}]
   
 \end{enumerate}
+\footnotetext{https://developers.google.com/identity/protocols/OAuth2}
 
 \section{PHPExcel} 
 \label{phpexcel}
