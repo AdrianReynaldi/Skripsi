@@ -2,15 +2,13 @@
 \chapter{Perancangan dan Implementasi}
 \label{chap:perancanganDanImplementasi}
 \setcounter{secnumdepth}{3}
-
-\paragraph{}
 \section{Perancangan Basis Data}
 \subsection{Diagram Hubungan Entitas}
 Dari analisis yang telah dilakukan, maka dibuatlah Diagram Hubungan Entitas seperti pada gambar 4.1
 
 \begin{figure} [H]
 	\centering  
-	\includegraphics[scale=0.9]{ERDiagram.png}  
+	\includegraphics[scale=0.8]{ERDiagram.png}  
 	\caption[Diagram Hubungan Entitas]{Diagram Hubungan Entitas} 
 	\label{fig:skematik-phpexcel} 
 \end{figure}
@@ -124,9 +122,7 @@ Deskripsi	& Proses untuk menghapus jadwal \\
 \hline
 Algoritma	& \begin{itemize}
 				\item proses menerima pilihan jadwal yang akan dihapus oleh user.
-				\item proses mengeluarkan form konfirmasi untuk memastikan user untuk menghapus jadwal yang bersangkutan
-				\item bila user memilih "ya", maka data jadwal yang bersangkutan akan dihapus dari database.
-				\item bila pilihan user "tidak" maka proses akan menampilkan halaman sebelum user menekan tombol \textit{delete}.
+				\item proses menghapus jadwal berdasarkan id\_jadwal yang diterima dari jadwal yang dipilih user.
 				\end{itemize} \\
 \hline
 \end{tabular}

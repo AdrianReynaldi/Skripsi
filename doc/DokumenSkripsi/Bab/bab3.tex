@@ -5,7 +5,7 @@
 
 \paragraph{} Pengumpulan data dalam skripsi ini dilakukan dengan cara studi pustaka untuk mempelajari cara pengembangan perangkat lunak menggunakan \textit{Framework} BlueTape yang berbasis CodeIgniter. Selain itu juga dipelajari \textit{library-library} pembantunya diantara lain : PHPExcel , Google OAuth dan ZurbFoundation. Tujuan studi pustaka ini untuk memahami secara rinci cara-cara untuk menambahkan layanan berbentuk modul ke dalam BlueTape dan membangun layanan tersebut menggunakan \textit{library-library} yang disebutkan sebelum ini.
 
-\section{Analisis Sistem Kini(BlueTape)}
+\section{Analisis Sistem Kini}
 \paragraph{} Aplikasi \textit{Blue Tape} adalah perangkat lunak \textit{open source} sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu perangkat lunak ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. 
 \newline
 \begin{figure} [H]
@@ -16,7 +16,7 @@
 \end{figure}
 Perangkat lunak \textit{Blue Tape} ini didesain sebagai \textit{framework} yang terdiri dari beberapa layanan yang dipisahkan ke dalam modul-modul. Pemisahan layanan ke dalam modul-modul dibuat dengan tujuan agar pemeliharan perangkat lunak lebih mudah dan juga mempermudah cara untuk menambahkan layanan baru ke dalam BlueTape. Sudah ada layanan yang aktif di BlueTape saat ini yaitu \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
 
-\subsubsection{\textit{Transcript Request / Manage}}
+\subsection{\textit{Transcript Request / Manage}}
 \paragraph{} Modul \textit{Transcript Request/Manage} merupakan salah satu dari dua modul yang sudah aktif di BlueTape ketika skripsi ini ditulis. Modul ini memiliki fungsi utama sebagai alat bagi mahasiswa untuk memohon pencetakan transkrip ke Tata Usaha dengan tampilan seperti di bawah ini :
 \begin{figure} [H]
 	\centering  
@@ -44,7 +44,7 @@ Tata usaha memiliki beberapa opsi untuk merespon permintaan yang sudah dikirim m
 	\item Menghapus permintaan transkrip
 \end{enumerate}
 
-\subsubsection{Perubahan Kuliah}
+\subsection{Perubahan Kuliah}
 \paragraph{} Perubahan kuliah adalah modul kedua yang sudah aktif di BlueTape. Modul ini berfungsi sebagai alat bagi mahasiswa untuk mengirimkan permintaan perubahan kuliah dari mahasiswa ke karyawan tata usaha. Selain itu karyawan tata usaha juga dapat menggunakan modul ini untuk mengatur permintaan-permintaan yang sudah dikirim dari mahasiswa tadi. 
 \begin{figure} [H]
 	\centering  
@@ -91,33 +91,17 @@ Tata Usaha UNPAR adalah golongan pengguna yang bekerja sebagai staff tata usaha 
 Staf UNPAR adalah para pekerja dan karyawan di Universitas Katolik Parahyangan. Untuk saat ini golongan staf UNPAR hanya memiliki akses fitur untuk meminta perubahan kuliah.
 
 \subsubsection{Mahasiswa Informatika}
-Mahasiswa Informatika adalah pengguna yang memiliki kepentingan untuk melihat jadwal-jadwal semua dosen Informatika. Dengan mengetahui jadwal dosen, maka mahasiswa dapat mengatur jadwal bimbingan atau konsultasi lainnya dengan dosen terkait secara lebih teratur. Di Bluetape, mahasiswa memiliki akses-akses pada fitur :
-\begin{itemize}
-	\item Melihat semua jadwal dosen Informatika
-	\item Mengekspor semua jadwal dosen Informatika ke dalam tipe file .xls
-	\item Meminta transkrip nilai
-\end{itemize}
+Mahasiswa Informatika adalah pengguna yang memiliki kepentingan untuk mencetak transkrip nilai. Di Bluetape saat ini, Mahasiswa Informatika baru memiliki satu fitur yaitu untuk meminta transkrip nilai.
 
-\subsubsection{Dosen Informatika}
-Dosen merupakan pengguna yang akan memasukan jadwal-jadwalnya ke dalam BlueTape agar dapat dilihat mahasiswa. Dosen memilki akses pada fitur :
-\begin{itemize}
-	\item Memasukan jadwal ke dalam BlueTape
-	\item Mengubah jadwal yang sudah dimasukan  
-	\item Menghapus jadwal yang sudah dimasukan
-	\item Melihat semua jadwal dosen , termasuk jadwal miliknya sendiri
-	\item Mengeskpor semua jadwal dosen ke dalam tipe file .xls
-\end{itemize}
 
-\section{Analisis Sistem Usulan}
-
-\section{Diagram Use Case}
+\subsection{Diagram Use Case Sistem Kini}
 \begin{figure} [H]
 	\centering  
-	\includegraphics[scale=0.48]{useCaseDiagramSemua.png}
-	\caption[Diagram Use Case]{Diagram Use Case} 
+	\includegraphics[scale=0.48]{useCaseDiagramAwal.png}
+	\caption[Diagram Use Case Sistem Kini]{Diagram Use Case Sistem Kini} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
-Berikut ini adalah penjelasan skenario dari diagram \textit{use case} di atas
+Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gambar 3.6 atas:
 
 \begin{enumerate}
 	\item Skenario Meminta Perubahan Kuliah
@@ -245,6 +229,43 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} di atas
 	\end{itemize}
 
 %==========================================================
+	
+\end{enumerate}
+
+\section{Analisis Sistem Usulan: Aplikasi Pembangkit Jadwal Dosen}
+Aplikasi Pembangkit Jadwal Dosen adalah aplikasi tambahan untuk BlueTape yang memiliki dua modul yaitu:
+\begin{enumerate}
+	\item Modul Entri Jadwal Dosen yang bisa melakukan:
+		\begin{itemize}
+			\item Input jadwal mingguan
+			\item Mencatat update terakhir
+			\item Ekspor jadwal ke XLS
+		\end{itemize}
+	\item Modul Lihat Jadwal Dosen yang bisa melakukan:
+		\begin{itemize}
+			\item Melihat jadwal-jadwal semua dosen
+			\item Ekspor jadwal ke XLS
+		\end{itemize}
+\end{enumerate}
+Untuk mengimplementasikan fitur-fitur tersebut maka digunakan teknologi:
+\begin{itemize}
+	\item PHP \& CodeIgniter
+	\item Zurb Foundation
+	\item Framework BlueTape
+	\item Google OAuth
+	\item PHPExcel
+\end{itemize}
+
+\subsection{Diagram Use Case Sistem Usulan}
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.48]{useCaseDiagramSemua.png}
+	\caption[Diagram Use Case Sistem Usulan]{Diagram Use Case Sistem Usulan} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+
+Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini (bisa dilihat pada Gambar 3.6) hanya ditambahkan bagian untuk Aplikasi Pembangkit Jadwal Dosen. Berikut ini adalah penjelasan skenario yang ditambahkan dari diagram \textit{usecase} pada Gambar 3.7:
+\begin{enumerate}
 	\item Skenario Menambah Jadwal
 	\begin{itemize}
 		\item Aktor : Dosen Informatika
@@ -319,3 +340,38 @@ Berikut ini adalah penjelasan skenario dari diagram \textit{use case} di atas
 			\end{enumerate}
 	\end{itemize}
 \end{enumerate}
+
+\subsection{Pengguna Aplikasi}
+Pada bagian ini akan dijelaskan pengelompokan tipe-tipe pengguna aplikasi BlueTape dengan sistem usulan. Perubahan terjadi pada kelompok "Mahasiswa Informatika" yang mendapat fitur tambahan. Selain itu , ada penambahan kelompok pengguna yaitu "Dosen Informatika". Perubahan-perubahan akan dijelaskan pada bagian masing-masing.
+
+\subsubsection{Mahasiswa FTIS}
+Mahasiswa FTIS adalah semua mahasiswa Fakultas Teknik Informasi dan Sains. Saat ini golongan Mahasiwa FTIS baru memiliki satu akses yaitu untuk memnita transkrip.
+
+
+\subsubsection{Tata Usaha UNPAR}
+Tata Usaha UNPAR adalah golongan pengguna yang bekerja sebagai staff tata usaha di Universitas Katolik Parahyangan. Di BlueTape, Tata Usaha UNPAR memilki akses fitur-fitur sebagai berikut :
+\begin{itemize}
+	\item Mengatur permintaan transkrip dari mahasiswa
+	\item Mengatur permintaan perubahan kuliah 
+\end{itemize}
+
+\subsubsection{Staf UNPAR}
+Staf UNPAR adalah para pekerja dan karyawan di Universitas Katolik Parahyangan. Untuk saat ini golongan staf UNPAR hanya memiliki akses fitur untuk meminta perubahan kuliah.
+
+\subsubsection{Mahasiswa Informatika}
+Mahasiswa Informatika adalah pengguna yang memiliki kepentingan untuk melihat jadwal-jadwal semua dosen Informatika. Dengan mengetahui jadwal dosen, maka mahasiswa dapat mengatur jadwal bimbingan atau konsultasi lainnya dengan dosen terkait secara lebih teratur. 
+\begin{itemize}
+	\item Melihat semua jadwal dosen Informatika
+	\item Mengekspor semua jadwal dosen Informatika ke dalam tipe file .xls
+	\item Meminta transkrip nilai
+\end{itemize}
+
+\subsubsection{Dosen Informatika}
+Dosen merupakan pengguna yang dapat memasukan jadwal-jadwalnya ke dalam BlueTape agar dapat dilihat mahasiswa. Dosen memilki akses pada fitur :
+\begin{itemize}
+	\item Memasukan jadwal ke dalam BlueTape
+	\item Mengubah jadwal yang sudah dimasukan  
+	\item Menghapus jadwal yang sudah dimasukan
+	\item Melihat semua jadwal dosen , termasuk jadwal miliknya sendiri
+	\item Mengeskpor semua jadwal dosen ke dalam tipe file .xls
+\end{itemize}

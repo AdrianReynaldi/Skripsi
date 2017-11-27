@@ -270,34 +270,6 @@ Gambar 2.1 mengilustrasikan aliran data dalam sistem :
 		\item Kemudian tampilan akhir dibuat dan dikirim ke web browser untuk dilihat. Jika caching diaktifkan, maka tampilan dimasukan ke dalam cache terlebih dahulu sehingga pada permintaan selanjutnya tampilan tersebut dapat diakses lebih cepat.
 	\end{enumerate}
 
-\section{phpMyAdmin}
-\paragraph{} phpMyAdmin dapat mengatur keseluruhan server MySQL (membutuhkan \textit{super-user}) dan juga satu basis data. Untuk mengatur satu basis data, dibutuhkan pengaturan \textit{user} MySQL yang hanya dapat membaca/menulis database yang ditentukan.\cite{phpmyadmin:17} \\ 
-Fitur yang didukung :
-\begin{itemize}
-	\item \textit{browse} dan \textit{drop} basis data.
-	\item menampilkan hasil pencarian \textit{query}.
-	\item membuat, menduplikasi, menghapus, mengubah nama basis data, tabel, kolom dan indeks.
-	\item memelihara server, basis data dan tabel.
-	\item mengeksekusi, mengubah, dan \textit{bookmark} laporan SQL.
-	\item memuat file teks ke dalam tabel. \cite{phpmyadmin:17}
-	\item membuat dan membaca \textit{dump} dari tabel.
-	\item mengeskpor data ke berbagai format: CSV, XML, PDF, ISO/IEC 26300 - OpenDocument Text and Spreadsheet, Microsoft Word 2000 dan format LATEX.
-	\item mengimpor data dan struktur MySQL dari CSV, XML, PDF dan ISO/IEC 26300 - OpenDocument Text and Spreadsheet.
-	\item mengatur banyak server.
-	\item mengatur pengguna MySQL dan hak aksesnya.
-	\item memeriksa integritas tabel MyISAM.
-	\item memakai \textit{Query-by-example }(QBE) untuk membuat \textit{query} kompleks yang menghubungkan tabel-tabel.
-	\item membuat grafik PDF dari basis data.
-	\item Mencari secara global di dalam basis data.
-	\item mengubah data yang disimpan di basis data ke dalam format apapun berdasarkan fungsi yang sudah ditentukan pengguna. Misalnya menampilkan data BLOB sebagai gambar atau \textit{link} pengunduhan.
-	\item mencatat perubahan-perubahan basis data, tabel dan \textit{view}.
-	\item mendukung tabel InnoDB dan \textit{foreign key}. \cite{phpmyadmin:17}
-	\item mendukung mysqli dan ekstensi MySQL.
-	\item menambah, mengubah, memanggil, mengekspor dan menghapus prosedur dan fungsi yang disimpan.
-	\item menambah, mengubah, mengekspor dan menghapus \textit{events} dan \textit{triggers}.
-	\item tersedia dalam 80 bahasa berbeda.
-\end{itemize}
-
 \section{Cross Site Request Forgery}
 \paragraph{}"Cross Site Request Forgery" atau "Session Riding" adalah teknik penyerangan yang mengeksploitasi otentikasi implisit. Penyerangan ini dilakukan dengan cara menyebabkan browser korban membuat \textit{http requests} tersembunyi ke sumber daya - sumber daya terlarang. Pada kasus ketika \textit{request} untuk sumber daya tersebut berhasil, akan menyebabkan browser atau aplikasi web terkait untuk melakukan tindakan-tindakan penyerangan tersebut secara terus menerus. Penyerangan ini bertujuan untuk berbagai hal seperti mengubah \textit{field-field} di dalam \textit{database}, mengirim email atau mengubah bagian-bagian aplikasi. Semua aksi tersebut dilakukan menggunakan token otentikasi milik korban. \cite{barth08csrf}
 

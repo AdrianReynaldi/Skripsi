@@ -173,7 +173,7 @@ Masukan-masukan ini disimpan ke dalam \textit{issue} git proyek BlueTape yang me
 
 \subsection{Pengujian Eksperimental Pembuatan File Spreadsheet Menggunakan Tipe Extensi File .xlsx}
 \subsubsection{Permasalahan}
-Pengujian ini merupakan hasil dari masukan Ibu Mariskha yang memilki masalah bahwa tab jadwal milik beliau tidak muncul setelah jadwal-jadwal diekspor ke dalam \textit{spreadsheet}.Pengujian ini dilakukan dengan mengekspor jadwal ke dalam tipe file .xlsx yang sudah digunakan sejak Microsoft Excel 2007.
+Pengujian ini merupakan hasil masukan dari Ibu Mariskha yang memilki masalah bahwa tab jadwal milik beliau tidak muncul setelah jadwal-jadwal diekspor ke dalam \textit{spreadsheet}.Pengujian ini dilakukan dengan mengekspor jadwal ke dalam tipe file .xlsx yang sudah digunakan sejak Microsoft Excel 2007.
 \subsubsection{Analisis}
 Ketika file .xlsx tersebut dibuka menggunakan Microsoft Excel 2013, muncul eror yang dapat dilihat pada Gambar 5.1 dan Gambar 5.2.
 \begin{figure} [H]
@@ -241,6 +241,54 @@ Untuk menangani itu diperlukan cara kerja sistem sebagai berikut:
 	\item Lalu ketika tombol "ok" ditekan akan mengeksekusi perintah untuk menghapus semua jadwal milik user.
 	\item Jika pengguna menekan tombol "cancel", sistem akan membatalkan perintah penghapusan jadwal dan menutup \textit{pop-up} konfirmasi.
 \end{enumerate}
+Untuk mengimplementasikan tombol "Delete All" diperlukan method tambahan pada controller EntriJadwalDosen dan JadwalDosen\_model untuk menghapus semua jadwal berdasarkan username/email pengguna..
+\begin{center}
+\begin{table}[H]
+\begin{tabular}{|c|p{11cm}|}
+\hline
+Nama Method 	& 	deleteAll 	\\
+\hline
+Parameter Input & email via POST \\
+\hline
+Parameter Output & - \\
+\hline
+Tabel yang berhubungan & jadwal\_dosen \\
+\hline
+Deskripsi	& Proses untuk memanggil method pada model JadwalDosen\_model untuk menghapus semua jadwal milik pengguna \\
+\hline
+Algoritma	& \begin{itemize}
+				\item proses menerima input berupa email pengguna.
+				\item proses memanggil method deleteByUsername(email) dari kelas JadwalDosen\_model dengan parameter email diisi dengan nama email pengguna.
+				\end{itemize} \\
+\hline
+\end{tabular}
+\caption{Perancangan method deleteAll}
+\end{table}
+\end{center}
+
+\begin{center}
+\begin{table}[H]
+\begin{tabular}{|c|p{11cm}|}
+\hline
+Nama Method 	& 	deleteByUsername 	\\
+\hline
+Parameter Input & email via POST \\
+\hline
+Parameter Output & - \\
+\hline
+Tabel yang berhubungan & jadwal\_dosen \\
+\hline
+Deskripsi	& Proses untuk menghapus semua jadwal milik pengguna di basis data\\
+\hline
+Algoritma	& \begin{itemize}
+				\item proses menerima input berupa email dari controller EntriJadwalDosen.
+				\item proses menghapus semua jadwal pengguna dari database.
+				\end{itemize} \\
+\hline
+\end{tabular}
+\caption{Perancangan method deleteByUsername}
+\end{table}
+\end{center}
 
 \subsubsection{Hasil Pengujian dan Penyelesaian Masalah}
 Tombol "Delete All" dibuat di halaman EntriJadwalDosen di pojok kiri bawah.
@@ -270,7 +318,20 @@ Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
 \subsubsection{Masalah}
 \paragraph{}Fitur ini merupakan usulan dari Bapak Pascal karena sering kali pengguna lupa kapan terakhir kali pengguna memasukan atau mengubah jadwal. Hal ini menyulitkan pengguna untuk mengetahui apakah jadwal yang telah ia masukan dapat dipakai atau tidak.
 \subsubsection{Analisis}
-Informasi waktu \textit{update} terakhir jadwal oleh pengguna berfungsi agar pengguna dapat membedakan apakah jadwal miliknya merupakan versi lama yang sudah tidak dipakai atau merupakan versi baru. Hasil yang diharapkan adalah muncul label di halaman EntriJadwalDosen dan LihatJadwalDosen.
+\paragraph{}Informasi waktu \textit{update} terakhir jadwal oleh pengguna berfungsi agar pengguna dapat membedakan apakah jadwal miliknya merupakan versi lama yang sudah tidak dipakai atau merupakan versi baru. Hasil yang diharapkan adalah muncul label di halaman EntriJadwalDosen dan LihatJadwalDosen.\\
+Untuk mengimplementasikan fitur ini perlu ditambahkan field baru di tabel jadwal\_dosen:
+\begin{center}
+\begin{table}[h]
+\begin{tabular}{|c|c|c|c|c|c|}
+ 			\hline
+		\textbf{Atribut} & \textbf{Tipe Data} & \textbf{Ukuran} & \textbf{PK* / FK*}  & \textbf{Keterangan} \\
+			\hline
+		 lastUpdate & datetime & - & bukan PK/FK &  tanggal terakhir jadwal di-\textit{update}\\
+		 \hline
+	\end{tabular}
+	\caption{Perancangan field tambahan di jadwal\_dosen}
+	\end{table}
+\end{center}
 \subsubsection{Hasil Pengujian dan Penyelesaian Masalah}
 Label yang bertuliskan informasi mengenai tanggal terakhir \textit{update} jadwal muncul di halaman EntriJadwalDosen
 \begin{figure} [H]
