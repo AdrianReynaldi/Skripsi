@@ -8,9 +8,10 @@
 \chapter{Implementasi dan Pengujian}
 \label{chap:implementasiDanPengujian}
 \setcounter{secnumdepth}{3}
-
+\paragraph{}Setelah dilakukan perancangan dan analisis sistem kini dan sistem usulan, maka langkah berikutnya adalah mengimplementasikannya ke dalam sistem baru.
 \section{Implementasi}
-\subsubsection{Lingkungan Pengembangan dan Pengujian Fungsional}
+Pada bagian ini akan dijelaskan secara rinci implementasi perancangan-perancangan pada Bab 3 ke dalam sistem.
+\subsection{Lingkungan Pengembangan dan Pengujian Fungsional}
 \paragraph{} Pembangunan perangkat lunak ini memakai bahasa pemrogaraman server PHP 5 dan MySQL 5.0 sebagai basis datanya. Pengembangan perangkat lunak ini dilakukan di komputer dengan spesifikasi perangkat keras dan perangkat lunaknya sebagai berikut:
 \begin{itemize}
 \item \textbf{Perangkat Keras}
@@ -60,8 +61,9 @@ Implementasi kelas dalam Aplikasi Pembangkit Jadwal Dosen terdiri dari kelas - k
 \section{Pengujian}
 \paragraph{} Pengujian aplikasi ini dilakukan dengan menggunakan metode pengujian \textit{Black-Box Testing}. Pengujian ini difokuskan pada pengujian fungsional. Maksud dari pengujian fungsional ini adalah untuk menguji reaksi perangkat lunak terhadap aksi yang dilakukan oleh pengguna. Bila reaksi sistem tidak sesuai yang diharapkan, maka aplikasi masih memilki kekurangan.
 
-\subsection{Pengujian Fungsional}
-\subsubsection{Pengujian Fungsional Login}
+\subsection{Hasil Pengujian}
+Pada bagian ini akan dijelaskan mengenai hasil pengujian-pengujian sistem.
+\subsubsection{Hasil Pengujian Login}
 Hasil pengujian dapat dilihat pada Tabel 5.1
 \begin{center}
 	\begin{table}[H]
@@ -76,16 +78,16 @@ Hasil pengujian dapat dilihat pada Tabel 5.1
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Entri Jadwal Dosen}
+\subsubsection{Hasil Pengujian Memasukkan Jadwal}
 Hasil pengujian dapat dilihat pada Tabel 5.2
 \begin{center}
 	\begin{table}[H]
-		\caption{Pengujian Fungsional Entri Jadwal Dosen}
+		\caption{Pengujian Memasukkan Jadwal}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
 		\hline
-		Memasukan data-data yang diperlukan untuk input jadwal & Jadwal yang sudah dimasukan muncul pada halaman Entri Jadwal Dosen & Jadwal yang sudah dimasukan muncul pada halaman Entri Jadwal Dosen \\
+		Memasukan data yang diperlukan untuk input jadwal & Jadwal yang sudah dimasukan muncul pada halaman Entri Jadwal Dosen & Jadwal yang sudah dimasukan muncul pada halaman Entri Jadwal Dosen \\
 		\hline
 		Data jadwal yang dimasukan tidak lengkap & Jadwal dimasukan dengan data yang sesuai nilai \textit{default} yang ditampilkan di menu & Jadwal dimasukan dengan data yang sesuai nilai \textit{default} yang ditampilkan di menu \\
 		\hline
@@ -95,16 +97,16 @@ Hasil pengujian dapat dilihat pada Tabel 5.2
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Edit Jadwal Dosen}
+\subsubsection{Hasil Pengujian Pengubahan Jadwal}
 Hasil pengujian dapat dilihat pada Tabel 5.3
 \begin{center}
 	\begin{table}[H]
-		\caption{Pengujian Fungsional Edit Jadwal Dosen}
+		\caption{Pengujian Pengubahan Jadwal}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
 		\hline
-		Memilih jadwal yang akan diedit & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya \\
+		Memilih jadwal yang akan diedit & Memunculkan modal yang berisi menu edit yang menampilkan data jadwal yang sedang dipilih tersebut. Data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya & Memunculkan modal yang berisi menu edit yang menampilkan data jadwal yang sedang dipilih tersebut. Data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya \\
 		\hline
 		Memilih tombol simpan & Modal ditutup , data jadwal di \textit{database} diupdate sesuai dengan input user dan menampilkan menu Entri Jadwal Dosen & Modal ditutup , data jadwal di \textit{database} diupdate sesuai dengan input user dan menampilkan menu Entri Jadwal \\
 		\hline
@@ -123,7 +125,7 @@ Hasil pengujian dapat dilihat pada Tabel 5.4
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
 		\hline
-		Memilih jadwal yang akan diedit & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya & Memunculkan modal yang berisi menu edit yang menampilkan data-data jadwal yang sedang dipilih tersebut. Data-data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya \\
+		Memilih jadwal yang akan diedit & Memunculkan modal yang berisi menu edit yang menampilkan data jadwal yang sedang dipilih tersebut. Data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya & Memunculkan modal yang berisi menu edit yang menampilkan data jadwal yang sedang dipilih tersebut. Data tersebut juga dapat diubah oleh pengguna sesuai kebutuhannya \\
 		\hline
 		Memilih tombol hapus & Modal ditutup dan jadwal dihapus dari basis data, lalu sistem menampilkan menu Entri Jadwal Dosen & Modal ditutup dan jadwal dihapus dari basis data, lalu sistem menampilkan menu Entri Jadwal Dosen \\
 		\hline
@@ -133,11 +135,11 @@ Hasil pengujian dapat dilihat pada Tabel 5.4
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Lihat Jadwal Dosen}
+\subsubsection{Hasil Pengujian Melihat Jadwal Dosen}
 Hasil pengujian dapat dilihat pada Tabel 5.5
 \begin{center}
 	\begin{table}[H]
-		\caption{Pengujian Fungsional Lihat Jadwal Dosen}
+		\caption{Pengujian Melihat Jadwal Dosen}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -150,11 +152,11 @@ Hasil pengujian dapat dilihat pada Tabel 5.5
 	\end{table}
 \end{center}
 
-\subsubsection{Pengujian Fungsional Ekspor ke XLS}
+\subsubsection{Hasil Pengujian Ekspor ke XLS}
 Hasil pengujian dapat dilihat pada Tabel 5.6
 \begin{center}
 	\begin{table}[H]
-	\caption{Pengujian Fungsional Ekspor ke XLS}
+	\caption{Pengujian Ekspor ke XLS}
 		\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
 		\hline
 		\centering Aksi	& 	\centering Reaksi yang diharapkan &  \multicolumn{1}{c|}{Reaksi PL} \\
@@ -344,6 +346,7 @@ Label berisi tanggal terakhir update jadwal muncul di halaman LihatJadwalDosen
 Hasil pengujian berjalan lancar dan sesuai dengan hasil yang diharapkan.
 
 \subsection{Pengujian Eksperimental \textit{Conflict Handler}}
+Conflict handler adalah fitur untuk menangani bentroknya jadwal.
 \subsubsection{Masalah}
 \paragraph{}Terdapat masalah bila ketika pengguna memasukan atau mengupdate jadwal, sistem tidak memeriksa apakah sudah ada jadwal pada waktu yang dimasukan oleh pengguna. Masalah ini merupakan masalah yang ditemukan oleh penulis sendiri.
 \subsubsection{Analisis}
@@ -408,3 +411,64 @@ Terdapat dua pengujian, yaitu pengujian pertama untuk memeriksa apakah konflik k
 \end{enumerate}
 Setelah kedua pengujian di atas maka dapat disimpulkan pengujian berjalan dengan lancar dan hasil yang diharapkan tercapai.
 
+\subsection{Pengujian Pada Browser Chrome, Firefox dan Internet Explorer}
+Seringkali suatu website bekerja dalam satu browser, namun tidak bekerja pada browser lain. Oleh karena itu, pengujian ini digunakan untuk memastikan bahwa sistem bekerja pada 3 browser terpopuler yaitu Chrome, Firefox dan Internet Explorer.\footnote{https://www.w3schools.com/browsers/}
+\subsubsection{Pengujian di Chrome}
+Pengujian dilakukan menggunakan browser Google Chrome versi 63.0.3239.84 (32-bit). Berikut adalah hasil dari pengujian :
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{Chrome1.png}}
+	\caption[Pengujian Menu Login]{Pengujian Menu Login} 
+	\end{figure}
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{Chrome2.png}}
+	\caption[Pengujian Modul EntriJadwalDosen]{Pengujian Modul EntriJadwalDosen} 
+	\end{figure}
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{Chrome2.png}}
+	\caption[Pengujian Modul LihatJadwalDosen]{Pengujian Modul LihatJadwalDosen} 
+	\end{figure}
+Semua modul berhasil dijalankan pada browser ini.
+\subsubsection{Pengujian di Firefox}
+Pengujian dilakukan menggunakan Firefox Quantum versi 57.0.2 (64-bit).
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{Firefox1.png}}
+	\caption[Pengujian Menu Login]{Pengujian Menu Login} 
+	\end{figure}
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{Firefox2.png}}
+	\caption[Pengujian Modul EntriJadwalDosen]{Pengujian Modul EntriJadwalDosen} 
+	\end{figure}
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{Firefox3.png}}
+	\caption[Pengujian Modul LihatJadwalDosen]{Pengujian Modul LihatJadwalDosen} 
+	\end{figure}
+Semua modul berhasil dijalankan pada browser ini.
+
+\subsubsection{Pengujian di Internet Explorer}
+Pengujian dilakukan menggunakan Internet Explorer 10 yang dirilis pada tahun 2013.
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{IE1.png}}
+	\caption[Pengujian Menu Login]{Pengujian Menu Login} 
+	\end{figure}
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{IE2.png}}
+	\caption[Pengujian Modul EntriJadwalDosen]{Pengujian Modul EntriJadwalDosen} 
+	\end{figure}
+\begin{figure} [H]
+	\centering  
+	\frame{\includegraphics[scale=0.5]{IE3.png}}
+	\caption[Pengujian Modul LihatJadwalDosen]{Pengujian Modul LihatJadwalDosen} 
+	\end{figure}
+Semua modul berhasil dijalankan pada browser ini.
+\subsubsection{Kesimpulan Pengujian Pada Browser Berbeda}
+Semua modul sistem Aplikasi Perekam Jadwal Dosen berhasil dijalankan di ketiga browser Chrome, Firefox dan Internet Explorer. Berdasarkan statistik pengguna browser yang didapat dari \textit{https://www.w3schools.com/browsers/} dapat diprediksi 93.6\% pengguna internet dapat mengakses sistem  tanpa masalah.
+\subsection{Kesimpulan Pengujian Eksperimental}
+\paragraph{}Semua pengujian eksperimental berhasil, meskipun pada awal setiap pengujian sistem memiliki banyak kendala teknis seperti misalnya kompabilitas PHPExcel dengan program Microsoft Excel itu sendiri. Masalah-masalah tersebu berhasil ditangani dengan mempelajari lebih dalam setiap bagian-bagian sistemnya dan melakukan modifikasi pada kode-kode sistem. Dengan demikian sistem sudah berhasil diimplementasikan ke dalam BlueTape dan siap digunakan untuk para pengguna.

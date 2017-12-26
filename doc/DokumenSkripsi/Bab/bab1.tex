@@ -7,7 +7,7 @@
 
 \paragraph{} Aplikasi \textit{Blue Tape} adalah aplikasi sederhana yang memiliki tujuan utama untuk mengubah berbagai pekerjaan \textit{paper-based} di FTIS UNPAR menjadi \textit{paperless}. Selain itu aplikasi ini memiliki beberapa kegunaan lainnya seperti mengautentikasi mahasiswa dan staf UNPAR via OAuth 2.0 ke Google (layanan OAuth ke Google ini juga dapat digunakan untuk menentukan hak akses yang bisa dilihat dari email pengguna) dan \textit{Pilot Project} untuk permohonan transkrip ke Tata Usaha . Aplikasi ini merupakan aplikasi berbasis web dengan memanfaatkan \textit{Codeigniter} dan \textit{Zurb Foundation}. Selain itu aplikasi \textit{Blue Tape} ini didesain sebagai \textit{framework} agar dapat ditambahkan layanan-layanan baru. Untuk menambahkan layanan baru sudah tersedia menu khusus, developer cukup menambahkan layanan baru dalam bentuk modul. Untuk saat ini \textit{Blue Tape} baru memiliki layanan untuk \textit{Transcript Request / Manage} yang memiliki fungsi untuk melakukan permohonan serta pencetakan transkrip mahasiswa.
 
-Pada saat ini untuk menginformasikan jadwalnya masing-masing, dosen harus mencetak \textit{hardcopy}-nya dengan template seperti pada Gambar 1.1. di bawah ini.
+Pada saat ini untuk menginformasikan jadwalnya masing-masing, dosen harus mencetak \textit{hardcopy}-nya dengan template seperti pada Gambar 1.1.
 
 %\includegraphics[scale=0.7]{template-jadwal-dosen.png}
 \begin{figure} [h]
@@ -26,53 +26,48 @@ Pada Skripsi ini akan ditambahkan dua modul yaitu modul entri jadwal untuk dosen
 \section{Rumusan Masalah}
 \label{sec:rumusan}
 Rumusan masalah yang akan dibahas dalam penelitian ini :
-	\begin{itemize}
-		\item Bagaimana mengintegrasikan autentikasi mahasiswa maupun staf UNPAR yang mengakses \textit{Blue Tape}?
+	\begin{enumerate}
 		\item Bagaimana cara mencatat, \textit{update} dan melihat jadwal dosen di \textit{Blue Tape}?
 		\item Bagaimana mengekspor jadwal dosen ke XLS sesuai template yang saat ini berlaku?
-	\end{itemize}
+	\end{enumerate}
 
 
 \section{Tujuan}
 \label{sec:tujuan}
 Tujuan yang ingin dicapai dalam penelitian ini : 
-	\begin{itemize}
-		\item Mengimplementasikan autentikasi pengguna yang mengakses \textit{Blue Tape}
+	\begin{enumerate}
 		\item Membuat modul entri jadwal dosen dan modul lihat jadwal dosen yang berfungsi untuk menginput jadwal mingguan, \textit{update} dan melihat jadwal dosen
-		\item Mengimplementasikan kode-kode yang diperlukan untuk memasukkan data-data yang ada di dalam PHP ke dalam \textit{file} XLS. 
+		\item Mengimplementasikan kode-kode yang diperlukan untuk memasukkan data yang ada di dalam PHP ke dalam \textit{file} XLS. 
 
-	\end{itemize}
+	\end{enumerate}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
 Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut:
-
--tidak memeriksa hasil akhir XLS atau tidak
--user experience tidak dibuat serumit atau selengkap Google Calendar
-\begin{itemize}
+\begin{enumerate}
 	\item Aplikasi ini tidak memeriksa hasil akhir bertipe file .xls, .xlsx atau tipe file lainnya.
-	\item Aplikasi ini tidak memiliki fitur serumit atau selengkap Google Calendar. Aplikasi ini hanya didesign khusus untuk memasukan, menampilkan dan mengeskpor jadwal dosen.
-\end{itemize}
+	\item Aplikasi ini tidak mendukung fitur \textit{drag and drop}
+	\item Aplikasi ini tidak mendukung fitur pemasukan jadwal dari sumber eksternal.
+\end{enumerate}
 
 \section{Metodologi}
 \label{sec:metlit}
 Metode penelitian yang akan digunakan dalam skripsi ini adalah:
 \begin{enumerate}
    \item Studi literatur mengenai:
-   		\begin{itemize}
+   		\begin{enumerate}
  		\item bahasa pemrograman PHP
  		\item \textit{framework} Codeigniter
- 		\item modul \textit{Zurb Foundation}, PHPExcel dan \textit{regular expression}
- 		\item Prosedur pembangkitan jadwal dosen
-		\end{itemize}
+ 		\item modul \textit{Zurb Foundation} dan PHPExcel
+		\end{enumerate}
    \item Analisis kebutuhan aplikasi dengan mengenali metode pencatatan jadwal dosen saat ini dan mengimplementasikannya ke dalam modul tersebut
     \item Membangun modul aplikasi yang sesuai dengan kebutuhan dosen dan mahasiswa dalam pembangkitan jadwal dosen agar aplikasi yang dibuat dapat membantu kedua pihak dalam mengakses informasi-informasi yang berkaitan dengan jadwal dosen . Pembuatan modul aplikasi ini dibagi menjadi empat tahap :
-    	\begin{itemize}
+    	\begin{enumerate}
  		\item Analisis kebutuhan modul 
  		\item Perancangan modul
  		\item Implementasi 
  		\item Pengujian modul
-		\end{itemize}
+		\end{enumerate}
 \end{enumerate}
  
 

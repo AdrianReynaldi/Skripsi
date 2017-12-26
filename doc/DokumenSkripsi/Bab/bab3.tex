@@ -142,143 +142,14 @@ Staf UNPAR adalah para pekerja dan karyawan di Universitas Katolik Parahyangan. 
 Mahasiswa Informatika adalah pengguna yang memiliki kepentingan untuk mencetak transkrip nilai. Di Bluetape saat ini, Mahasiswa Informatika baru memiliki satu fitur yaitu untuk meminta transkrip nilai.
 
 
-\subsection{Diagram Use Case Sistem Kini}
+\subsection{Fitur Sistem Kini}
+Untuk perincian fiturnya akan ditampilkan sebagai diagram usecase pada Gambar 3.6.
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.48]{useCaseDiagramAwal.png}
 	\caption[Diagram Use Case Sistem Kini]{Diagram Use Case Sistem Kini} 
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
-Berikut ini adalah penjelasan skenario dari diagram \textit{use case} dari Gambar 3.6 atas:
-
-\begin{enumerate}
-	\item Skenario Meminta Perubahan Kuliah
-	\begin{itemize}
-		\item Aktor: Staf UNPAR, Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Staf UNPAR mengisi data-data yang diperlukan untuk melakukan perubahan kuliah
-				\item Sistem mengirim data-data tersebut ke server 
-				\item Tata Usaha menerima data yang dikirim oleh Staf UNPAR untuk diproses
-			\end{enumerate}
-		\item Skenario \textit{Exception}
-			\begin{enumerate}[1.]
-			 	\item Staf UNPAR memasukan data secara tidak lengkap
-			 	\item Sistem menampilkan pesan eror karena data tidak lengkap
-			\end{enumerate}
-	\end{itemize}
-
-
-	\item Skenario Melihat Detail Perubahan Kuliah
-	\begin{itemize}
-		\item Aktor: Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Aktor memilih data perubahan kuliah 
-				\item Aktor memilih menu lihat detail
-				\item Sistem menampilkan semua data-data permintaan mahasiswa dengan npm terkait 
-			\end{enumerate}
-	\end{itemize}
-	
-	\item Skenario Menolak Perubahan Kuliah 
-	\begin{itemize}
-		\item Aktor: Staf UNPAR, Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Tata Usaha UNPAR memilih data perubahan kuliah 
-				\item Tata Usaha UNPAR memilih menu tolak perubahan kuliah
-				\item Tata Usaha UNPAR mengisi data alasan penolakan
-				\item Sistem mengirim pesan berisi alasan penolakan ke staf UNPAR
-				\item Sistem menghapus permintaan perubahan kuliah dari \textit{database}
-			\end{enumerate}
-	\end{itemize}
-	
-	\item Skenario Menyetujui Perubahan Kuliah 
-	\begin{itemize}
-		\item Aktor: Staf UNPAR, Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Tata Usaha UNPAR memilih data perubahan kuliah 
-				\item Tata Usaha UNPAR memilih menu tolak perubahan kuliah
-				\item Tata Usaha UNPAR mengisi keterangan penyetujuan
-				\item Sistem mengirim pesan berisi keterangan penyetujuan ke staf UNPAR
-				\item Sistem menghapus permintaan perubahan kuliah dari \textit{database}
-			\end{enumerate}
-	\end{itemize}
-	
-	\item Skenario Menghapus Perubahan Kuliah 
-	\begin{itemize}
-		\item Aktor: Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Tata Usaha UNPAR memilih data perubahan kuliah 
-				\item Tata Usaha UNPAR memilih menu hapus
-				\item Sistem menghapus permintaan perubahan kuliah dari \textit{database}
-			\end{enumerate}
-	\end{itemize}
-
-\item Skenario Cetak Detail Perubahan Kuliah 
-	\begin{itemize}
-		\item Aktor: Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Tata Usaha UNPAR memilih data perubahan kuliah 
-				\item Tata Usaha UNPAR memilih menu cetak
-				\item Sistem mencetak detail permintaan perubahan kuliah
-			\end{enumerate}
-	\end{itemize}
-%=========================================================
-
-	\item Skenario Meminta Transkrip
-	\begin{itemize}
-		\item Aktor: Mahasiswa FTIS
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Mahasiswa FTIS mengisi data keterangan dan tipe transkrip 
-				\item Sistem menyimpan data-data tersebut ke server 
-			\end{enumerate}
-	\end{itemize}
-	
-	\item Skenario Lihat Detail Permintaan Transkrip
-	\begin{itemize}
-		\item Aktor: Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Tata Usaha UNPAR memilih data permintaan
-				\item Tata Usaha UNPAR memilih menu lihat detail
-				\item Sistem menampilkan detail data permintaan
-			\end{enumerate}
-	\end{itemize}
-	
-	\item Tolak Permintaan Transkrip
-	\begin{itemize}
-		\item Aktor: Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Tata Usaha UNPAR memilih data permintaan
-				\item Tata Usaha UNPAR memilih menu tolak permintaan
-				\item Sistem menampilkan menu keterangan penolakan
-				\item Tata Usaha UNPAR mengisi data keterangan penolakan
-				\item Sistem mengirim pesan berisi keterangan penolakan ke Mahasiswa FTIS.
-			\end{enumerate}
-	\end{itemize}
-	
-	\item Hapus Permintaan Transkrip
-	\begin{itemize}
-		\item Aktor: Tata Usaha UNPAR
-		\item Skenario Normal
-			\begin{enumerate}[1.]
-				\item Tata Usaha UNPAR memilih data permintaan
-				\item Tata Usaha UNPAR memilih menu hapus
-				\item Sistem menampilkan pesan konfirmasi
-				\item Tata Usaha UNPAR mengkonfirmasi penghapusan
-				\item Sistem menghapus data permintaan dari \textit{database}
-			\end{enumerate}
-	\end{itemize}
-
-%==========================================================
-	
-\end{enumerate}
 
 \section{Analisis Sistem Usulan: Aplikasi Pembangkit Jadwal Dosen}
 Aplikasi Pembangkit Jadwal Dosen adalah aplikasi tambahan untuk BlueTape yang memiliki dua modul yaitu:
@@ -295,6 +166,20 @@ Aplikasi Pembangkit Jadwal Dosen adalah aplikasi tambahan untuk BlueTape yang me
 			\item Ekspor jadwal ke XLS
 		\end{itemize}
 \end{enumerate}
+Langkah penggunaan program secara garis besarnya dapat dilihat pada Gambar 3.7
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.5]{chartPoster.png}
+	\caption[Langkah Penggunaan Program]{Langkah Penggunaan Program} 
+	\label{fig:flow-chart-CodeIgniter} 
+\end{figure}
+Keterangan langkah penggunaan:
+\begin{enumerate}
+	\item Pengguna login di BlueTape
+	\item BlueTape mengotentikasi pengguna
+	\item Jika email terdaftar pada list dosen, maka pengguna diberi akses ke EntriJadwalDosen dan LihatJadwalDosen
+	\item Jika email menggunakan format 73xxyyyy@student.unpar.ac.id maka pengguna diberi akses ke modul LihatJadwalDosen saja.
+\end{enumerate}
 Untuk mengimplementasikan fitur-fitur tersebut maka digunakan teknologi:
 \begin{itemize}
 	\item PHP \& CodeIgniter
@@ -304,7 +189,26 @@ Untuk mengimplementasikan fitur-fitur tersebut maka digunakan teknologi:
 	\item PHPExcel
 \end{itemize}
 
-\subsection{Diagram Use Case Sistem Usulan}
+\subsection{Perancangan Basis Data}
+Perancangan basis data dapat dilihat pada ER Diagram di Gambar 3.7
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.48]{ERD.png}
+	\caption[ER Diagram Sistem Usulan]{ER Diagram Sistem Usulan} 
+\end{figure}
+Tabel bluetape\_userinfo dan jadwal\_dosen memiliki hubungan 1 ke n. 
+Penjelaan setiap atribut pada jadwal\_dosen:
+\begin{itemize}
+	\item id merupakan primary key
+	\item email merupakan foreign key yang merujuk ke atribut email di bluetape\_userinfo
+	\item hari menyimpan hari dimulainya jadwal
+	\item jam\_mulai menandakan waktu dimulainya jadwal
+	\item jenis merupakan jenis jadwal
+	\item label merupakan nama kegiatan jadwal
+	\item update meruapakan waktu terakhir terjadi perubahan pada jadwal
+\end{itemize}
+\subsection{Fitur Sistem Usulan}
+Untuk perincian fitur yang ditambahkan di BlueTape dapat dilihat pada diagram usecase di Gambar 3.8.
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.48]{useCaseDiagramSemua.png}
@@ -312,7 +216,7 @@ Untuk mengimplementasikan fitur-fitur tersebut maka digunakan teknologi:
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 
-Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini (bisa dilihat pada Gambar 3.6) hanya ditambahkan bagian untuk Aplikasi Pembangkit Jadwal Dosen. Berikut ini adalah penjelasan skenario yang ditambahkan dari diagram \textit{usecase} pada Gambar 3.7:
+Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini (bisa dilihat pada Gambar 3.6) hanya ditambahkan bagian untuk Aplikasi Pembangkit Jadwal Dosen. Berikut ini adalah penjelasan skenario yang ditambahkan dari diagram \textit{usecase} pada Gambar 3.8:
 \begin{enumerate}
 	\item Skenario Menambah Jadwal
 	\begin{itemize}
@@ -331,7 +235,7 @@ Tidak ada perubahan pada diagram \textit{usecase} dan skenario dari sistem kini 
 			\begin{enumerate}[1.]
 				\item Dosen Informatika memilih jadwal yang akan diubah
 				\item Sistem menampilkan menu pengubahan berisi data jadwal yang dipilih tadi
-				\item Dosen Informatika mengubah data-data yang ingin diubah
+				\item Dosen Informatika mengubah data yang ingin diubah
 				\item Sistem menyimpan hasil perubahan ke dalam database
 			\end{enumerate}
 	\end{itemize}
